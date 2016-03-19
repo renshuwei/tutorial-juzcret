@@ -54,6 +54,7 @@ public class ApplicationTestCase {
   public void testFoo() {
     driver.get(deploymentURL.toString());
     WebElement body = driver.findElement(By.tagName("body"));
-    assertEquals("Hello World", body.getText());
+    //assertEquals("Hello World", body.getText());
+    assertTrue(body.getText().contains("JuZcret Application"));
   }
 }
