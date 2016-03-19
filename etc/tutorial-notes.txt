@@ -1,0 +1,9 @@
+1. follow the tutorial at https://www.exoplatform.com/blog/2014/11/18/learn-how-to-develop-great-juzu-portlets-for-exo-platform
+2. need use 1.1.0 version which is the juzu version in plf 4.3.
+3. get following exception:
+Caused by: java.util.ServiceConfigurationError: juzu.impl.plugin.application.ApplicationService: Provider juzu.plugin.portlet.impl.PortletService not a subtype
+	at java.util.ServiceLoader.fail(ServiceLoader.java:239) ~[na:1.8.0_66]
+	at java.util.ServiceLoader.access$300(ServiceLoader.java:185) ~[na:1.8.0_66]
+	at java.util.ServiceLoader$LazyIterator.nextService(ServiceLoader.java:376) ~[na:1.8.0_66]
+
+4. to fix the exception, need change the juzu dependency to provided.
