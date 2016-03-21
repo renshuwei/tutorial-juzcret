@@ -74,6 +74,21 @@
       <version>3.0</version>
       <scope>provided</scope>
     </dependency>
+	<dependency>
+		<groupId>org.juzu</groupId>
+		<artifactId>juzu-plugins-less4j</artifactId>
+		<version>1.1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.juzu</groupId>
+		<artifactId>juzu-plugins-webjars</artifactId>
+		<version>1.0.0-cr1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.webjars</groupId>
+		<artifactId>jquery</artifactId>
+		<version>1.10.2</version>
+	</dependency>
 
     <!-- Junit for testing -->
     <dependency>
