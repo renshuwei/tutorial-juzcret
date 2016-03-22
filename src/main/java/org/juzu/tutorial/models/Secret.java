@@ -1,32 +1,56 @@
 package org.juzu.tutorial.models;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
-public class Secret implements Serializable {
+public class Secret extends Model {
 
-   /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private String message;
 
-   private String message;
+    private String imageURL;
 
-   private String imageURL;
+    private Set<String> likes;
 
-   private Date createdDate;
+    private List<Comment> comments;
 
-   public Secret() {}
+    public Secret() {
+        likes = new HashSet<String>();
+        comments = new LinkedList<Comment>();
+    }
 
-   public String getMessage() { return message; }
+    public Set<String> getLikes() {
+        Set<String> lks = new HashSet<String>(likes);
+        return lks;
+    }
 
-   public void setMessage(String message) { this.message = message; }
+    public void setLikes(Set<String> likes) {
+        this.likes = likes;
+    }
 
-   public String getImageURL() { return imageURL; }
+    public List<Comment> getComments() {
+        List<Comment> cms = new LinkedList<Comment>(comments);
+        return cms;
+    }
 
-   public void setImageURL(String imageURL) { this.imageURL = imageURL; }
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
-   public Date getCreatedDate() { return createdDate; }
+    public String getMessage() {
+        return message;
+    }
 
-   public void setCreatedDate(Date createdDate) { this.createdDate = createdDate; }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 }

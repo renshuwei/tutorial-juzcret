@@ -1,11 +1,17 @@
 package org.juzu.tutorial.services;
 
+import org.juzu.tutorial.models.Comment;
 import org.juzu.tutorial.models.Secret;
 
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class SecretServiceMemImpl implements SecretService {
 
     private List<Secret> secretsList;
@@ -22,6 +28,7 @@ public class SecretServiceMemImpl implements SecretService {
     @Override
     public void addSecret(String message, String imageUrl) {
 	    Secret secret = new Secret();
+	    secret.setId(UUID.randomUUID().toString());
 	    secret.setMessage(message);
 	    secret.setImageURL(imageUrl);
 	    secret.setCreatedDate(new Date());
@@ -40,4 +47,44 @@ public class SecretServiceMemImpl implements SecretService {
         addSecret("I pretend to be a spy when I go out. In reality my job is to perform photocopy at the embassy",
                  "https://c2.staticflickr.com/2/1230/5108154392_3cc02cac67_z.jpg");
       }
+
+	@Override
+	public Comment addComment(String secretId, Comment comment) {
+		Secret secret = getSecret(secretId);
+        if (secret != null) {
+            comment.setId(UUID.randomUUID().toString());
+            comment.setCreatedDate(new Date());
+ 
+            List<Comment> comments = secret.getComments();
+            comments.add(comment);
+            secret.setComments(comments);
+        }
+        return comment;	
+    }
+	
+	 private Secret getSecret(String secretId) {
+	        Secret secret = null;
+	        for (Secret s : getSecrets()) {
+	            if (s.getId().equals(secretId)) {
+	                secret = s;
+	            }
+	        }
+	        return secret;
+	    }
+
+	@Override
+	public Set<String> addLike(String secretId, String userId) {
+
+		Secret secret = getSecret(secretId);
+        if (secret != null) {
+            Set<String> likes = secret.getLikes();
+            // You can like only one time
+            if (!likes.contains(userId)) {
+                likes.add(userId);
+            }
+            secret.setLikes(likes);
+            return likes;
+        }
+        return null;
+	}
 }
