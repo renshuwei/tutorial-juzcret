@@ -1,5 +1,7 @@
 package org.juzu.tutorial.services;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.juzu.tutorial.models.Comment;
 import org.juzu.tutorial.models.Secret;
 
@@ -14,6 +16,7 @@ import javax.inject.Singleton;
 @Singleton
 public class SecretServiceMemImpl implements SecretService {
 
+	private static final Log LOG = ExoLogger.getLogger(SecretServiceMemImpl.class.getName()); 
     private List<Secret> secretsList;
 
     @Override
@@ -27,6 +30,7 @@ public class SecretServiceMemImpl implements SecretService {
 
     @Override
     public void addSecret(String message, String imageUrl) {
+    	LOG.debug(message, imageUrl);
 	    Secret secret = new Secret();
 	    secret.setId(UUID.randomUUID().toString());
 	    secret.setMessage(message);
@@ -50,6 +54,7 @@ public class SecretServiceMemImpl implements SecretService {
 
 	@Override
 	public Comment addComment(String secretId, Comment comment) {
+		LOG.info("secretId: " + secretId, comment);
 		Secret secret = getSecret(secretId);
         if (secret != null) {
             comment.setId(UUID.randomUUID().toString());
@@ -59,6 +64,7 @@ public class SecretServiceMemImpl implements SecretService {
             comments.add(comment);
             secret.setComments(comments);
         }
+        LOG.info("comment: " + comment.getId() + ", " + comment.getContent() + ", " + comment.getCreatedDate());
         return comment;	
     }
 	
