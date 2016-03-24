@@ -6,7 +6,7 @@
    http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
    <portlet>
      <portlet-name>JuzcretApplication</portlet-name>
-     <display-name xml:lang="EN">Juzcret Application</display-name>
+     <display-name xml:lang="cn">汽研所政策法规</display-name>
      <portlet-class>juzu.bridge.portlet.JuzuPortlet</portlet-class>
      <init-param>
        <name>juzu.app_name</name>
@@ -17,7 +17,7 @@
        <portlet-mode>edit</portlet-mode>
      </supports>
      <portlet-info>
-       <title>JuZcret Application</title>
+       <title>汽研所政策法规</title>
      </portlet-info>
    </portlet>
 </portlet-app>
