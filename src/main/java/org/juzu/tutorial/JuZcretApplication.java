@@ -3,6 +3,7 @@ package org.juzu.tutorial;
 import java.security.Principal;
 import java.util.Set;
 
+import juzu.bridge.portlet.JuzuPortlet;
 import juzu.plugin.validation.ValidationError;
 import juzu.Action;
 import juzu.Mapped;
@@ -17,6 +18,8 @@ import juzu.request.SecurityContext;
 
 import javax.inject.Inject;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.juzu.tutorial.models.Comment;
@@ -24,8 +27,16 @@ import org.juzu.tutorial.services.SecretService;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
+import javax.portlet.PortletMode;
+import javax.portlet.PortletPreferences;
+import javax.portlet.ReadOnlyException;
+import javax.portlet.ValidatorException;
+
+import java.io.IOException;
 
 public class JuZcretApplication implements RequestLifeCycle {
+	
+	private static final Log LOG = ExoLogger.getLogger(JuZcretApplication.class.getName());
 
 	@Inject
     SecretService secretService;
@@ -37,6 +48,25 @@ public class JuZcretApplication implements RequestLifeCycle {
     @Inject
     @Path("addSecret.gtmpl")
     org.juzu.tutorial.templates.addSecret addSecret;
+    
+    @Inject
+    @Path("editMode.gtmpl")
+    org.juzu.tutorial.templates.editMode editMode;
+    
+    @Inject
+    PortletPreferences prefs;
+ 
+    public static final String ENABLE_COMMENT = "enableComment";
+ 
+    @Action
+    public Response.View enableComment(String enableComment) throws ReadOnlyException, ValidatorException, IOException {
+        if ("on".equals(enableComment)) {
+            enableComment = "true";
+        }
+        prefs.setValue(ENABLE_COMMENT, enableComment);
+        prefs.store();
+        return JuZcretApplication_.index().with(JuzuPortlet.PORTLET_MODE, PortletMode.VIEW);
+    }
     
     @Action
     public Response.View addSecret(String msg, String imgURL) {
@@ -50,8 +80,17 @@ public class JuZcretApplication implements RequestLifeCycle {
      }
     
     @View
-    public Response.Content index() {
-        return secretWall.with().secretsList(secretService.getSecrets()).ok();
+    public Response.Content index(RequestContext context) {
+      LOG.info("loading tutorial page");
+      boolean enableComment = Boolean.parseBoolean(prefs.getValue(ENABLE_COMMENT, "true"));
+   
+      if (PortletMode.EDIT.equals(context.getProperty(JuzuPortlet.PORTLET_MODE))) {
+    	LOG.info("edit enable comment.");
+        return editMode.with().enableComment(enableComment).ok();
+      } else {
+    	  LOG.info("secretWall page.");
+        return secretWall.with().enableComment(enableComment).secretsList(secretService.getSecrets()).ok();
+      }
      }
     
     private static final String ANONYMOUS = "Anonymous";
