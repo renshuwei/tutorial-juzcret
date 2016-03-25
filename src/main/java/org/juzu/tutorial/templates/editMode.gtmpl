@@ -2,6 +2,6 @@
 
 <form action="@{JuZcretApplication.enableComment()}" method="POST" role="form">
     <h5>Configuration</h5>
-    <input type="checkbox" name="enableComment" <%=enableComment ? "checked" : "" %>/>允许点评
-    <button type="submit">保存</button>
+    <input type="checkbox" name="enableComment" <%=enableComment ? "checked" : "" %>/>&{label.enableComment}
+    <button type="submit">&{label.save}</button>
 </form>
