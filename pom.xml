@@ -40,7 +40,7 @@
     <dependency>
 		<groupId>org.exoplatform.kernel</groupId>
 		<artifactId>exo.kernel.container</artifactId>
-		<version>2.4.x-SNAPSHOT</version>
+		<version>2.5.x-SNAPSHOT</version>
 		<scope>provided</scope>
 		<exclusions>
 			<exclusion>
@@ -117,6 +117,12 @@
 		<groupId>org.juzu</groupId>
 		<artifactId>juzu-plugins-portlet</artifactId>
 		<version>1.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.exoplatform.jcr</groupId>
+		<artifactId>exo.jcr.component.ext</artifactId>
+		<version>1.15.x-SNAPSHOT</version>
 		<scope>provided</scope>
 	</dependency>
 
