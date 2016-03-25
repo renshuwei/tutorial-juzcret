@@ -3,6 +3,8 @@ try the juzu framework from exo platform.
 
 https://www.exoplatform.com/blog/2014/11/18/learn-how-to-develop-great-juzu-portlets-for-exo-platform
 
+target plf version 4.3.
+
 tech stack:
 1. portlet (gatein portlet container)
 2. tomcat 7.0 web server.
