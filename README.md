@@ -3,9 +3,30 @@ try the juzu framework from exo platform.
 
 https://www.exoplatform.com/blog/2014/11/18/learn-how-to-develop-great-juzu-portlets-for-exo-platform
 
-tech stack:
-1. portlet (gatein portlet container)
-2. tomcat 7.0 web server.
-3. jquery 
-4. less for css management.
+target plf version 4.3.
+
+## platform tech stack:  
+
+Ubuntu 14.04 LTS 	Oracle JDK 1.8
+MySQL 	5.5  /	5.6 	  	 
+Oracle 	11g R2  / 12c R1
+
+##Browsers recommended:  
+
+
+Windows: IE11, Firefox 41, Chrome 46  
+Linux: Firefox 41  
+MAC: Firefox 41, Chrome 46  
+
+
+1. portlet (gatein portlet container)  
+2. tomcat 7.0 web server.  
+3. jquery  
+4. less for css management.  
 5. groovy template for the page generation.
+
+## tags ==> day
+v0.1 --> day 1  
+v0.2 --> day 2  
+...
+etc.
