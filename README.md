@@ -1,3 +1,5 @@
+# 2016-09-23 git checkin demo
+
 # tutorial-juzcret: juzu framework
 try the juzu framework from exo platform.
 
