@@ -16,4 +16,34 @@
 
 @juzu.Application
 @juzu.plugin.servlet.Servlet(value = "/")
+//@Portlet
+@Bindings({
+    @Binding(value = TaskParser.class),
+    @Binding(value = DAOHandler.class),
+    @Binding(value = TaskService.class),
+    @Binding(value = ProjectService.class),
+    @Binding(value = StatusService.class),
+    @Binding(value = OrganizationService.class),
+    @Binding(value = UserService.class),
+})
 package org.juzu.tutorial;
+
+//import juzu.plugin.asset.Assets;
+//import juzu.plugin.asset.Script;
+//import juzu.plugin.asset.Scripts;
+//import juzu.plugin.asset.Stylesheet;
+//import juzu.plugin.asset.Stylesheets;
+import juzu.plugin.binding.Binding;
+import juzu.plugin.binding.Bindings;
+//import juzu.plugin.less4j.Less;
+//import juzu.plugin.portlet.Portlet;
+//import juzu.plugin.webjars.WebJar;
+//import juzu.plugin.webjars.WebJars;
+
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.task.dao.DAOHandler;
+import org.exoplatform.task.service.ProjectService;
+import org.exoplatform.task.service.StatusService;
+import org.exoplatform.task.service.TaskParser;
+import org.exoplatform.task.service.TaskService;
+import org.exoplatform.task.service.UserService;
