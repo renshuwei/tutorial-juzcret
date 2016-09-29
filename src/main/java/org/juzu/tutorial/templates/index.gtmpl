@@ -1,7 +1,84 @@
-<h1>JuZcret Application</h1>
-<p>
-	1st Rule: Anybody can access to JuZcret<br/>
-	2nd Rule: Anybody can add secret<br/>
-	3rd Rule: Anybody can read, comment, and like secrets<br/>
-	4nd Rule: Secret is anonymous<br/>
-</p>
+
+<div class="container">
+		<div class="container_center">
+			<div>
+				<!--
+				<button style="width:10%; height:30px; background:#FFFFFF; text-align:center; float:right; line-height:28px; color:#2f5e92; font-weight:600;" onclick="user_register()">我的空间</button>
+				-->
+				
+				<!--
+				<button style="width:10%; height:30px; background:#FFFFFF; text-align:center; float:right; line-height:28px; color:#2f5e92; font-weight:600; margin-right:2%;" onclick="user_login()">登录</button>
+				-->
+				
+			<!--
+			<button class="btn" type="button" style="float:right;">我的空间</button>
+			-->
+			
+			</div>
+			
+			<div style="clear:right;"></div>
+			
+			<h1 style="width:48%; color:#FFFFFF; margin-left:auto; margin-right:auto; text-align:center; font-size:28px; border:1px #FFFFFF solid; margin-bottom:100px; margin-top:40px;">请选择您要检索的数据库</h1>
+			
+			
+			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('index1.html')">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="@{Controller.interpret()}">政策与解读</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="index1.html?new=1" >最新政策和解读</a>
+				</div>
+				
+			</div>
+			
+			
+			
+			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-left:8%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('map.html')">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="map.html">地方政策详解</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="map.html?new=1">最新分类</a>
+				</div>
+			
+			</div>
+			
+			
+			
+			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-left:8%;" onmouseover="move_in(this)"  onmouseout="move_out(this)">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="">车型及产销</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="">最新车型及产销</a>
+				</div>
+			
+			</div>
+			
+			<div style="clear:left;"></div>
+			
+			
+			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-top:80px; margin-left:16%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('index3.html')">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="index3.html">国家标准</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="index3.html?new=1" >最新标准</a>
+				</div>
+			</div>
+			
+			
+			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-top:80px; margin-left:16%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('index2.html')">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="index2.html">项目</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="index2.html?new=1" >最新项目</a>
+				</div>
+			</div>
+			
+			
+			
+			
+		</div>
+	</div>
