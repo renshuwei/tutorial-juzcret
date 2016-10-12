@@ -21,15 +21,23 @@ import juzu.View;
 import juzu.request.SecurityContext;
 import juzu.Response;
 import juzu.template.Template;
+import net.wyun.qys.domain.Policy;
+import net.wyun.qys.domain.UserSetting;
+import net.wyun.qys.service.PolicyService;
+import net.wyun.qys.service.UserService;
+import net.wyun.qys.util.UserUtil;
 
 import javax.inject.Inject;
 
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.task.domain.UserSetting;
-import org.exoplatform.task.service.UserService;
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.security.Identity;
+import org.exoplatform.social.core.manager.IdentityManager;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 public class Controller {
 	
@@ -37,7 +45,12 @@ public class Controller {
 	
   @Inject
   UserService userService;
-
+  
+  @Inject
+  PolicyService policySvc;
+  
+ // @Inject
+ // private IdentityManager identityManager;
 
   @Inject
   @Path("index.gtmpl")
@@ -56,9 +69,35 @@ public class Controller {
 	  String username = securityContext.getRemoteUser();
 	  LOG.info("user: " + username);
 	  UserSetting setting = userService.getUserSetting(username);
+	  net.wyun.qys.model.User u = userService.loadUser(username);
+	  
+	  try{
+		  
+		  Identity identity = ConversationState.getCurrent().getIdentity();
+		  //org.exoplatform.social.core.identity.model.Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, username, true);
+		  List<String> ms =UserUtil.getMemberships(identity);
+		  
+		  for (String m : ms) {
+			  LOG.info("membership: " + m);
+		  }
+	  }catch(Exception e){
+		  LOG.error(e);
+	  }
+	  
+	  
 	  if(setting != null){
 		  LOG.info("user setting: " + setting.getUsername());
 	  }
+	  if(u != null){
+		  LOG.info("user avatar: " + u.getAvatar());
+	  }
+	  
+	  //try policySvc
+	  LOG.info("save policy");
+	  Policy policy = new Policy();
+	  policy.setPolicyName("test db saving");
+	  policy.setStartDate(new Date());
+	  this.policySvc.save(policy);
 	  
       return index.ok();
   }

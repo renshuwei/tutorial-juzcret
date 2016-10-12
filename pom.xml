@@ -72,9 +72,9 @@
     </dependency>
     
     <dependency>
-      <groupId>org.exoplatform.addons.task</groupId>
-      <artifactId>task-management-services</artifactId>
-      <version>1.1.0</version>
+      <groupId>net.wyun.exo.db</groupId>
+      <artifactId>qys-db-services</artifactId>
+      <version>1.0.0</version>
       <scope>provided</scope>
     </dependency>
     

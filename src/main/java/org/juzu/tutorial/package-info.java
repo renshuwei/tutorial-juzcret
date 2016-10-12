@@ -18,13 +18,9 @@
 @juzu.plugin.servlet.Servlet(value = "/")
 //@Portlet
 @Bindings({
-    @Binding(value = TaskParser.class),
-    @Binding(value = DAOHandler.class),
-    @Binding(value = TaskService.class),
-    @Binding(value = ProjectService.class),
-    @Binding(value = StatusService.class),
     @Binding(value = OrganizationService.class),
     @Binding(value = UserService.class),
+    @Binding(value = PolicyService.class),
 })
 package org.juzu.tutorial;
 
@@ -39,11 +35,7 @@ import juzu.plugin.binding.Bindings;
 //import juzu.plugin.portlet.Portlet;
 //import juzu.plugin.webjars.WebJar;
 //import juzu.plugin.webjars.WebJars;
+import net.wyun.qys.service.PolicyService;
+import net.wyun.qys.service.UserService;
 
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.task.dao.DAOHandler;
-import org.exoplatform.task.service.ProjectService;
-import org.exoplatform.task.service.StatusService;
-import org.exoplatform.task.service.TaskParser;
-import org.exoplatform.task.service.TaskService;
-import org.exoplatform.task.service.UserService;
