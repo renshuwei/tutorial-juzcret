@@ -1,0 +1,29 @@
+
+body
+{
+	padding:0;
+	margin:0;
+	background:#578DC9;
+}
+
+.container
+{
+	width:970px;
+	padding:0;
+	margin:0;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.container .container_center
+{
+	padding:30px 60px 60px 60px;
+}
+
+
+.box-shadow-6{  
+    box-shadow:-3px 0 3px green, /*左边阴影*/
+    3px 0 3px green, /*右边阴影*/
+    0 -3px 3px green, /*顶部阴影*/
+    0 3px 3px green; /*底边阴影*/
+}  
