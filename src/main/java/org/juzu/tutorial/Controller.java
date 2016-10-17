@@ -18,6 +18,7 @@ package org.juzu.tutorial;
 
 import juzu.Path;
 import juzu.View;
+import juzu.plugin.asset.Assets;
 import juzu.request.SecurityContext;
 import juzu.Response;
 import juzu.template.Template;
@@ -64,6 +65,8 @@ public class Controller {
   @Path("input_interpret.gtmpl")
   Template input_interpret;
 
+  @Assets({"indexcss", "indexjs"})
+  //@Assets("indexcss")
   @View
   public Response.Content index(SecurityContext securityContext) throws IOException {
 	  String username = securityContext.getRemoteUser();
@@ -107,6 +110,7 @@ public class Controller {
     return interpretation.ok();
   }
   
+  @Assets("input_interpretcss")
   @View
   public Response.Content interpret_upload() throws IOException {
     return input_interpret.ok();

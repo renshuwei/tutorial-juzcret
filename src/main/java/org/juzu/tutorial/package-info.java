@@ -15,20 +15,32 @@
  */
 
 @juzu.Application
-@juzu.plugin.servlet.Servlet(value = "/")
 //@Portlet
 @Bindings({
     @Binding(value = OrganizationService.class),
     @Binding(value = UserService.class),
     @Binding(value = PolicyService.class),
 })
+
+
+
+@Scripts({
+    @Script(id = "indexjs", value = "js/index.js", location=AssetLocation.APPLICATION)
+})
+
+@Stylesheets ({
+    @Stylesheet(id = "indexcss", value = "styles/index.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "input_interpretcss", value = "styles/input_interpret.css", location = AssetLocation.APPLICATION),
+    
+})
+
 package org.juzu.tutorial;
 
 //import juzu.plugin.asset.Assets;
-//import juzu.plugin.asset.Script;
-//import juzu.plugin.asset.Scripts;
-//import juzu.plugin.asset.Stylesheet;
-//import juzu.plugin.asset.Stylesheets;
+import juzu.plugin.asset.Script;
+import juzu.plugin.asset.Scripts;
+import juzu.plugin.asset.Stylesheet;
+import juzu.plugin.asset.Stylesheets;
 import juzu.plugin.binding.Binding;
 import juzu.plugin.binding.Bindings;
 //import juzu.plugin.less4j.Less;
@@ -37,5 +49,6 @@ import juzu.plugin.binding.Bindings;
 //import juzu.plugin.webjars.WebJars;
 import net.wyun.qys.service.PolicyService;
 import net.wyun.qys.service.UserService;
+import juzu.asset.AssetLocation;
 
 import org.exoplatform.services.organization.OrganizationService;
