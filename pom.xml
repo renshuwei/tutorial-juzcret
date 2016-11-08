@@ -14,7 +14,9 @@
   <properties>
     <maven.compiler.target>1.7</maven.compiler.target>
     <maven.compiler.source>1.7</maven.compiler.source>
-    <org.exoplatform.platform.version>4.3.0</org.exoplatform.platform.version>
+    <org.exoplatform.platform.version>4.3.1</org.exoplatform.platform.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
   <dependencies>
@@ -89,6 +91,18 @@
       <artifactId>commons-api</artifactId>
        <version>${org.exoplatform.platform.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+	    <groupId>org.exoplatform.ecms</groupId>
+	    <artifactId>ecms-core-services</artifactId>
+	    <version>4.3.1</version>
+	    <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.exoplatform.ecms</groupId>
+        <artifactId>ecms-core-search</artifactId>
+         <version>4.3.1</version>
+	    <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.calendar</groupId>
