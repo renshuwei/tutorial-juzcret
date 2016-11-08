@@ -20,6 +20,8 @@
     @Binding(value = OrganizationService.class),
     @Binding(value = UserService.class),
     @Binding(value = PolicyService.class),
+    @Binding(value = StandardService.class),
+    @Binding(value = org.exoplatform.commons.api.search.SearchService.class),
 })
 
 
@@ -48,6 +50,7 @@ import juzu.plugin.binding.Bindings;
 //import juzu.plugin.webjars.WebJar;
 //import juzu.plugin.webjars.WebJars;
 import net.wyun.qys.service.PolicyService;
+import net.wyun.qys.service.StandardService;
 import net.wyun.qys.service.UserService;
 import juzu.asset.AssetLocation;
 
