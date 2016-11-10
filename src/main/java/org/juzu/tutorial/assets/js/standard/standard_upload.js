@@ -41,33 +41,40 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 		
 		$("#dijiao").click(function(){
 
-			var path = $("#form1").attr('action');
-			$("#form1").ajaxSubmit({
-				url: path,
-            	type: 'POST',
-				dataType: 'json',
-				success: function (xmlDoc) {
-					//alert($(xmlDoc).text());
-            		var retCode = $(xmlDoc).find('status').text();
-					if(retCode=="1")
-					{
-						alert("上传成功");
-					}else if(retCode=="0")
-					{
-						alert("上传失败");	
-					}else
-					{
-						alert(retCode);
-					}
-          		},//submit success
-			
-				error: function (data)
-				{
-					//alert("bbbbb");
-					displayProp(data);
-				}
-			}); //ajaxSubmit
+			$("#form1").submit();
 		});
+		
+		$("#form1").submit(function(e)
+				{
+				 
+				    var formObj = $(this);
+				    var formURL = formObj.attr("action");
+				    var formData = new FormData(this);
+				    $.ajax({
+				        url: formURL,
+				    type: 'POST',
+				        data:  formData,
+				    mimeType:"multipart/form-data",
+				    contentType: false,
+				        cache: false,
+				        processData:false,
+				    success: function(data, textStatus, jqXHR)
+				    {
+				       console.log("post success!");
+				    },
+				     error: function(jqXHR, textStatus, errorThrown) 
+				     {
+				    	 
+				     }          
+				    });
+				    e.preventDefault(); //Prevent Default action. 
+				    e.unbind();
+				}); 
+				
+		
+		function loadFiles(){
+			console.log("file upload successfully!");
+		}
 		
 		var file_one=creat_file_upload();
 		file_one.messages="messages";
