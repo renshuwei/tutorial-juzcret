@@ -86,12 +86,15 @@ public class NationalStandardController {
 	
 	  @Resource
 	  @Ajax
-	  public Response.Content upload(String author, String department, String selectTag, String standardType, List<FileItem> uploadinput){
+	  public Response.Content upload(String author, String department, String selectTag, String standardType, List<FileItem> files){
 		  
 		  LOG.info("author: " + author + ", department: " + department + ", selectTag: " + selectTag + ", type: " + standardType);
-          for(FileItem fi:uploadinput){
-        	  LOG.info("file name: " + fi.getName());
-          }
+		  if(null != files){
+			  for(FileItem fi:files){
+	        	  LOG.info("file name: " + fi.getName());
+	          }
+		  }
+          
 		  return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
                   .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
 	  }
