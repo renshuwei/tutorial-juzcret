@@ -44,32 +44,33 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 			$("#form1").submit();
 		});
 		
-		$("#form1").submit(function(e)
-				{
+		$("#form1").submit(function(e) {
 				 
 				    var formObj = $(this);
 				    var formURL = formObj.attr("action");
 				    var formData = new FormData(this);
 				    $.ajax({
 				        url: formURL,
-				    type: 'POST',
+				        type: 'POST',
 				        data:  formData,
-				    mimeType:"multipart/form-data",
-				    contentType: false,
+				        dataType: 'text',
+				        mimeType:"multipart/form-data",
+				        contentType: false,
 				        cache: false,
 				        processData:false,
 				    success: function(data, textStatus, jqXHR)
 				    {
-				       console.log("post success!");
+				       console.log("post success: " + data);
 				    },
 				     error: function(jqXHR, textStatus, errorThrown) 
 				     {
-				    	 
+				    	 alert('递交数据失败： ' + errorThrown);
 				     }          
 				    });
+				   // console.log("type of e: " + type(e));
 				    e.preventDefault(); //Prevent Default action. 
 				    e.unbind();
-				}); 
+		}); 
 				
 		
 		function loadFiles(){
@@ -135,7 +136,7 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 								"</div>"+
 							"</div>"+
 							"<div class=\"row\" style=\"margin-top:10px; padding-left:35%\">"+
-								"<input type=\"file\"  name=\"uploadinput[]\" onChange=\"previewImage(this,"+image_count+")\" />"+
+								"<input type=\"file\"  name=\"files\" onChange=\"previewImage(this,"+image_count+")\" />"+
 							"</div>";
 				
 			
