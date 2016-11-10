@@ -17,6 +17,7 @@
     <org.exoplatform.platform.version>4.3.1</org.exoplatform.platform.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
   </properties>
 
   <dependencies>
