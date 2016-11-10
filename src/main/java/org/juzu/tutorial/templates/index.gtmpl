@@ -60,24 +60,12 @@
 			
 			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-top:80px; margin-left:16%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('index3.html')">
 				
-				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="index3.html">国家标准</a></h3>
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="@{NationalStandardController.standard()}">国家标准</a></h3>
 				
 				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
 					<a href="index3.html?new=1" >最新标准</a>
 				</div>
 			</div>
-			
-			
-			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-top:80px; margin-left:16%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('index2.html')">
-				
-				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="index2.html">项目</a></h3>
-				
-				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
-					<a href="index2.html?new=1" >最新项目</a>
-				</div>
-			</div>
-			
-			
 			
 			
 		</div>
