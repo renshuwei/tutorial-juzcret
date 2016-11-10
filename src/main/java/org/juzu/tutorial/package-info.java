@@ -27,12 +27,21 @@
 
 
 @Scripts({
-    @Script(id = "indexjs", value = "js/index.js", location=AssetLocation.APPLICATION)
+	@Script(id = "jquery", value = "js/jquery-1.8.3.min.js", location=AssetLocation.APPLICATION),
+	@Script(id = "jquerypage", value = "js/jquery.page.js", depends="jquery", location=AssetLocation.APPLICATION),
+	@Script(id="juzuutil",  value = "js/jquery-juzu-utils-0.1.0.js", depends = "jquery", location=AssetLocation.APPLICATION),
+	@Script(id = "nlibjs", value = "js/nlib.js", location=AssetLocation.APPLICATION),
+    @Script(id = "indexjs", value = "js/index.js", location=AssetLocation.APPLICATION),
+    @Script(id = "standardjs",value ="js/standard/standard.js",location=AssetLocation.APPLICATION),
+    @Script(id = "standarduploadjs",value ="js/standard/standard_upload.js",depends = {"jquery", "jquerypage", "nlibjs"}, location=AssetLocation.APPLICATION),
+    @Script(id = "fileuploadjs",value ="js/fileupload.js",location=AssetLocation.APPLICATION),
 })
 
 @Stylesheets ({
     @Stylesheet(id = "indexcss", value = "styles/index.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "input_interpretcss", value = "styles/input_interpret.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "standardcss", value = "styles/standard.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "standard_uploadcss", value = "styles/standard_upload.css", location = AssetLocation.APPLICATION),
     
 })
 
