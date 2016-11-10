@@ -1,0 +1,260 @@
+
+	
+	<div class="container">
+		
+		<div class="container_center">
+		
+		<h1  style="text-align:center;">标准上传页面</h1>
+		
+		
+		<div class="input-append" style="width:95%;">
+   			<button type="button"  onclick="window.location.href='@{NationalStandardController.back()}'" class="btn btn-block btn-primary" style="width:10%; float:right;">返回</button>
+   		</div>
+		 
+		<form id="form1" action="@{NationalStandardController.upload()}" method="post" name="f1" enctype="multipart/form-data">
+		<div class="input-append">
+   			<span class="span_title">标准名称</span>
+			<input type="text" id="standardName" name="standardName">
+   		</div>
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">标准编号</span>
+			<input type="text"  id="standardNum" name="standardNum">
+   		</div>
+		
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">标准类型</span>
+			<div class="btn-group">
+				<input type="text" data-toggle="dropdown" id="standardTypeTxt" name="standardTypeTxt">
+				
+				<ul class="dropdown-menu" style="padding:0px;">
+					<select multiple="multiple" id="standardType" name="standardType"">
+  						<option value="1">安全</option>
+  						<option value="2">车身及悬架</option>
+  						<option value="3">车轮</option>
+  						<option value="4">材料</option>
+  						<option value="5">灯光</option>
+						<option value="6">底盘</option>
+  						<option value="7">汽车电子与电磁兼容</option>
+  						<option value="8">电器</option>
+  						<option value="9">防盗</option>
+  						<option value="10">回收利用</option>
+						<option value="11">环保（不含排放）</option>
+  						<option value="12">节能</option>
+  						<option value="13">排放</option>
+  						<option value="14">制动</option>
+  						<option value="15">电动车辆</option>
+						<option value="16">挂车</option>
+  						<option value="17">客车</option>
+  						<option value="18">专用车</option>
+  						<option value="19">液化石油气汽车</option>
+  						<option value="20">燃气汽车</option>
+						<option value="21">仪表</option>
+  						<option value="22">其他</option>
+					</select>
+				</ul>
+   			</div>
+		</div>
+		<div class="input-append">
+   			<span class="span_title">标签&nbsp;&nbsp;</span>
+			
+			<div class="btn-group">
+				<input type="text" data-toggle="dropdown" id="tag" name="tag">
+				<ul class="dropdown-menu" style=" padding:0px;">
+					<select multiple="multiple"  id="selectTag" name="selectTag">
+  						<option value="标签1">标签1</option>
+  						<option value="标签2">标签2</option>
+  						<option value="标签3">标签3</option>
+						<option value="标签4">标签4</option>
+  						<option value="标签5">标签5</option>
+  						<option value="标签6">标签6</option>
+					</select>
+				</ul>
+			</div>
+   		</div>
+		
+		
+		
+		<div></div>
+		
+		<!--
+		<div id="myModal" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="width: 420px; position: relative; display: none;" exo:minheight="200" exo:minwidth="200" class="UIPopupWindow uiPopup UIDragObject NormalStyle modal hide fade">
+                            <div class="popupHeader ClearFix">
+                                <a onclick="" title="Close Window" class="uiIconClose pull-right">
+                                    <div class="ClosePopup" style="width: 16px; height: 16px;" data-dismiss="modal"><span></span></div>
+                                </a>
+                                <span class="PopupTitle popupTitle">Attach File</span>
+                            </div>
+                            <div class="PopupContent popupContent">
+                                <div id="AttachFileForm" class="AttachFileForm">
+                                    <span id="UIPopupActionChildPopupAction" class="UIPopupActionChildPopupAction UIKSPopupAction"></span>
+                                    <div class="uiFormForum uiAttachFileForm">
+                                        <form method="post" enctype="multipart/form-data" action="/portal/intranet/forum?portal:componentId=c4775064-7711-4230-b877-5078c5b5212d&amp;interactionstate=JBPNS_rO0ABXcsAAt1aWNvbXBvbmVudAAAAAEAEFVJQXR0YWNoRmlsZUZvcm0AB19fRU9GX18*&amp;portal:type=action" id="UIAttachFileForm" class="UIForm">
+                                            <div>
+                                                <input value="" name="formOp" type="hidden">
+                                                <input value="AA17AB94C0A8012B35D8BBCC4C81958F" name="gtn:csrf" type="hidden">
+                                            </div>
+                                            <div class="resizable">
+                                                <div class="form-horizontal">
+                                                    <div class="control-group">
+                                                        <div class="controlUpload controls-full">
+                                                            <div class="uiUploadInput" id="upload">
+
+                                                                <div style="" class="uploadContainer" id="uploadContainer1526481975-0">
+                                                                    <div style="" class="selectFileFrame clearfix">
+                                                                        <div class="fileNameLabel" style="float: left;">exo-tomcat-platform-4.1.x</div>
+                                                                        <div class="removeFile pull-right" style="float: right;">
+                                                                            <a data-placement="bottom" rel="tooltip" class="actionIcon" href="#" data-original-title="Delete">
+                                                                                <i class="uiIconDelete uiIconLightGray"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="" class="uploadContainer" id="uploadContainer1526481975-0">
+                                                                    <div style="" class="selectFileFrame clearfix">
+                                                                        <div class="fileNameLabel" style="float: left;">exo-image-ECMS-style4.1.x</div>
+                                                                        <div class="removeFile pull-right" style="float: right;">
+                                                                            <a data-placement="bottom" rel="tooltip" class="actionIcon" href="#" data-original-title="Delete">
+                                                                                <i class="uiIconDelete uiIconLightGray"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="" class="uploadContainer" id="uploadContainer1526481975-0">
+                                                                    <div style="" class="progressBarFrame clearfix">
+                                                                        <span class="deleteFileLabel pull-right">
+												<a data-placement="bottom" rel="tooltip" class="actionIcon" href="#" data-original-title="Cancel">
+													<i class="uiIconRemove uiIconLightGray"></i>
+												</a>
+											</span>
+                                                                        <div class="fileNameLabel pull-left">exo-image-Forum-style...</div>
+                                                                        <div class="pull-left percent">50%</div>
+                                                                        <div class="progress  progress-striped">
+                                                                            <div style="width:50%" class="bar"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="" class="uploadContainer" id="uploadContainer430359469-0">
+                                                                    <div class="uploadButton">
+                                                                        <label class="btn">Select File</label>
+                                                                        <label style="display:none" class="noFile">No file selected</label>
+                                                                        <label style="" class="moreFiles">Select more files</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="uiAction uiActionBorder">
+                                                <button type="button" class="btn" data-dismiss="modal">Save</button>
+                                                <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="uiIconResize pull-right uiIconLightGray"></span>
+                        </div>
+		
+		
+		
+		<div></div>
+		-->
+		<div class="input-append">
+   			<span class="span_title">创建人员</span>
+			<input type="text" readonly="readonly" id="author" name="author" value="admin">
+   		</div>
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">所属部门</span>
+			<input type="text" readonly="readonly" id="department" name="department" value="部门1">
+   		</div>
+		<!--dept-->
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">创建日期</span>
+			<input type="text" readonly="readonly" id="createDate" name="createDate" value="">
+   		</div>
+		
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">权限设置</span>
+			
+			<select multiple="multiple" id="perm" name="perm">
+  				<option value="1">可见</option>
+  				<option value="2">预览文件</option>
+  				<option value="3">打印文件</option>
+  				<option value="4">下载文件</option>
+				<option value="5">修改文件</option>
+  				<option value="6">删除文件</option>
+  				<option value="7">发布文件</option>
+  				<option value="8">转发文件</option>
+				<option value="9">完全控制文件</option>
+			</select>
+			
+   		</div>
+		
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">加密级别</span>
+			
+			<select style="height:38px;" id="encrpLevel" name="encrpLevel">
+  				<option value="1">1级</option>
+  				<option value="2">2级</option>
+  				<option value="3">3级</option>
+  				<option value="4">4级</option>
+			</select>
+   		</div>
+		
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">标准原文</span>	
+				<textarea rows="5" name="text" id="text"></textarea>
+			<div></div>
+			
+			<div style="width:8%;  margin-left:25%; float:left; font-size:18px; line-height:26px; margin-right:20px;">上传文件</div>
+			
+			
+				
+			
+				<div style="clear:left;"></div>
+				
+				<div style="font-size:18px; margin-left:25%; width:70%; margin-top:30px;">
+					
+						<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="20000000" />
+						
+						<div style="padding-bottom:15px">
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="添加文件" id="fileselect"  onClick=""/>
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="删除文件" id="fileselect2"  onClick=""/>
+                                
+                        </div>
+						
+					
+					
+					<div id="messages" style="width:100%; min-height:80px; border:1px solid  #CCCCCC; margin-bottom:30px; padding-top:20px; padding-bottom:30px;">
+						<p>上传文件列表</p>
+					</div>
+				</div>	
+			
+			
+			
+   		</div>
+		<div></div>
+		
+		
+		<div class="input-append" style="width:95%;">
+   			<button id="dijiao" type="button" class="btn btn-block btn-primary" style="width:10%; float:right;" >提交</button>
+   		</div>
+		</form>
+		</div>
+		
+	</div>	
+	

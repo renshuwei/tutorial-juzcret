@@ -1,0 +1,162 @@
+
+	
+	<div class="container">
+	
+	<div class="container_left">
+		<div style="margin-left:2px;">
+			<div class="input-append" style=" width:100%;">
+				<div class="btn-group btn-large" style="padding:0; margin:0; width:15%;">
+        			<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width:100%">分类检索
+            			<span class="caret" style="margin-top:8px;"></span>
+        			</button>
+        			<ul class="dropdown-menu">
+            			<li><a href="#">全部</a></li>
+            			<li><a href="#">本文</a></li>
+            			<li><a href="#">标题</a></li>
+        			</ul>
+    			</div>
+				
+				<input type="text" style=" width:70%;">
+				
+				<button class="btn btn-primary dropdown-toggle" type="button" style=" width:15%;">搜索</button>
+			
+			</div>
+		</div>
+		
+		
+		<div style=" clear:right;">
+		</div>
+		
+		
+		<div style="margin-left:1px;">
+			<div class="input-append" style="float:left; width:30.3%;">
+      			<button class="btn" type="button" style=" font-size:13px; padding:2px 10px; margin-right:10px;">下载</button>
+				<button class="btn" type="button" style=" font-size:13px; padding:2px 10px;">收藏</button>
+    		</div>
+		</div>
+		
+        <div style=" clear:left;">
+		</div>
+		
+        
+        
+        <div style="width:100%; margin-top:30px; border:1px solid #578DC9; ">
+        	
+            <h3  style="color:#999999; text-align:center;">
+            	政策标题
+            </h3>
+        	
+           	<p style="font-size:15px; margin:0; padding:0; text-align:center; color:#999999;">文号</p>
+           	<p style="font-size:15px; margin:0; padding:0; text-align:center; color:#999999;">发布时间 部门</p>
+        	
+            <p style="font-size:15px; margin:0; padding:0; color:#999999;">
+            	政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策
+            </p>
+            
+        </div>
+        
+        
+        <div style="width:100%; margin-top:30px; border:1px solid #578DC9;">
+        	
+            <p style="font-size:15px; margin:0; padding:0; color:#999999;  height:200px; overflow:auto;">
+            	政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策标题政策
+            </p>
+            
+        </div>
+		
+		
+		
+	</div>
+	
+	<div class="container_right">
+		
+        <a href="#" style="margin-left:16px; margin-top:3px; display:block;">在结果中搜索 </a>
+        
+		<div class="input-append" style="margin-left:-150px; margin-top:15px;">
+        	<input id="inputValue" type="text" placeholder="Search"  style=" width:150px; height:26px;">
+            
+            
+           	<div class="btn-group btn-large" style="padding:0;">
+        		<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style=" font-size:13px; padding:2px 10px;">搜索本页
+            		<span class="caret" style="margin-top:8px;"></span>
+        		</button>
+        		<ul class="dropdown-menu">
+            		<li><a href="#">搜索本页</a></li>
+            		<li><a href="#">搜索政策原文</a></li>
+            		<li><a href="#">搜索政策解读</a></li>
+        		</ul>
+    		</div>  
+    	</div>
+                
+		<!---->
+        
+        <div style="margin-top:30px; margin-left:40px;">
+		    <div id="accordion" class="accordion">
+        		<h5 class="menuHeader" style="background:#578DC9; color:#FFFFFF;">关联政策</h5>
+        		
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>关联政策</a>
+                		</div>
+            		</div>
+        		</div>
+        
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>关联政策</a>
+                		</div>
+            		</div>
+        		</div>
+				
+        		<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>关联政策</a>
+                		</div>
+            		</div>
+        		</div>
+        		
+    		</div>
+		</div>
+        
+        
+		<div style="margin-top:38px; margin-left:40px;">
+		    <div id="accordion" class="accordion">
+        		<h5 class="menuHeader" style="background:#578DC9; color:#FFFFFF;">搜索历史</h5>
+        		
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+        
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+				
+        		<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+        		
+    		</div>
+		</div>
+        
+        
+	</div>
+	
+	
+	
+</div>	
+		
