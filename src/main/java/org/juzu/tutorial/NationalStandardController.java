@@ -141,32 +141,5 @@ public class NationalStandardController {
                   */
 	  }
 	  
-	  private void saveStandard(){
-		  Standard s = new Standard();
-		  s.setName("国家标准2016");
-		  s.setCreateDate(new Date());
-		  s.setNum("001-2960-2016");
-		  s.setType(StandardType.IMB);
-		  s.setUuid("4eb65550-a36a-11e6-80f5-76304dec7eb7");
-		  
-		  StanJcrFile jFile = new StanJcrFile();
-		  jFile.setFileName("testfile.txt");
-		  jFile.setUploadDate(new Date());
-		  jFile.setUrl("temp/url");
-		  jFile.setUuid("4eb65550-a36a-11e6-0000-76304dec7eb7");
-		  
-		  s.addStanJcrFile(jFile);
-		  
-		  StanTag sTag1 = new StanTag();
-		  sTag1.setTag("first tag: car market 上海");
-		  s.addStanTag(sTag1);
-		  
-		  StanTag sTag = new StanTag();
-		  sTag.setTag("second tag: car market 北京");
-		  s.addStanTag(sTag);
-		  
-	  }
-	  
-	  
 	  
 }
