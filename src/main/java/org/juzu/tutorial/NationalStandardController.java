@@ -1,6 +1,7 @@
 package org.juzu.tutorial;
 
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import juzu.Path;
 import juzu.Resource;
 import juzu.Response;
 import juzu.View;
+import juzu.impl.common.Tools;
 import juzu.plugin.ajax.Ajax;
 import juzu.plugin.asset.Assets;
 import juzu.request.SecurityContext;
@@ -92,6 +94,7 @@ public class NationalStandardController {
 	  }
 	  
 	
+	  private final static String ROOT_FOLDER = "fs/standard/";
 	  @Resource
 	  @Ajax
 	  public Response.Content upload(String standardName, String standardNum, Integer standardTypeString, 
@@ -113,17 +116,20 @@ public class NationalStandardController {
 		  s.addStanTag(sTag1);
 		
 		  Standard newS = standardSvc.save(s);
-		  String folderName = newS.getId();
+		  String stdFolder = newS.getId();
 		  
 		  //create jcr folder here
-		  boolean isCreated = documentsData.createNodeIfNotExist("Documents/fs", folderName);
-		  LOG.info(folderName + " folder is created!");
+		  boolean isCreated = documentsData.createNodeIfNotExist("Documents/" + ROOT_FOLDER, stdFolder);
+		  LOG.info(stdFolder + " folder is created!");
+		  
+		  String txtUuid = documentsData.storeContent(text, stdFolder + ".txt", stdFolder);
+		  s.setUuid(txtUuid);
 		  
 		  if(null != files){
 			  for(FileItem fi:files){
 	        	  LOG.info("file name: " + fi.getName());
 	        	  
-	        	  String uuid = documentsData.storeFile("fs/" + folderName , fi, documentsData.getSpaceName(), false, null);
+	        	  String uuid = documentsData.storeFile(ROOT_FOLDER + stdFolder , fi, documentsData.getSpaceName(), false, null);
 	        	  StanJcrFile jFile = new StanJcrFile();
 	    		  jFile.setFileName(fi.getName());
 	    		  jFile.setUploadDate(new Date());
@@ -133,8 +139,13 @@ public class NationalStandardController {
 	    		  standardSvc.update(newS);
 	          }
 		  }
-          
-		  return Response.ok(new JSONObject(newS).toString()).withMimeType("text/json");
+		  
+		  //save text to jcr as a file
+		  
+		  String json = new JSONObject(newS).toString();
+		  LOG.info("json: " + json);
+		  
+		  return Response.ok(json).withMimeType("text/json").withCharset(Tools.UTF_8);
 		  /*
 		  return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
                   .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");

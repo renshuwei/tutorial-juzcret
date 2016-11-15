@@ -37,6 +37,8 @@ import javax.jcr.version.OnParentVersionAction;
 import javax.jcr.version.VersionIterator;
 import javax.servlet.http.HttpServletRequest;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -225,7 +227,7 @@ public class DocumentsDataHelper {
 				filter = filter.replace("Folksonomy/", "ApplicationData/Tags/");
 			}
 
-			if (!rootNode.hasNode(path + "/" + filter + "/" + name)) {
+			if (!rootNode.hasNode(path + "/" + filter  + name)) {
 				Node parentNode = rootNode.getNode(path + "/" + filter);
 				Node node = parentNode.addNode(name, "nt:folder");
 				
@@ -253,6 +255,7 @@ public class DocumentsDataHelper {
 
 			}
 		} catch (Exception e) {
+			log.error("", e);
 			return false;
 		}
 		return true;
@@ -632,6 +635,54 @@ public class DocumentsDataHelper {
 			boolean isPrivateContext) {
 		storeFile(path, item, name, isPrivateContext, null);
 	}
+	
+	/**
+	 * save content in a JCR file with name
+	 * @param content
+	 * @param name
+	 * @return
+	 */
+	protected String storeContent(String content, String fileName, String folder) {
+		SessionProvider sessionProvider = getUserSessionProvider();
+		String uuid = null;
+		try {
+			// get info
+			Session session = sessionProvider.getSession("collaboration", repositoryService_.getCurrentRepository());
+			
+			InputStream stream = new ByteArrayInputStream(content.getBytes("UTF-8"));
+
+			Node homeNode;
+			
+			Node rootNode = session.getRootNode();
+			homeNode = rootNode.getNode(getSpacePath("qyspl")); //groups/spaces/qyspl
+
+			Node docNode = homeNode.getNode("Documents/fs/standard/" + folder); //groups/spaces/qyspl/documents
+			
+			if (!docNode.hasNode(fileName)) {//new node
+				Node fileNode = docNode.addNode(fileName, "nt:file");
+				fileNode.setProperty(NodetypeConstant.EXO_TITLE, fileName);
+				Node jcrContent = fileNode.addNode("jcr:content", "nt:resource");
+				jcrContent.setProperty("jcr:data", stream);
+				jcrContent.setProperty("jcr:lastModified", Calendar.getInstance());
+				jcrContent.setProperty("jcr:encoding", "UTF-8");
+				
+				String extension = FilenameUtils.getExtension(fileName);
+				jcrContent.setProperty("jcr:mimeType", MimeTypeMapping.getMimeType(extension));
+				
+				DocumentsDataHelper.updateTimestamp(docNode);
+				DocumentsDataHelper.updateSize(docNode);
+				DocumentsDataHelper.updateTimestamp(docNode.getParent());
+				session.save();
+				uuid = fileNode.getUUID();
+			}
+		}catch (Exception e) {
+			//it will handled at higher level
+			log.error("", e);
+			throw new RuntimeException("storing file error", e);
+		}
+		
+		return uuid;
+	}
 
 	/**
 	 * also can refer to org.exoplatform.wcm.connector.FileUploadHandler for the file saving.
@@ -666,7 +717,7 @@ public class DocumentsDataHelper {
 			Node docNode = homeNode.getNode("Documents"); //groups/spaces/qyspl/documents
 			if (path.contains("/") && !path.startsWith("Folksonomy/")) {
 				
-				docNode = docNode.getNode(path);  //groups/spaces/gyspl/documents/fs/new-folder
+				docNode = docNode.getNode(path);  //groups/spaces/gyspl/documents/fs/standard/new-folder
 			}
 
 			if (!docNode.hasNode(filename)
