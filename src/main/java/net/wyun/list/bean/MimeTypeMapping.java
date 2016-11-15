@@ -65,6 +65,8 @@ public class MimeTypeMapping {
 		mimeTypeMap.put("odt", "application/vnd.oasis.opendocument.text");
 		mimeTypeMap.put("ods", "application/vnd.oasis.opendocument.spreadsheet");
 		
+		//txt=text/plain
+		mimeTypeMap.put("txt", "text/plain");
 		
 	}
 	
