@@ -14,6 +14,8 @@ import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.services.security.Identity;
 import org.json.JSONObject;
 
+import com.google.api.client.json.Json;
+
 import juzu.Path;
 import juzu.Resource;
 import juzu.Response;
@@ -100,9 +102,10 @@ public class NationalStandardController {
 	  public Response.Content upload(String standardName, String standardNum, Integer standardTypeString, 
 			                         String perm, String encrpLevel, String text, 
 			                         String author, String department, String selectTag, Integer standardType, 
-			                         List<FileItem> files){
+			                         List<FileItem> files, SecurityContext securityContext){
 		  
 		  LOG.info("author: " + author + ", department: " + department + ", selectTag: " + selectTag + ", type: " + standardType);
+		  String userName = securityContext.getRemoteUser();
 		  
 		  Standard s = new Standard();
 		  s.setName(standardName);
@@ -110,6 +113,8 @@ public class NationalStandardController {
 		  s.setNum(standardNum);
 		  s.setType(StandardType.typeForValue(standardType));
 		  s.setUuid("");   //text being saved to a file
+		  s.setCreator(userName);
+		  s.setDepartment("");
 		  
 		  StanTag sTag1 = new StanTag();
 		  sTag1.setTag(selectTag);
@@ -120,7 +125,7 @@ public class NationalStandardController {
 		  
 		  //create jcr folder here
 		  boolean isCreated = documentsData.createNodeIfNotExist("Documents/" + ROOT_FOLDER, stdFolder);
-		  LOG.info(stdFolder + " folder is created!");
+		  LOG.info(stdFolder + " folder is created: " + isCreated);
 		  
 		  String txtUuid = documentsData.storeContent(text, stdFolder + ".txt", stdFolder);
 		  s.setUuid(txtUuid);
@@ -141,8 +146,12 @@ public class NationalStandardController {
 		  }
 		  
 		  //save text to jcr as a file
+		  JSONObject jo = new JSONObject(newS);
+		  if(jo.has("class")){
+			  jo.remove("class");
+		  }
 		  
-		  String json = new JSONObject(newS).toString();
+		  String json = jo.toString();
 		  LOG.info("json: " + json);
 		  
 		  return Response.ok(json).withMimeType("text/json").withCharset(Tools.UTF_8);
