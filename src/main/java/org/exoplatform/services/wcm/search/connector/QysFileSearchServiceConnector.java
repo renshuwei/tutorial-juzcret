@@ -30,7 +30,9 @@ import org.exoplatform.container.xml.Property;
 import org.exoplatform.services.cms.drives.DriveData;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.services.wcm.core.NodetypeConstant;
+import org.exoplatform.services.wcm.search.QueryCriteria;
 import org.exoplatform.services.wcm.search.ResultNode;
 import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 
@@ -68,6 +70,25 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
 	  return retNode.isNodeType("mix:referenceable")?retNode.getUUID():"";
 		  
   } 
+  
+  private String subDirectory = "";
+  
+  public void setSearchSubDir(String subDir){
+	  this.subDirectory = subDir;
+  }
+  
+  
+  private final static String SEARCH_PATH = "/Groups/spaces/qyspl";
+  @Override
+  protected QueryCriteria createQueryCriteria(String query, long offset, long limit, String sort, String order) {
+    QueryCriteria criteria = super.createQueryCriteria(query, offset, limit, sort, order);
+    
+    String docPath = SEARCH_PATH + subDirectory;
+    if (ConversationState.getCurrent().getIdentity().getUserId() != null) {
+      criteria.setSearchPath(docPath);
+    }
+    return criteria;
+  }
 
   /**
    * {@inheritDoc}
