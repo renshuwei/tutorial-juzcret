@@ -158,7 +158,7 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
 	  s.setName("国家标准2016");
 	  s.setCreateDate(new Date());
 	  s.setNum("001-2960-2016");
-	  s.setType(StandardType.IMB);
+	  s.setType(StandardType.专用车);
 	  s.setUuid("4eb65550-a36a-11e6-80f5-76304dec7eb7");
 	  
 	  StanJcrFile jFile = new StanJcrFile();
@@ -187,7 +187,7 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
 	      ControllerDescriptor routerDesc = new DescriptorBuilder().build(url.openStream());
 	      Router router = new Router(routerDesc);
 	      SearchContext context = new SearchContext(router, "intranet");
-	      String query = "秦皇岛";
+	      String query = "Juzu";
 	      List<String> sites = new ArrayList<String>();
 	      sites.add("intranet");
 	      List<String> types = new ArrayList<String>();
