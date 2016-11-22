@@ -1,0 +1,311 @@
+
+	
+	<div class="container">
+	<h1  style="text-align:center; margin-bottom:5%;">最新地方政策</h1>
+	<div class="container_left">
+		<div style="margin-left:2px;">
+			
+		</div>
+		
+		
+		
+		
+		<div style=" clear:right;">
+		</div>
+		
+		<div>
+			<span style="float:left">最近一个月共有xxx条政策发布</span>
+            <span style="float:right">
+            
+              <ul class="breadcrumb">
+              	<li class="active"></li>
+                <li></li>
+        		<!--
+                <li class="active">级别</li>
+				
+				<li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox">
+  						<span>国家政策</span>
+					</span>
+				</li>
+				
+        		<li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox">
+  						<span>地方政策</span>
+					</span>
+				</li>
+				-->
+    		</ul>
+            </span>
+		</div>
+       
+		
+		<div style=" clear:right;">
+		</div>
+		
+		
+		<!----------------->
+		
+        <div class="table-responsive" style="margin-top:10px;">
+        	<table class="uiGrid table table-hover table-striped sortable">
+        		<thead>
+        			<tr> 
+        				<th width="270" style="background:#578DC9; color:#FFFFFF;">政策名称</th>
+             			<th width="80" style="background:#578DC9; color:#FFFFFF;">文号</th>
+                        <th width="120" style="background:#578DC9; color:#FFFFFF;">发布部门</th>
+                        <!--
+                        <th width="90" style="background:#578DC9; color:#FFFFFF;">发布时间</th>
+                        <th width="90" style="background:#578DC9; color:#FFFFFF;">废止时间</th>
+                        -->
+                        <th width="170" style="background:#578DC9; color:#FFFFFF;">标签</th>
+                 	</tr>
+           		</thead>
+                                
+				<tbody>
+                 <!--新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。alert('您的鼠标刚才离开了该段！')-->
+                	<tr>
+                    	<td >
+                            <div class="tooltips"> 
+                            	<div class="tooltips1">
+                                <span class="top2">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。</span></div>
+                           	<a href="content.html">关于对国家重点研发计划“新能源汽车”等10个重点专项2016年度项目安排进行公示的通知</a>                            </div>
+                        </td>
+                        <td>12345</td>
+                        <td>工信部</td>
+                        <td>新能源汽车 重点专项 政策补贴
+                        </td>
+                        
+                   	</tr>
+                    <tr>
+                    	<td >
+                            <div class="tooltips"> 
+                            	<div class="tooltips1">
+                                <span class="top2">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。</span></div>	<a href="content.html">关于对国家重点研发计划“新能源汽车”等10个重点专项2016年度项目安排进行公示的通知</a>
+                                
+                            </div>
+                        </td>
+                        <td>12345</td>
+                        <td>工信部</td>
+                        <td>新能源汽车 重点专项 政策补贴
+                        </td>
+                        
+                   	</tr>
+                  
+					
+					<tr>
+                    	<td >
+                            <div class="tooltips"> 
+                            	<div class="tooltips1">
+                                <span class="top2">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。</span></div>	<a href="content.html">关于对国家重点研发计划“新能源汽车”等10个重点专项2016年度项目安排进行公示的通知</a>
+                                
+                            </div>
+                        </td>
+                        <td>12345</td>
+                        <td>工信部</td>
+                        <td>新能源汽车 重点专项 政策补贴
+                        </td>
+                        
+                   	</tr>
+					
+					<tr>
+                    	<td >
+                            <div class="tooltips"> 
+                            	<div class="tooltips1">
+                                <span class="top2">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。</span></div>	<a href="content.html">关于对国家重点研发计划“新能源汽车”等10个重点专项2016年度项目安排进行公示的通知</a>
+                                
+                            </div>
+                        </td>
+                        <td>12345</td>
+                        <td>工信部</td>
+                        <td>新能源汽车 重点专项 政策补贴
+                        </td>
+                        
+                   	</tr>
+					
+					
+					<tr>
+                    	<td >
+                            <div class="tooltips"> 
+                            	<div class="tooltips1">
+                                <span class="top2">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。</span></div>	<a href="content.html">关于对国家重点研发计划“新能源汽车”等10个重点专项2016年度项目安排进行公示的通知</a>
+                                
+                            </div>
+                        </td>
+                        <td>12345</td>
+                        <td>工信部</td>
+                        <td>新能源汽车 重点专项 政策补贴
+                        </td>
+                        
+                   	</tr>
+					
+					<tr>
+                    	<td >
+                            <div class="tooltips"> 
+                            	<div class="tooltips1">
+                                <span class="top1">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。</span></div>	<a href="content.html">关于对国家重点研发计划“新能源汽车”等10个重点专项2016年度项目安排进行公示的通知</a>
+                                
+                            </div>
+                        </td>
+                        <td>12345</td>
+                        <td>工信部</td>
+                        <td>新能源汽车 重点专项 政策补贴
+                        </td>
+                        
+                   	</tr>
+					
+					<tr>
+                    	<td >
+                            <div class="tooltips"> 
+                            	<div class="tooltips1">
+                                <span class="top1">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。</span></div>	<a href="content.html">关于对国家重点研发计划“新能源汽车”等10个重点专项2016年度项目安排进行公示的通知</a>
+                            </div>
+                        </td>
+                        <td>12345</td>
+                        <td>工信部</td>
+                        <td>新能源汽车 重点专项 政策补贴
+                        </td>
+                        
+                   	</tr>
+					
+					<tr>
+                    	<td >
+                            <div class="tooltips"> 
+                            	<div class="tooltips1">
+                                <span class="top1">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。</span></div>	<a href="content.html">关于对国家重点研发计划“新能源汽车”等10个重点专项2016年度项目安排进行公示的通知</a>
+                                
+                            </div>
+                        </td>
+                        <td>12345</td>
+                        <td>工信部</td>
+                        <td>新能源汽车 重点专项 政策补贴
+                        </td>
+                        
+                   	</tr>
+				
+					</tbody>
+                    
+					<tfoot></tfoot>
+            	</table>
+     		</div>
+                      
+    
+		<div style="margin-left:1px;">
+			
+				<div class="input-append" style="float:left; width:24%;">
+      				<!--
+                    <button class="btn" type="button" style=" font-size:13px; padding:2px 10px; margin-right:10px;">下载</button>
+					<button class="btn" type="button" style=" font-size:13px; padding:2px 10px;margin-right:10px;">收藏</button>
+                    -->
+					<button class="btn"  onclick="window.location.href='@{LocalPolicyController.update_data()}'" type="button" style=" font-size:13px; padding:2px 10px;">上传</button>
+    			</div>
+			
+			
+				<div id="tcdPageCode" class="pagination uiPageIterator tcdPageCode" style="float:right; margin:0px; width:70%;">
+        			<ul>
+            			<li class="active"><a href="">1</a></li>
+            			<li><a href="">2</a></li>
+            			<li><a href="">3</a></li>
+            			<li class="disabled"><a href="#">...</a></li>
+            			<li><a href="">20</a></li>
+        			</ul>
+    			</div>
+				
+				<!--
+				<div class="input-append" style="float:left;">
+      				<button class="btn" type="button" style=" font-size:13px; padding:2px 10px;">上一页</button>
+					<button class="btn" type="button" style=" font-size:13px; padding:2px 10px;">下一页</button>
+    			</div>
+				-->
+			
+		</div>
+		
+		
+		
+		
+	</div>
+	
+	<div class="container_right">
+		
+		<a style="width:40px;float:right;" class="btn btn-primary btn-large" href="@{Controller.index()}">返回</a>
+		
+		<!---->
+		<div style="margin-top:44px;">
+		    <div id="accordion" class="accordion">
+        		<h5 class="menuHeader" style="background:#578DC9; color:#FFFFFF;">搜索历史</h5>
+        		
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+        
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+				
+        		<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+        
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+				
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+				
+				<div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+				
+                <div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+				
+                <div class="accordion-group">
+            		<div class="accordion-heading">
+                		<div class="accordion-toggle collapsed">
+                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                		</div>
+            		</div>
+        		</div>
+                
+				
+    		</div>
+		</div>
+		
+	</div>
+	
+	
+	
+</div>	
+		

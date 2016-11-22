@@ -1,0 +1,695 @@
+
+	
+	<div class="container">
+		
+		<div class="container_center">
+		
+		<h1  style="text-align:center;">地方政策上传</h1>
+		
+		
+		<div class="input-append" style="width:95%;">
+   			<button type="button"  onclick="window.location.href='@{LocalPolicyController.map()}'" class="btn btn-block btn-primary" style="width:10%; float:right;">返回</button>
+   		</div>
+		
+		<form id="form1" method="post" name="f1" enctype="multipart/form-data">
+		<div class="input-append">
+   			<span class="span_title">政策名称</span>
+			<input type="text"  id="policyName" name="policyName" AUTOCOMPLETE="off">
+   		</div>
+		
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">发布部门</span>
+			<div class="btn-group">
+				<input type="text" data-toggle="dropdown" name="publishDept" id="publishDept" AUTOCOMPLETE="off">
+				
+				<ul class="dropdown-menu" style="padding:0px;">
+					<select name="selectPublishDept" id="selectPublishDept" multiple="multiple" onChange="ShowToText()" AUTOCOMPLETE="off">
+  						<option value="部门1">部门1</option>
+  						<option value="部门2">部门2</option>
+  						<option value="部门3">部门3</option>
+  						<option value="部门4">部门4</option>
+  						<option value="部门5">部门5</option>
+						<option value="部门6">部门6</option>
+  						<option value="部门7">部门7</option>
+  						<option value="部门8">部门8</option>
+  						<option value="部门9">部门9</option>
+  						<option value="部门10">部门10</option>
+					</select>
+				</ul>
+				
+			</div>
+   		</div>
+		
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">文号&nbsp;&nbsp;</span>
+			<input type="text" name="policyNum" id="policyNum" AUTOCOMPLETE="off">
+   		</div>
+        
+        <div class="input-append">
+   			<span class="span_title">所属省份</span>
+			<div class="btn-group">
+				<input type="text" data-toggle="dropdown" name="province" id="province" AUTOCOMPLETE="off">
+				
+				<ul class="dropdown-menu" style="padding:0px;">
+					<select name="selectProvince" id="selectProvince" multiple="multiple" onChange="ShowToTextProvince()" AUTOCOMPLETE="off">
+                    	<option value="北京">北京</option>
+  						<option value="上海">上海</option>
+  						<option value="天津">天津</option>
+						<option value="重庆">重庆</option>
+                        <option value="江苏">江苏</option>
+  						<option value="浙江">浙江</option>
+                        <option value="山东">山东</option>
+                        <option value="广东">广东</option>
+                        <option value="安徽">安徽</option>
+  						<option value="河北">河北</option>
+  						<option value="河南">河南</option>
+						<option value="陕西">陕西</option>
+  						<option value="湖南">湖南</option>
+                        <option value="湖北">湖北</option>
+                        <option value="山西">山西</option>
+  						<option value="江西">江西</option>
+  						<option value="广西">广西</option>
+                        <option value="贵州">贵州</option>
+                        <option value="甘肃">甘肃</option>
+                        <option value="青海">青海</option>
+                        <option value="西藏">西藏</option>
+  						<option value="四川">四川</option>
+                        <option value="福建">福建</option>
+						<option value="云南">云南</option>
+                        <option value="宁夏">宁夏</option>
+  						<option value="内蒙古">内蒙古</option>
+  						<option value="新疆">新疆</option>
+                        <option value="辽宁">辽宁</option>
+                        <option value="吉林">吉林</option>
+                        <option value="黑龙江">黑龙江</option>	
+                        <option value="海南">海南</option>
+					</select>
+				</ul>
+				
+			</div>
+   		</div>
+        
+        <div></div>
+        <div class="input-append">
+   			<span class="span_title">所属城市</span>
+			<div class="btn-group">
+				<input type="text" data-toggle="dropdown" name="city" id="city" AUTOCOMPLETE="off">
+				
+				<ul class="dropdown-menu" style="padding:0px;">
+					<select name="selectcity" id="selectCity" multiple="multiple" onChange="ShowToTextCity()" AUTOCOMPLETE="off">
+					</select>
+				</ul>
+				
+			</div>
+   		</div>
+        
+        <div></div>
+		
+		<div></div>
+        
+        
+        
+		<div class="input-append">
+   			<span class="span_title">政策类别</span>
+			<div class="btn-group">
+				<input type="text" data-toggle="dropdown"  name="policyCategoryTxt" id="policyCategoryTxt" AUTOCOMPLETE="off" >
+				
+				<ul class="dropdown-menu" style=" padding:0px;" onChange="document.form1.get.value=this.options[this.selectedIndex].value">
+					<select multiple="multiple" name="policyCategory" id="policyCategory" onChange="ShowToText2()" AUTOCOMPLETE="off">
+  						<option value="1">法律体系</option>
+  						<option value="2">产业政策</option>
+  						<option value="3">规划</option>
+  						<option value="4">准入</option>
+  						<option value="5">投资</option>
+						<option value="6">研发</option>
+  						<option value="7">生产</option>
+  						<option value="8">财税</option>
+  						<option value="9">金融</option>
+  						<option value="10">保险</option>
+						<option value="11">新能源</option>
+  						<option value="12">环保</option>
+  						<option value="13">安全</option>
+  						<option value="14">进出口</option>
+  						<option value="15">反垄断</option>
+						<option value="16">销售</option>
+  						<option value="17">二手车</option>
+  						<option value="18">后市场</option>
+  						<option value="19">汽车服务业</option>
+  						<option value="20">用车服务</option>
+						<option value="21">回收利用</option>
+  						<option value="22">采购管理</option>
+  						<option value="23">检测</option>
+  						<option value="24">注册登记</option>
+  						<option value="25">综合管理</option>
+						<option value="26">其他</option>
+					</select>
+				</ul>
+   			</div>
+		</div>
+		
+		
+				<div></div>
+		<!--<div class="input-append">
+   			<span class="span_title">生效日期</span>
+			<div class="btn-group">
+          		<input type="text" data-toggle="dropdown" name="startDate" id="startDate" AUTOCOMPLETE="off"> 
+        			<ul class="dropdown-menu" style="padding:0px; width:50%;">
+            			<div class="uiCalendarComponent uiBox" id="BlockCalendar" style="margin:0px; padding:0px; width:100%;">
+        					<div style="cursor: default" onmousedown="event.cancelBubble = true" id="cc">
+            					<h5 class="title clearfix">
+                					<span id="dateYM">January, 2015</span>
+								</h5>
+            						<table class="weekList">
+                						<tbody>
+                    						<tr>
+                        						<td><font color="red">S</font></td>
+                        						<td>M</td>
+                        						<td>T</td>
+                        						<td>W</td>
+                        						<td>T</td>
+                        						<td>F</td>
+                        						<td>S</td>
+                    						</tr>
+                						</tbody>
+            						</table>
+            						<hr>
+            						<table cellspacing="0" cellpadding="0" class="weekDays" id="">
+                						<tbody>
+                    						<tr>
+												<td><a onclick="ShowCalendar(28)" class="otherMonth">28</a></td>
+                        						<td><a onclick="ShowCalendar(29)" class="otherMonth">29</a></td>
+                        						<td><a onclick="ShowCalendar(30)" class="otherMonth">30</a></td>
+                        						<td><a onclick="ShowCalendar(31)" class="otherMonth">31</a></td>
+                        						<td><a onclick="ShowCalendar(1)" class="">1</a></td>
+                        						<td><a onclick="ShowCalendar(2)" class="">2</a></td>
+                        						<td><a onclick="ShowCalendar(3)" class="">3</a></td>
+                    						</tr>
+                    						<tr>
+												<td><a onclick="ShowCalendar(4)" class="">4</a></td>
+                        						<td><a onclick="ShowCalendar(5)" class="">5</a></td>
+                        						<td><a onclick="ShowCalendar(6)" class="">6</a></td>
+                        						<td><a onclick="ShowCalendar(7)" class="">7</a></td>
+                        						<td><a onclick="ShowCalendar(8)" class="">8</a></td>
+                        						<td><a onclick="ShowCalendar(9)" class="">9</a></td>
+                        						<td><a onclick="ShowCalendar(10)" class="">10</a></td>
+                    						</tr>
+                    						<tr class="currentWeek">
+												<td><a onclick="ShowCalendar(11)" class="">11</a></td>
+												<td><a onclick="ShowCalendar(12)" class="">12</a></td>
+												<td><a onclick="ShowCalendar(13)" class="">13</a></td>
+												<td><a onclick="ShowCalendar(14)" class="">14</a></td>
+												<td><a onclick="ShowCalendar(15)" class="">15</a></td>
+												<td><a onclick="ShowCalendar(16)"class="highLight today">16</a></td>
+												<td><a onclick="ShowCalendar(17)" class="">17</a></td>
+											</tr>
+                    <tr><td><a onclick="ShowCalendar(18)" class="">18</a></td>
+                        <td><a onclick="ShowCalendar(19)" class="">19</a></td>
+                        <td><a onclick="ShowCalendar(20)" class="">20</a></td>
+                        <td><a onclick="ShowCalendar(21)" class="">21</a></td>
+                        <td><a onclick="ShowCalendar(22)" class="">22</a></td>
+                        <td><a onclick="ShowCalendar(23)" class="">23</a></td>
+                        <td><a onclick="ShowCalendar(24)" class="">24</a></td>
+                    </tr>
+                    <tr><td><a onclick="ShowCalendar(25)" class="">25</a></td>
+                        <td><a onclick="ShowCalendar(26)" class="">26</a></td>
+                        <td><a onclick="ShowCalendar(27)" class="">27</a></td>
+                        <td><a onclick="ShowCalendar(28)" class="">28</a></td>
+                        <td><a onclick="ShowCalendar(29)" class="">29</a></td>
+                        <td><a onclick="ShowCalendar(30)" class="">30</a></td>
+                        <td><a onclick="ShowCalendar(31)" class="">31</a></td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+            							<div class="calendarTimeInput">
+                							<span>
+                    							<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setHour(this)" value="16" maxlength="2" class="InputTime">:<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setMinus(this)" value="40" maxlength="2" class="InputTime">
+                							</span>            							</div>
+        							</div>
+    							</div>
+        					</ul>
+    		</div>
+   		</div>
+		
+		
+		<div></div>-->
+		<!--<div class="input-append">
+   			<span class="span_title">实施日期</span>
+			<div class="btn-group">
+          		<input type="text" data-toggle="dropdown" name="activeDate" id="activeDate" AUTOCOMPLETE="off"> 
+        			<ul class="dropdown-menu" style="padding:0px; width:50%;">
+            			<div class="uiCalendarComponent uiBox" id="BlockCalendar" style="margin:0px; padding:0px; width:100%;">
+        					<div style="cursor: default" onmousedown="event.cancelBubble = true" id="cc2">
+            					<h5 class="title clearfix">
+                                   <a data-original-title="Previous Month" class="actionIcon pull-left" onclick="" rel="tooltip" data-placement="right">
+                <i class="uiIconMiniArrowLeft uiIconLightGray"></i>
+            </a>
+                					<span>January, 2015</span>
+								</h5>
+            						<table class="weekList">
+                						<tbody>
+                    						<tr>
+                        						<td><font color="red">S</font></td>
+                        						<td>M</td>
+                        						<td>T</td>
+                        						<td>W</td>
+                        						<td>T</td>
+                        						<td>F</td>
+                        						<td>S</td>
+                    						</tr>
+                						</tbody>
+            						</table>
+            						<hr>
+            						<table cellspacing="0" cellpadding="0" class="weekDays" id="">
+                						<tbody>
+                    						<tr>
+												<td><a onclick="" class="otherMonth" href="">28</a></td>
+                        						<td><a onclick="" class="otherMonth" href="">29</a></td>
+                        						<td><a onclick="" class="otherMonth" href="">30</a></td>
+                        						<td><a onclick="" class="otherMonth" href="">31</a></td>
+                        						<td><a onclick="" href="" class="">1</a></td>
+                        						<td><a onclick="" href="" class="">2</a></td>
+                        						<td><a onclick="" href="" class="">3</a></td>
+                    						</tr>
+                    						<tr>
+												<td><a onclick="" href="" class="">4</a></td>
+                        						<td><a onclick="" href="" class="">5</a></td>
+                        						<td><a onclick="" href="" class="">6</a></td>
+                        						<td><a onclick="" href="" class="">7</a></td>
+                        						<td><a onclick="" href="" class="">8</a></td>
+                        						<td><a onclick="" href="" class="">9</a></td>
+                        						<td><a onclick="" href="" class="">10</a></td>
+                    						</tr>
+                    						<tr class="currentWeek">
+												<td><a onclick="" href="" class="">11</a></td>
+												<td><a onclick="" href="" class="">12</a></td>
+												<td><a onclick="" href="" class="">13</a></td>
+												<td><a onclick="" href="" class="">14</a></td>
+												<td><a onclick="" href="" class="">15</a></td>
+												<td><a onclick="" href="" class="highLight today">16</a></td>
+												<td><a onclick="" href="" class="">17</a></td>
+											</tr>
+                    <tr><td><a onclick="" href="" class="">18</a></td>
+                        <td><a onclick="" href="" class="">19</a></td>
+                        <td><a onclick="eXo.webui.UICalendar.setDate(2015,1,20)" href="" class="">20</a></td>
+                        <td><a onclick="" href="" class="">21</a></td>
+                        <td><a onclick="" href="" class="">22</a></td>
+                        <td><a onclick="" href="" class="">23</a></td>
+                        <td><a onclick="" href="" class="">24</a></td>
+                    </tr>
+                    <tr><td><a onclick="" href="" class="">25</a></td>
+                        <td><a onclick="" href="" class="">26</a></td>
+                        <td><a onclick="" href="" class="">27</a></td>
+                        <td><a onclick="" href="" class="">28</a></td>
+                        <td><a onclick="" href="" class="">29</a></td>
+                        <td><a onclick="" href="" class="">30</a></td>
+                        <td><a onclick="" href="" class="">31</a></td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+            							<div class="calendarTimeInput">
+                							<span>
+                    							<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setHour(this)" value="16" maxlength="2" class="InputTime">:<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setMinus(this)" value="40" maxlength="2" class="InputTime">
+                							</span>            							</div>
+        							</div>
+    							</div>
+        					</ul>
+    		</div>
+   		</div>
+		
+		
+		<div></div>-->
+		<!--<div class="input-append">
+   			<span class="span_title">失效日期</span>
+			<div class="btn-group" style="padding:0; margin-bottom:3px;">
+          		<input type="text" data-toggle="dropdown" name="endDate" id="endDate" AUTOCOMPLETE="off"> 
+        			<ul class="dropdown-menu" style="padding:0px; width:50%;">
+            			<div class="uiCalendarComponent uiBox" id="BlockCalendar" style="margin:0px; padding:0px; width:100%;">
+        					<div style="cursor: default" onmousedown="event.cancelBubble = true" id="cc3">
+            					<h5 class="title clearfix">
+                					<span>January, 2015</span>
+                                    <a data-original-title="Next Month" class="actionIcon pull-right" onclick="" rel="tooltip" data-placement="right">
+                                    	<i class="uiIconMiniArrowRight uiIconLightGray"></i>
+                                    </a>
+								</h5>
+            						<table class="weekList">
+                						<tbody>
+                    						<tr>
+                        						<td><font color="red">S</font></td>
+                        						<td>M</td>
+                        						<td>T</td>
+                        						<td>W</td>
+                        						<td>T</td>
+                        						<td>F</td>
+                        						<td>S</td>
+                    						</tr>
+                						</tbody>
+            						</table>
+            						<hr>
+            						<table cellspacing="0" cellpadding="0" class="weekDays" id="">
+                						<tbody>
+                    						<tr>
+												<td><a onclick="" class="otherMonth" href="">28</a></td>
+                        						<td><a onclick="" class="otherMonth" href="">29</a></td>
+                        						<td><a onclick="" class="otherMonth" href="">30</a></td>
+                        						<td><a onclick="" class="otherMonth" href="">31</a></td>
+                        						<td><a onclick="" href="" class="">1</a></td>
+                        						<td><a onclick="" href="" class="">2</a></td>
+                        						<td><a onclick="" href="" class="">3</a></td>
+                    						</tr>
+                    						<tr>
+												<td><a onclick="" href="" class="">4</a></td>
+                        						<td><a onclick="" href="" class="">5</a></td>
+                        						<td><a onclick="" href="" class="">6</a></td>
+                        						<td><a onclick="" href="" class="">7</a></td>
+                        						<td><a onclick="" href="" class="">8</a></td>
+                        						<td><a onclick="" href="" class="">9</a></td>
+                        						<td><a onclick="" href="" class="">10</a></td>
+                    						</tr>
+                    						<tr class="currentWeek">
+												<td><a onclick="" href="" class="">11</a></td>
+												<td><a onclick="" href="" class="">12</a></td>
+												<td><a onclick="" href="" class="">13</a></td>
+												<td><a onclick="" href="" class="">14</a></td>
+												<td><a onclick="" href="" class="">15</a></td>
+												<td><a onclick="" href="" class="highLight today">16</a></td>
+												<td><a onclick="" href="" class="">17</a></td>
+											</tr>
+                    <tr><td><a onclick="" href="" class="">18</a></td>
+                        <td><a onclick="" href="" class="">19</a></td>
+                        <td><a onclick="eXo.webui.UICalendar.setDate(2015,1,20)" href="" class="">20</a></td>
+                        <td><a onclick="" href="" class="">21</a></td>
+                        <td><a onclick="" href="" class="">22</a></td>
+                        <td><a onclick="" href="" class="">23</a></td>
+                        <td><a onclick="" href="" class="">24</a></td>
+                    </tr>
+                    <tr><td><a onclick="" href="" class="">25</a></td>
+                        <td><a onclick="" href="" class="">26</a></td>
+                        <td><a onclick="" href="" class="">27</a></td>
+                        <td><a onclick="" href="" class="">28</a></td>
+                        <td><a onclick="" href="" class="">29</a></td>
+                        <td><a onclick="" href="" class="">30</a></td>
+                        <td><a onclick="" href="" class="">31</a></td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+            							<div class="calendarTimeInput">
+                							<span>
+                    							<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setHour(this)" value="16" maxlength="2" class="InputTime">:<input type="text" onblur="this.parentNode.className=''" onfocus="this.parentNode.className='focus'" onkeyup="eXo.webui.UICalendar.setMinus(this)" value="40" maxlength="2" class="InputTime">
+                							</span>            							</div>
+        							</div>
+    							</div>
+        					</ul>
+    		</div>
+   		</div>
+		
+		
+		<div></div>-->
+		<div class="input-append">
+   			<span class="span_title">标签&nbsp;&nbsp;</span>
+			
+			<div class="btn-group" style="padding:0; margin-bottom:3px;">
+				<input type="text" data-toggle="dropdown"  id="tag" name="tag" AUTOCOMPLETE="off">
+				<!--
+                <ul class="dropdown-menu" style=" padding:0px;">
+					<select multiple="multiple" id="selectTag" name="selectTag" onChange="ShowToTextTag()">
+  						<option value="标签1">标签1</option>
+  						<option value="标签2">标签2</option>
+  						<option value="标签3">标签3</option>
+						<option value="标签4">标签4</option>
+  						<option value="标签5">标签5</option>
+  						<option value="标签6">标签6</option>
+					</select>
+				</ul>
+                -->
+			</div>
+   		</div>
+		
+		
+		<div></div>
+				<div id="myModal" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" style="width: 420px; position: relative; display: none;" exo:minheight="200" exo:minwidth="200" class="UIPopupWindow uiPopup UIDragObject NormalStyle modal hide fade">
+					<div class="popupHeader ClearFix">
+						<a onclick="" title="Close Window" class="uiIconClose pull-right">
+							<div class="ClosePopup" style="width: 16px; height: 16px;" data-dismiss="modal"><span></span></div>
+						</a>
+						<span class="PopupTitle popupTitle">Attach File</span>					</div>
+<div class="PopupContent popupContent">
+						<div id="AttachFileForm" class="AttachFileForm">
+							<span id="UIPopupActionChildPopupAction" class="UIPopupActionChildPopupAction UIKSPopupAction"></span>
+							<div class="uiFormForum uiAttachFileForm">
+								<form method="post" enctype="multipart/form-data" action="/portal/intranet/forum?portal:componentId=c4775064-7711-4230-b877-5078c5b5212d&amp;interactionstate=JBPNS_rO0ABXcsAAt1aWNvbXBvbmVudAAAAAEAEFVJQXR0YWNoRmlsZUZvcm0AB19fRU9GX18*&amp;portal:type=action" id="UIAttachFileForm" class="UIForm">
+									<div>
+										<input value="" name="formOp" type="hidden">
+										<input value="AA17AB94C0A8012B35D8BBCC4C81958F" name="gtn:csrf" type="hidden">
+									</div>
+									<div class="resizable">
+										<div class="form-horizontal">
+											<div class="control-group">
+												<div class="controlUpload controls-full">
+													<div class="uiUploadInput" id="upload">
+
+														<div style="" class="uploadContainer" id="uploadContainer1526481975-0">
+															<div style="" class="selectFileFrame clearfix">
+																<div class="fileNameLabel" style="float: left;">exo-tomcat-platform-4.1.x</div>
+																<div class="removeFile pull-right" style="float: right;">
+																	<a data-placement="bottom" rel="tooltip" class="actionIcon" href="#" data-original-title="Delete">
+																		<i class="uiIconDelete uiIconLightGray"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+														<div style="" class="uploadContainer" id="uploadContainer1526481975-0">
+															<div style="" class="selectFileFrame clearfix">
+																<div class="fileNameLabel" style="float: left;">exo-image-ECMS-style4.1.x</div>
+																<div class="removeFile pull-right" style="float: right;">
+																	<a data-placement="bottom" rel="tooltip" class="actionIcon" href="#" data-original-title="Delete">
+																		<i class="uiIconDelete uiIconLightGray"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+														<div style="" class="uploadContainer" id="uploadContainer1526481975-0">
+															<div style="" class="progressBarFrame clearfix">
+																<span class="deleteFileLabel pull-right">
+										<a data-placement="bottom" rel="tooltip" class="actionIcon" href="#" data-original-title="Cancel">
+											<i class="uiIconRemove uiIconLightGray"></i>
+										</a>
+									</span>
+																<div class="fileNameLabel pull-left">exo-image-Forum-style...</div>
+																<div class="pull-left percent">50%</div>
+																<div class="progress  progress-striped">
+																	<div style="width:50%" class="bar"></div>
+																</div>
+															</div>
+														</div>
+														<div style="" class="uploadContainer" id="uploadContainer430359469-0">
+															<div class="uploadButton">
+																<label class="btn">Select File</label>
+																<label style="display:none" class="noFile">No file selected</label>
+																<label style="" class="moreFiles">Select more files</label>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="uiAction uiActionBorder">
+										<button type="button" class="btn" data-dismiss="modal">Save</button>
+										<button type="button" class="btn" data-dismiss="modal">Cancel</button>
+									</div>
+							</div>
+						</div>
+					</div>
+					<span class="uiIconResize pull-right uiIconLightGray"></span>
+				</div>
+		
+		<div></div>
+		<!--
+		<div class="input-append">
+   			<span class="span_title">创建人员</span>
+			<input type="text" readonly="readonly" id="author" name="author" value="admin">
+   		</div>
+		
+		<div></div>
+		
+		<div class="input-append">
+   			<span class="span_title">所属部门</span>
+			<input type="text" readonly="readonly" id="dept" name="dept" value="部门1">
+   		</div>
+		
+		<div></div>
+		
+		<div class="input-append">
+   			<span class="span_title">创建日期</span>
+			<input type="text" readonly="readonly" id="createDate" name="createDate" value="">
+   		</div>
+		
+		
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">权限设置</span>
+			<select style="height:38px;" id="permType" name="permType">
+  				<option value="1">政策正文</option>
+  				<option value="2">政策解读</option>
+			</select>
+			
+			
+			<select id="perm" name="perm" multiple="multiple" style="margin-left:3%; height:auto;">
+  				<option value="1">可见</option>
+  				<option value="2">预览文件</option>
+  				<option value="3">打印文件</option>
+  				<option value="4">下载文件</option>
+				<option value="5">修改文件</option>
+  				<option value="6">删除文件</option>
+  				<option value="7">发布文件</option>
+  				<option value="8">转发文件</option>
+				<option value="9">完全控制文件</option>
+			</select>
+			<input type="hidden" value="0" id="policyPerm" name="policyPerm">
+            <input type="hidden" value="0" id="InterpretationPerm" name="InterpretationPerm">
+   		</div>
+		
+		
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">加密级别</span>
+			<select style="height:38px;" id="EncrpLevelType" name="EncrpLevelType">
+  				<option value="1">政策正文</option>
+  				<option value="2">政策解读</option>
+			</select>
+			
+			<select style="margin-left:3%; height:auto" id="EncrpLevel" name="EncrpLevel"> 
+  				<option value="1">1级</option>
+  				<option value="2">2级</option>
+  				<option value="3">3级</option>
+  				<option value="4">4级</option>
+			</select>
+            <input type="hidden" value="0" id="policyEncrpLevel" name="policyEncrpLevel">
+            <input type="hidden" value="0" id="InterpretationEncrpLevel" name="InterpretationEncrpLevel">
+   		</div>-->
+		<!--
+					<div id="dropbox">
+           			<span class="message">请将EXCEL文件拖到这里</span>
+            	  </div>-->
+		
+	<div class="input-append">
+   			<span class="span_title">政策原文</span>
+			
+			<textarea rows="5" id="policyTxt" name="policyTxt" AUTOCOMPLETE="off"></textarea>
+			
+			<div></div>
+			
+			<!--
+			<a style="width:8%;  margin-left:25%; float:left;" class="btn btn-primary btn-large" href="#myModal" data-toggle="modal">上传文件</a>-->
+			
+			<div style="width:8%;  margin-left:25%; float:left; font-size:18px; line-height:26px; margin-right:20px;">上传文件</div>
+			
+			
+				<!--<input type="file"  id="fileselect" name="fileselect[]" multiple="multiple" />-->
+			
+			
+				<div style="clear:left;"></div>
+				
+				<div style="font-size:18px; margin-left:25%; width:70%; margin-top:30px;">
+					<!--
+					<form id="upload" action="index.html" method="POST" enctype="multipart/form-data">
+					-->
+						<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="20000000" />
+						<!--<div>
+							
+							<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+							
+							<div id="filedrag" style=" width:100%; height:80px; line-height:80px; text-align:center; border:1px solid  #CCCCCC; margin-bottom:30px;">或者拖动文件到这里</div>
+							<div id="submitbutton">
+							<button type="submit">上传文件</button>
+						</div>
+						</div>-->
+						<div style="padding-bottom:15px">
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="添加文件" id="fileselect"  onClick="file_add()"/>
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="删除文件" id="fileselect2"  onClick="file_delete()"/>
+                                <!--<div id="filedrag">或者拖动文件到这里</div>-->
+                        </div>
+						
+					<!--
+					</form>
+					-->
+					
+					<div id="messages" style="width:100%; min-height:80px; border:1px solid  #CCCCCC; margin-bottom:30px; padding-top:20px; padding-bottom:30px;">
+						<p>上传文件列表</p>
+					</div>
+				</div>	
+			
+			
+			
+   		</div>
+		<div></div>
+		<div class="input-append">
+   			<span class="span_title">政策解读</span>
+			
+			<textarea rows="5" id="InterpretationTxt" name="InterpretationTxt" AUTOCOMPLETE="off"></textarea>
+			
+			<div></div>
+			<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="2000000" />
+			<!--
+			<a style="width:8%;  margin-left:25%; float:left;" class="btn btn-primary btn-large" href="#myModal" data-toggle="modal">上传文件</a>
+			-->
+			<div style="width:8%;  margin-left:25%; float:left; font-size:18px; line-height:26px; margin-right:20px;">上传文件</div>
+			
+			
+				
+			
+			
+				<div style="clear:left;"></div>
+				
+				<div style="font-size:18px; margin-left:25%; width:70%; margin-top:30px;">
+					<!--
+					<form id="upload2" action="index.html" method="POST" enctype="multipart/form-data">
+                    <input type="file"  id="fileselect2" name="fileselect2[]" multiple="multiple" />
+					-->
+					
+						
+							<!--<div>
+							<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" /><div id="submitbutton2">
+							<button type="submit">上传文件</button>
+						</div>
+							-->
+							<div style="padding-bottom:15px">
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="添加文件" id="fileselect1"  onClick="file_add2()"/>
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="删除文件" id="fileselect2"  onClick="file_delete2()"/>
+                                <!--<div id="filedrag">或者拖动文件到这里</div>-->
+                        </div>
+						
+					<!--
+					</form>
+					-->
+					
+					<div id="messages2" style="width:100%; min-height:80px; border:1px solid  #CCCCCC; margin-bottom:30px; padding-top:20px; padding-bottom:20px;">
+						<p>上传文件列表</p>
+					</div>
+				</div>	
+   		</div>
+		
+		
+		
+		<div class="input-append" style="width:95%;">
+   			<button type="button" class="btn btn-block btn-primary" style="width:10%; float:right;" onClick="notes_add_touch()">提交</button>
+   		</div>
+        <input type="hidden" id="author" name="author" value="admin">
+        <input type="hidden" id="dept" name="dept" value="部门1">
+        <input type="hidden" id="createDate" name="createDate" value="">
+
+        </form>
+       </div>
+    </div>
+	
+	
+	
+	
