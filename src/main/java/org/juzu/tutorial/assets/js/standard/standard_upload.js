@@ -41,9 +41,12 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 		
 		$("#dijiao").click(function(){
 
+			//validate form data before sending it to server
+			validateForm();
 			$("#form1").submit();
 		});
 		
+		//uploading data 
 		$("#form1").submit(function(e) {
 				 
 				    var formObj = $(this);
@@ -61,6 +64,9 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 				    success: function(data, textStatus, jqXHR)
 				    {
 				       console.log("post success: " + data);
+				       //handle data here:
+				       handle(data);
+				       
 				    },
 				     error: function(jqXHR, textStatus, errorThrown) 
 				     {
@@ -69,8 +75,14 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 				    });
 				   // console.log("type of e: " + type(e));
 				    e.preventDefault(); //Prevent Default action. 
-				    e.unbind();
+				   // e.unbind();
 		}); 
+		
+		function handle(data){
+			//data: json data from server: standard
+			//refresh the upload page here
+			
+		}
 				
 		
 		function loadFiles(){
@@ -101,14 +113,8 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 		}
 		
 		document.getElementById("createDate").value = getNowFormatDate();
-		//alert(get_url_base());
-		var path =get_url_base()+"/xml/add_standard_notes_xml.php";
-		alert(path);
-		var notes_add=create_one_add(path);
-		//alert("1234567");
-		notes_add.form="form1";
-		//alert(news_add.form);
-		notes_add.check_fn=function()
+		
+		function validateForm()
 		{
 			//alert("aaaaaaaaaa");
 			if($("#form1").find("input[name='standardName']").val()=="".trim())
@@ -119,6 +125,7 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 			if($("#form1").find("input[name='tag']").val()=="".trim())
 			{
 				alert("请输入标签");
+				return false;
 			}
 			
 			return true;	
