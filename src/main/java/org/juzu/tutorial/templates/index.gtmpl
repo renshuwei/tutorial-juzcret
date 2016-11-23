@@ -1,7 +1,8 @@
 
-<div class="container">
+	
+	<div class="container">
 		<div class="container_center">
-			<div>
+			<div style="margin-top:-40px;">
 				<!--
 				<button style="width:10%; height:30px; background:#FFFFFF; text-align:center; float:right; line-height:28px; color:#2f5e92; font-weight:600;" onclick="user_register()">我的空间</button>
 				-->
@@ -16,56 +17,72 @@
 			
 			</div>
 			
-			<div style="clear:right;"></div>
+			<div style="clear:right; "></div>
 			
 			<h1 style="width:48%; color:#FFFFFF; margin-left:auto; margin-right:auto; text-align:center; font-size:28px; border:1px #FFFFFF solid; margin-bottom:100px; margin-top:40px;">请选择您要检索的数据库</h1>
 			
-			
-			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('index1.html')">
-				
-				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="@{Controller.interpret()}">政策与解读</a></h3>
-				
-				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
-					<a href="index1.html?new=1" >最新政策和解读</a>
-				</div>
-				
-			</div>
-			
-			
-			
-			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-left:8%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('map.html')">
-				
-				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="map.html">地方政策详解</a></h3>
-				
-				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
-					<a href="map.html?new=1">最新分类</a>
-				</div>
-			
-			</div>
-			
-			
-			
-			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-left:8%;" onmouseover="move_in(this)"  onmouseout="move_out(this)">
-				
-				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="">车型及产销</a></h3>
-				
-				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
-					<a href="">最新车型及产销</a>
-				</div>
-			
-			</div>
-			
-			<div style="clear:left;"></div>
-			
-			
-			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-top:80px; margin-left:16%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('index3.html')">
+            <div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-left:300px;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('standards.html')">
 				
 				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="@{NationalStandardController.standard()}">国家标准</a></h3>
 				
 				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
-					<a href="index3.html?new=1" >最新标准</a>
+					<a href="new_standards.html">最新国家标准</a>
+				</div>
+			
+			</div>
+			<!--
+			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;margin-left:4%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('car_info.html')">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="car_info.html">车型及产销</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="#">最新车型及产销</a>
 				</div>
 			</div>
+				-->		
+			<!--
+			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-left:8%;" onmouseover="move_in(this)"  onmouseout="move_out(this)">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="car_info.html">车型及产销</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="#">最新车型及产销</a>
+				</div>
+			
+			</div>-->
+			
+			<div style="clear:left;"></div>
+			
+			
+<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;margin-top:4%;margin-left:20%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('interpretation.html')">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="@{Controller.interpretation()}">政策与解读</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="@{Controller.new_interpretation()}" >最新政策与解读</a>
+				</div>
+			</div>
+			
+			<div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-top:4%; margin-left:4%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('map.html')">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="@{LocalPolicyController.map()}">地方政策详解</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="@{LocalPolicyController.new_local()}" >最新地方政策</a>
+				</div>
+			</div>
+			<div style="padding-bottom:110px">&nbsp;</div>
+            <!--
+            <div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px; margin-top:80px; margin-left:16%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('projects.html')">
+				
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="projects.html">项目</a></h3>
+				
+				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
+					<a href="new_projects.html" >最新项目</a>
+				</div>
+			</div>-->
+			
+			
 			
 			
 		</div>

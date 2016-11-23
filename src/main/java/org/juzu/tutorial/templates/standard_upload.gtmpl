@@ -1,26 +1,24 @@
-
-	
-	<div class="container">
+<div class="container">
 		
 		<div class="container_center">
 		
-		<h1  style="text-align:center;">标准上传页面</h1>
+		<h1  style="text-align:center;">国家标准上传</h1>
 		
 		
 		<div class="input-append" style="width:95%;">
-   			<button type="button"  onclick="window.location.href='@{NationalStandardController.back()}'" class="btn btn-block btn-primary" style="width:10%; float:right;">返回</button>
+   			<button type="button"  onclick="window.location.href='@{NationalStandardController.standard()}'" class="btn btn-block btn-primary" style="width:10%; float:right;">返回</button>
    		</div>
 		 
 		<form id="form1" action="@{NationalStandardController.upload()}" method="post" name="f1" enctype="multipart/form-data">
 		<div class="input-append">
    			<span class="span_title">标准名称</span>
-			<input type="text" id="standardName" name="standardName">
+			<input type="text" id="standardName" name="standardName" AUTOCOMPLETE="off">
    		</div>
 		
 		<div></div>
 		<div class="input-append">
    			<span class="span_title">标准编号</span>
-			<input type="text"  id="standardNum" name="standardNum">
+			<input type="text"  id="standardNum" name="standardNum" AUTOCOMPLETE="off" >
    		</div>
 		
 		
@@ -28,10 +26,10 @@
 		<div class="input-append">
    			<span class="span_title">标准类型</span>
 			<div class="btn-group">
-				<input type="text" data-toggle="dropdown" id="standardTypeTxt" name="standardTypeTxt">
+				<input type="text" data-toggle="dropdown" id="standardTypeTxt" name="standardTypeTxt" AUTOCOMPLETE="off">
 				
 				<ul class="dropdown-menu" style="padding:0px;">
-					<select multiple="multiple" id="standardType" name="standardType"">
+					<select multiple="multiple" id="standardType" name="standardType" onchange="ShowToText()" AUTOCOMPLETE="off">
   						<option value="1">安全</option>
   						<option value="2">车身及悬架</option>
   						<option value="3">车轮</option>
@@ -62,9 +60,10 @@
    			<span class="span_title">标签&nbsp;&nbsp;</span>
 			
 			<div class="btn-group">
-				<input type="text" data-toggle="dropdown" id="tag" name="tag">
-				<ul class="dropdown-menu" style=" padding:0px;">
-					<select multiple="multiple"  id="selectTag" name="selectTag">
+				<input type="text" data-toggle="dropdown" id="tag" name="selectTag" AUTOCOMPLETE="off">
+				<!--
+                <ul class="dropdown-menu" style=" padding:0px;">
+					<select multiple="multiple"  id="selectTag" name="selectTag" onChange="ShowToTextTag()">
   						<option value="标签1">标签1</option>
   						<option value="标签2">标签2</option>
   						<option value="标签3">标签3</option>
@@ -72,7 +71,7 @@
   						<option value="标签5">标签5</option>
   						<option value="标签6">标签6</option>
 					</select>
-				</ul>
+				</ul>-->
 			</div>
    		</div>
 		
@@ -164,6 +163,7 @@
 		
 		<div></div>
 		-->
+        <!--
 		<div class="input-append">
    			<span class="span_title">创建人员</span>
 			<input type="text" readonly="readonly" id="author" name="author" value="admin">
@@ -174,7 +174,7 @@
    			<span class="span_title">所属部门</span>
 			<input type="text" readonly="readonly" id="department" name="department" value="部门1">
    		</div>
-		<!--dept-->
+		
 		<div></div>
 		<div class="input-append">
    			<span class="span_title">创建日期</span>
@@ -214,30 +214,43 @@
    		</div>
 		
 		
-		<div></div>
+		<div></div>-->
 		<div class="input-append">
    			<span class="span_title">标准原文</span>	
-				<textarea rows="5" name="text" id="text"></textarea>
+				<textarea rows="5" name="text" id="text" AUTOCOMPLETE="off"></textarea>
 			<div></div>
 			
 			<div style="width:8%;  margin-left:25%; float:left; font-size:18px; line-height:26px; margin-right:20px;">上传文件</div>
 			
 			
-				
+				<!--<input type="file"  id="fileselect" name="fileselect[]" multiple="multiple" />-->
+			
 			
 				<div style="clear:left;"></div>
 				
 				<div style="font-size:18px; margin-left:25%; width:70%; margin-top:30px;">
-					
+					<!--
+					<form id="upload" action="index.html" method="POST" enctype="multipart/form-data">
+					-->
 						<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="20000000" />
-						
+						<!--<div>
+							
+							<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+							
+							<div id="filedrag" style=" width:100%; height:80px; line-height:80px; text-align:center; border:1px solid  #CCCCCC; margin-bottom:30px;">或者拖动文件到这里</div>
+							<div id="submitbutton">
+							<button type="submit">上传文件</button>
+						</div>
+						</div>-->
 						<div style="padding-bottom:15px">
-                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="添加文件" id="fileselect"  onClick=""/>
-                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="删除文件" id="fileselect2"  onClick=""/>
-                                
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="添加文件" id="fileselect"/>
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="删除文件" id="fileselect2"/>
+                                <!--<div id="filedrag">或者拖动文件到这里</div>-->
                         </div>
 						
-					
+					<!--
+					</form>
+					-->
 					
 					<div id="messages" style="width:100%; min-height:80px; border:1px solid  #CCCCCC; margin-bottom:30px; padding-top:20px; padding-bottom:30px;">
 						<p>上传文件列表</p>
@@ -249,12 +262,15 @@
    		</div>
 		<div></div>
 		
-		
+		<input type="hidden" id="author" name="author" value="admin">
+        <input type="hidden" id="department" name="department" value="部门1">
+        <input type="hidden" id="createDate" name="createDate" value="">
 		<div class="input-append" style="width:95%;">
+        	<!--notes_add_touch()-->
    			<button id="dijiao" type="button" class="btn btn-block btn-primary" style="width:10%; float:right;" >提交</button>
    		</div>
+        
 		</form>
 		</div>
 		
-	</div>	
-	
+	</div>

@@ -1,56 +1,184 @@
 
 	
 	<div class="container">
-	
-	<div class="container_left">
-		<div style="margin-left:2px;">
+		<h1  style="text-align:center; margin-bottom:5%;">国家标准</h1>
+		<div class="container_left">
+        <form id="form1" method="post" name="f1" enctype="multipart/form-data">
+			<div style="margin-left:2px;">
 			<div class="input-append" style=" width:100%;">
 				<div class="btn-group btn-large" style="padding:0; margin:0; width:15%;">
-        			<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width:100%">分类检索
-            			<span class="caret" style="margin-top:8px;"></span>
+                
+        			<button id="btn1" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width:100%"value="分类检索">
+        			分类检索<span class="caret" style="margin-top:8px;"></span>
         			</button>
         			<ul class="dropdown-menu">
-            			<li><a href="#">全部</a></li>
-            			<li><a href="#">本文</a></li>
-            			<li><a href="#">标题</a></li>
+            			<li><a href="javascript:void(0);" onclick="get_button_value('全部检索')">全部</a></li>
+            			<li><a href="javascript:void(0);" onclick="get_button_value('正文检索')">正文</a></li>
+            			<li><a href="javascript:void(0);" onclick="get_button_value('标题检索')">标题</a></li>
         			</ul>
     			</div>
 				
-				<input type="text" style=" width:70%;">
+				<input type="text" style="width:70%;" id="search_text" name="search_text" AUTOCOMPLETE="off"/>
 				
-				<button class="btn btn-primary dropdown-toggle" type="button" style=" width:15%;">搜索</button>
+				<button class="btn btn-primary dropdown-toggle" type="button" style=" width:15%;" onclick="get_search()">搜索</button>
 			
 			</div>
 		</div>
-		
+		<input type="hidden" name="class" id="class">
 		<div style="margin-left:120px;">
 		    <ul class="breadcrumb">
-        		<li class="active">领域</li>
+        		<li class="active">标准类型</li>
 				
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
-  						<span>智联网</span>
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="安全">
+  						<span>安全</span>
 					</span>
 				</li>
 				
         		<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
-  						<span>充电</span>
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="灯光">
+  						<span>灯光</span>
 					</span>
 				</li>
 				
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox">
-  						<span>基本术语</span>
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="车轮">
+  						<span>车轮</span>
 					</span>
 				</li>
-				
+                
+				<li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="材料">
+  						<span>材料</span>
+					</span>
+				</li>
+                
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="电动车轮">
+  						<span>电动车辆</span>
+					</span>
+				</li>
+                
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="燃气汽车">
+  						<span>燃气汽车</span>
+					</span>
+				</li>
+                
     		</ul>
-    		
-    		                    <ul class="breadcrumb" style="margin-top:10px; margin-bottom:10px;">
+    		<ul class="breadcrumb" style="margin-left:70px;">	
+				<li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="电器">
+  						<span>电器</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="排放">
+  						<span>排放</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="防盗">
+  						<span>防盗</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="节能">
+  						<span>节能</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="回收利用">
+  						<span>回收利用</span>
+					</span>
+				</li>
+                 <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="专用车">
+  						<span>专用车</span>
+					</span>
+				</li>
+            </ul>
+            <ul class="breadcrumb" style="margin-left:70px;">	
+				<li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox"  name="search_type" id="search_type" value="仪表">
+  						<span>仪表</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="制动">
+  						<span>制动</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="挂车">
+  						<span>挂车</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="客车">
+  						<span>客车</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="汽车电子与电磁兼容">
+  						<span>汽车电子与电磁兼容</span>
+					</span>
+				</li>
+                
+            </ul>
+            <ul class="breadcrumb" style="margin-left:70px;">
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="底盘">
+  						<span>底盘</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="液化石油气汽车">
+  						<span>液化石油气汽车</span>
+					</span>
+				</li>
+                
+                 <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="环保（不含排放）">
+  						<span>环保（不含排放）</span>
+					</span>
+				</li>
+                <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="车身及悬架">
+  						<span>车身及悬架</span>
+					</span>
+				</li>
+            </ul>
+             <ul class="breadcrumb" style="margin-left:70px;">
+                 <li>
+					<span class="uiCheckbox">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="其他">
+  						<span>其他</span>
+					</span>
+				</li>
+            </ul>
+    		                    <!--<ul class="breadcrumb" style="margin-top:10px; margin-bottom:10px;">
                     
                     	<li class="active">项目时间</li>
                         
@@ -209,10 +337,10 @@
     							</div>
         					</ul>
     					</div>
-						<span style="font-size:15px;padding-left:5px; padding-right:5px;">年</span>
+						<span style="font-size:15px;padding-left:5px; padding-right:5px;">年</span>-->
                         
                         
-                        <!---->
+                        <!--
                         <span style="font-size:15px;padding-left:5px; padding-right:5px; font-weight:bold; color:#999; font-size:15.5px; vertical-align:middle; padding-bottom:3px;">废止时间</span>
                         <div class="btn-group" style="padding:0; margin-bottom:3px;">
                             <input type="text" data-toggle="dropdown" class="input-mini" style="height:26px; width:50px;"> 
@@ -368,20 +496,20 @@
         					</ul>
     					</div>
 						<span style="font-size:15px;padding-left:5px; padding-right:5px;">年</span>    				</div>
-    		</ul>
-            
+    		</ul>-->
+          </form>
             <ul class="breadcrumb">
-            	<button class="btn btn-mini" type="button" style="padding:2px 10px;font-size:13px; float:right;">确定</button>
+            	<!--<button class="btn btn-mini" type="button" style="padding:2px 10px;font-size:13px; float:right;">确定</button>-->
 			</ul>
             
 		</div>
 		
-		
+		  
 		<div style=" clear:right;">
 		</div>
 		
-		<div style="float:right; font-size:13px; font-weight:bold; margin-top:10px;">
-			共有xxx条政策符合要求
+		<div style="float:right; font-size:13px; font-weight:bold; margin-top:10px;" id="total">
+			&nbsp;<!--共有xxx条政策符合要求-->
 		</div>
 		
 		<div style=" clear:right;">
@@ -396,125 +524,118 @@
         			<tr> 
         				<th width="240" style="background:#578DC9; color:#FFFFFF;">标准名称</th>
              			<th width="150" style="background:#578DC9; color:#FFFFFF;">标准号</th>
-                        <th width="80" style="background:#578DC9; color:#FFFFFF;">实施时间</th>
-                        <th width="80" style="background:#578DC9; color:#FFFFFF;">废止时间</th>
+                        <th width="160" style="background:#578DC9; color:#FFFFFF;">标签</th>
                  	</tr>
            		</thead>
-                                
-				<tbody>
-                	<tr>
+               
+                              
+				<tbody id="result_div"> 
+               
+                	 <!-- <tr>
                     	<td>
                         <div class="tooltips">
-                        <a href="NationalStandardController.content()">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
+                        <a href="standards_content.html">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
                         	<div class="tooltips1">
                         		<span class="top2">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>
                             </div>
                          </div>
                         </td>
                         <td>GB/T 27930—2011</td>
-                        <td>2011-12-22</td>
-                        <td>2012-3-1</td>
+                        <td>新能源汽车 重点专项 政策补贴</td>
                    	</tr>
 					
 					<tr>
                     	<td>
                         <div class="tooltips">
-                        <a href="NationalStandardController.content()">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
+                        <a href="standards_content.html">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
                         	<div class="tooltips1">
                         		<span class="top2">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>
                             </div>
                          </div>
                         </td>
                         <td>GB/T 27930—2011</td>
-                        <td>2011-12-22</td>
-                        <td>2012-3-1</td>
+                        <td>新能源汽车 重点专项 政策补贴</td>
                    	</tr>
 					
 					<tr>
                     	<td>
                         <div class="tooltips">
-                        <a href="NationalStandardController.content()">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
+                        <a href="standards_content.html">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
                         	<div class="tooltips1">
                         		<span class="top2">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>
                             </div>
                          </div>
                         </td>
                         <td>GB/T 27930—2011</td>
-                        <td>2011-12-22</td>
-                        <td>2012-3-1</td>
+                        <td>新能源汽车 重点专项 政策补贴</td>
                    	</tr>
 					
 					<tr>
                     	<td>
                         <div class="tooltips">
-                        <a href="NationalStandardController.content()">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
+                        <a href="standards_content.html">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
                         	<div class="tooltips1">
                         		<span class="top2">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>
                             </div>
                          </div>
                         </td>
                         <td>GB/T 27930—2011</td>
-                        <td>2011-12-22</td>
-                        <td>2012-3-1</td>
+                        <td>新能源汽车 重点专项 政策补贴</td>
                    	</tr>
 					
 					
 					<tr>
                     	<td>
                         <div class="tooltips">
-                        <a href="NationalStandardController.content()">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
+                        <a href="standards_content.html">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
                         	<div class="tooltips1">
                         		<span class="top2">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>
                             </div>
                          </div>
                         </td>
                         <td>GB/T 27930—2011</td>
-                        <td>2011-12-22</td>
-                        <td>2012-3-1</td>
+                        <td>新能源汽车 重点专项 政策补贴</td>
                    	</tr>
 					
 					<tr>
                     	<td>
                         <div class="tooltips">
-                        <a href="NationalStandardController.content()">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
+                        <a href="standards_content.html">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
                         	<div class="tooltips1">
                         		<span class="top1">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>
                             </div>
                          </div>
                         </td>
                         <td>GB/T 27930—2011</td>
-                        <td>2011-12-22</td>
-                        <td>2012-3-1</td>
+                        <td>新能源汽车 重点专项 政策补贴</td>
                    	</tr>
                     
 					<tr>
                     	<td>
                         <div class="tooltips">
-                        <a href="NationalStandardController.content()">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
+                        <a href="standards_content.html">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
                         	<div class="tooltips1">
                         		<span class="top1">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>
                             </div>
                          </div>
                         </td>
                         <td>GB/T 27930—2011</td>
-                        <td>2011-12-22</td>
-                        <td>2012-3-1</td>
+                        <td>新能源汽车 重点专项 政策补贴</td>
                    	</tr>
 					
 					<tr>
                     	<td>
                         <div class="tooltips">
-                        <a href="NationalStandardController.content()">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
+                        <a href="standards_content.html">电动汽车非车载传导式充电机与电池管理系统之间的通信协议</a>
                         	<div class="tooltips1">
                         		<span class="top1">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>
                             </div>
                          </div>
                         </td>
                         <td>GB/T 27930—2011</td>
-                        <td>2011-12-22</td>
-                        <td>2012-3-1</td>
+                        <td>新能源汽车 重点专项 政策补贴</td>
                    	</tr>
-				
+				-->
 					</tbody>
                     
 					<tfoot></tfoot>
@@ -525,13 +646,16 @@
 		<div style="margin-left:1px;">
 			
 				<div class="input-append" style="float:left; width:24%;">
-      				<button class="btn" type="button" style=" font-size:13px; padding:2px 10px; margin-right:10px;">下载</button>
-					<button class="btn" type="button" style=" font-size:13px; padding:2px 10px;margin-right:10px;">收藏</button>
+      				<!--
+                    <button class="btn" type="button" style=" font-size:13px; padding:2px 10px; margin-right:10px;">下载</button>
+					<button class="btn" type="button" style=" font-size:13px; padding:2px 10px;margin-right:10px;">收藏</button>-->
 					<button class="btn"  onclick="window.location.href='@{NationalStandardController.upload_form()}'" type="button" style=" font-size:13px; padding:2px 10px;">上传</button>
     			</div>
 			
 			
-				<div id="tcdPageCode" class="pagination uiPageIterator tcdPageCode" style="float:right; margin:0px; width:70%;">
+				<!--<div id="tcdPageCode" class="pagination uiPageIterator tcdPageCode" style="float:right; margin:0px; width:70%;">-->
+                
+                
         			<!--
 					<ul>
             			<li class="active"><a href="">1</a></li>
@@ -541,7 +665,8 @@
             			<li><a href="">20</a></li>
         			</ul>
 					-->
-    			</div>
+                    
+    			<!--</div>-->
 				
 				<!---
 				<div class="input-append" style="float:left;">
@@ -558,79 +683,81 @@
 	</div>
 	
 	<div class="container_right">
-		<a href="#" style=" width:99px; margin-left:0px; margin-right:0px; margin-top:3px; display:block; float:left;font-size:14.5px;">在结果中搜索 </a>
+		<!--<a href="#" style=" width:99px; margin-left:0px; margin-right:0px; margin-top:3px; display:block; float:left;font-size:14.5px;">在结果中搜索 </a>-->
 		
 		<a style="width:40px;float:right;" class="btn btn-primary btn-large" href="@{Controller.index()}">返回</a>
 		
 		<!---->
-		<div style="margin-top:188px;">
+		<div style="margin-top:252px;">
 		    <div id="accordion" class="accordion">
         		<h5 class="menuHeader" style="background:#578DC9; color:#FFFFFF;">搜索历史</h5>
-        		
-				<div class="accordion-group">
-            		<div class="accordion-heading">
-                		<div class="accordion-toggle collapsed">
-                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
-                		</div>
-            		</div>
-        		</div>
-        
-				<div class="accordion-group">
-            		<div class="accordion-heading">
-                		<div class="accordion-toggle collapsed">
-                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
-                		</div>
-            		</div>
-        		</div>
-				
-        		<div class="accordion-group">
-            		<div class="accordion-heading">
-                		<div class="accordion-toggle collapsed">
-                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
-                		</div>
-            		</div>
-        		</div>
-        
-				<div class="accordion-group">
-            		<div class="accordion-heading">
-                		<div class="accordion-toggle collapsed">
-                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
-                		</div>
-            		</div>
-        		</div>
-				
-				<div class="accordion-group">
-            		<div class="accordion-heading">
-                		<div class="accordion-toggle collapsed">
-                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
-                		</div>
-            		</div>
-        		</div>
-				
-				<div class="accordion-group">
-            		<div class="accordion-heading">
-                		<div class="accordion-toggle collapsed">
-                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
-                		</div>
-            		</div>
-        		</div>
-				
-                <div class="accordion-group">
-            		<div class="accordion-heading">
-                		<div class="accordion-toggle collapsed">
-                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
-                		</div>
-            		</div>
-        		</div>
-				
-                <div class="accordion-group">
-            		<div class="accordion-heading">
-                		<div class="accordion-toggle collapsed">
-                    		<a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
-                		</div>
-            		</div>
-        		</div>
-                
+        		<div id="history">
+                   <!--
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <div class="accordion-toggle collapsed">
+                                <a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <div class="accordion-toggle collapsed">
+                                <a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <div class="accordion-toggle collapsed">
+                                <a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <div class="accordion-toggle collapsed">
+                                <a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <div class="accordion-toggle collapsed">
+                                <a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <div class="accordion-toggle collapsed">
+                                <a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <div class="accordion-toggle collapsed">
+                                <a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <div class="accordion-toggle collapsed">
+                                <a data-toggle="tab" href="#modals" style="padding:5px 8px 4px 15px;"><i class="uiIconSelected pull-right"></i>搜索历史</a>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
 				
     		</div>
 		</div>
@@ -639,5 +766,4 @@
 	
 	
 	
-</div>	
-		
+</div>
