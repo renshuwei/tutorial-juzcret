@@ -134,6 +134,10 @@ public class NationalStandardController {
 			  for(FileItem fi:files){
 	        	  LOG.info("file name: " + fi.getName());
 	        	  
+	        	  //need to get a jcr compliant file name if the name is in Chinese or have special characters
+	        	  String jcrFileName = net.wyun.qys.util.Util.cleanNameUtil(fi.getName());
+	        	  LOG.info("jcr file name: " + jcrFileName);
+	        	  
 	        	  String uuid = documentsData.storeFile(ROOT_FOLDER + stdFolder , fi, documentsData.getSpaceName(), false, null);
 	        	  StanJcrFile jFile = new StanJcrFile();
 	    		  jFile.setFileName(fi.getName());
