@@ -67,9 +67,11 @@ public class NationalStandardController {
 	  @Path("standard_content.gtmpl")
 	  Template content;
 	  
-	  @Assets({"standardcss", "standardjs"}) 
+	  @Assets({"standardcss", "standardjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
 	  public Response.Content standard() throws IOException{
+		  Standard s = standardSvc.findById("ff8081815869c2c1015869ce9d5a0003");
+		  LOG.info(s.getCreator() + ", " + s.getName() + ", " + s.getStanTags().toString());
 		  return standard.ok();
 	  }
 	  /*
@@ -81,10 +83,6 @@ public class NationalStandardController {
 	  */
 	  
 	  @View 
-	  public Response.Content back() throws IOException{
-		  return standard.ok();
-	  }
-	  @View 
 	  public Response.Content content() throws IOException{
 		  return content.ok();
 	  }	  
@@ -95,14 +93,16 @@ public class NationalStandardController {
 		  return standard_upload.ok();
 	  }
 	  
+	  
+	  
 	
 	  private final static String ROOT_FOLDER = "fs/standard/";
 	  @Resource
 	  @Ajax
 	  public Response.Content upload(String standardName, String standardNum, Integer standardTypeString, 
-			                         String perm, String encrpLevel, String text, 
+			                         //String perm, String encrpLevel, String text, 
 			                         String author, String department, String selectTag, Integer standardType, 
-			                         List<FileItem> files, SecurityContext securityContext){
+			                         String text, List<FileItem> files, SecurityContext securityContext){
 		  
 		  LOG.info("author: " + author + ", department: " + department + ", selectTag: " + selectTag + ", type: " + standardType);
 		  String userName = securityContext.getRemoteUser();
