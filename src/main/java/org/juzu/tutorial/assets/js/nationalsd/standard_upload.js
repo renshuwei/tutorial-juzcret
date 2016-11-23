@@ -42,8 +42,10 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 		$("#dijiao").click(function(){
 
 			//validate form data before sending it to server
-			validateForm();
-			$("#form1").submit();
+			if(validateForm()){
+				$("#form1").submit();
+			};
+			
 		});
 		
 		//uploading data 
@@ -116,15 +118,29 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 		
 		function validateForm()
 		{
-			//alert("aaaaaaaaaa");
 			if($("#form1").find("input[name='standardName']").val()=="".trim())
 			{
 				alert("请输入标准名称！");
 				return false;
 			}
+			if($("#form1").find("input[name='standardNum']").val()=="".trim())
+			{
+				alert("请输入标准编号！");
+				return false;
+			}
+			if($("#form1").find("input[name='standardTypeTxt']").val()=="".trim())
+			{
+				alert("请输入标准类型！");
+				return false;
+			}
 			if($("#form1").find("input[name='tag']").val()=="".trim())
 			{
-				alert("请输入标签");
+				alert("请输入标签!");
+				return false;
+			}
+			if($("#form1").find("textarea[name='text']").val()=="".trim())
+			{
+				alert("请输入标准原文！");
 				return false;
 			}
 			
