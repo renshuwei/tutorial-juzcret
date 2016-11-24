@@ -75,7 +75,7 @@ public class FileUploadUnmarshaller extends EntityUnmarshaller {
           if (parameterArg == null) {
             parameterArguments.put(name, RequestParameter.create(name, file.getString("UTF-8")));
           } else {
-            parameterArguments.put(name, parameterArg.append(new String[]{file.getString()}));
+            parameterArguments.put(name, parameterArg.append(new String[]{file.getString("UTF-8")}));
           }
         } else {
         	if(files.containsKey(name)){
