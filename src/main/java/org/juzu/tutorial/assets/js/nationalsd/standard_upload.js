@@ -16,6 +16,8 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 
 	$(document).ready(function(){
 		
+		$('#uploadSuccess').hide();
+		
 		$("#tcdPageCode").createPage({
 			pageCount:20,
 			current:1,
@@ -83,6 +85,8 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 		function handle(data){
 			//data: json data from server: standard
 			//refresh the upload page here
+			alert("递交数据成功！");
+			$('#uploadSuccess').show();
 			
 		}
 				
