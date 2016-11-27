@@ -75,7 +75,6 @@ public class Controller {
 	
   public Controller() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
@@ -167,11 +166,11 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
 	  policy.setStartDate(new Date());
 	  this.policySvc.save(policy);
 	  
-	  LOG.info("search test begins: ");
-	  searchTest();
-	  LOG.info("search test ends. ");
+	  //LOG.info("search test begins: ");
+	  //searchTest();
+	 // LOG.info("search test ends. ");
 	  
-	  this.jcrSearch();
+	 // this.jcrSearch();
 	  
       return index.ok();
   }
@@ -204,52 +203,17 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   }
   
   private void searchTest(){
+	  Collection<SearchResult> connectorResults = null;
 	  try {
-	      File controllerXml = new File("/opt/platform-community-4.3.1/gatein/conf/controller.xml");
-	      URL url = controllerXml.toURI().toURL();
-	      ControllerDescriptor routerDesc = new DescriptorBuilder().build(url.openStream());
-	      Router router = new Router(routerDesc);
-	      SearchContext context = new SearchContext(router, "intranet");
-	      String query = "Juzu";
-	      List<String> sites = new ArrayList<String>();
-	      sites.add("intranet");
-	      List<String> types = new ArrayList<String>();
-	      types.add("all");
-	      int offset = 0;
-	      int limit = 10;
-	      String sort = "relevancy";
-	      String order = "desc";
-	      
-	      //Map<String, Collection<SearchResult>> results = searchService.search(context, query, sites, types, offset, limit, sort, order);
 	      
 	      QysFileSearchServiceConnector fssc = new QysFileSearchServiceConnector(QysFileSearchServiceConnector.initFileSearchProp());
-	      Collection<SearchResult> connectorResults = fssc.search(context, query, sites, offset, limit, sort, order);
-	      
-	      
-	      String baseUri = "http://localhost:8080/";
-	      String resultUrl, imageUrl;      
-	      
-	      // use absolute path for URLs in search results
-	      //for(Collection<SearchResult> connectorResults:results.values()){
-	        for(SearchResult result:connectorResults){
-	          resultUrl = result.getUrl();
-	          LOG.info("result url: " + resultUrl);
-	          imageUrl =  result.getImageUrl();
-	          LOG.info("image url: " + imageUrl);
-	          LOG.info("other info: " + result.getExcerpt());
-	          LOG.info("detail: " + result.getDetail());
-	          
-	          if(null!=resultUrl && resultUrl.startsWith("/")) {
-	        	  result.setUrl(baseUri + resultUrl);
-	          }
-	          if(null!=imageUrl && imageUrl.startsWith("/")) result.setImageUrl(baseUri + imageUrl);          
-	        }        
-	     // }
+	      fssc.setSearchSubDir("standard");
+	      connectorResults = fssc.searchQys("秦皇岛", "standard");
 	      
 	    } catch (Exception e) {
 	      LOG.error(e.getMessage(), e);
 	    }
-	  
+	    //return connectorResults;
   }
   
   

@@ -2,16 +2,23 @@ package org.juzu.tutorial;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 
 import org.apache.commons.fileupload.FileItem;
+import org.exoplatform.commons.api.search.data.SearchResult;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.services.security.Identity;
+import org.exoplatform.services.wcm.search.connector.QysFileSearchServiceConnector;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.google.api.client.json.Json;
@@ -25,6 +32,7 @@ import juzu.plugin.ajax.Ajax;
 import juzu.plugin.asset.Assets;
 import juzu.request.SecurityContext;
 import juzu.template.Template;
+import net.wyun.list.bean.File;
 import net.wyun.qys.domain.Policy;
 import net.wyun.qys.domain.UserSetting;
 import net.wyun.qys.domain.standard.StanJcrFile;
@@ -82,17 +90,94 @@ public class NationalStandardController {
 	  }
 	  */
 	  
-	  @View 
-	  public Response.Content content() throws IOException{
-		  return content.ok();
+	  @Resource
+	  @Ajax
+	  public Response.Content standardContent(String uuid) throws IOException{
+		  Standard stan = null;
+		  if(null != uuid && !uuid.isEmpty()){
+			  stan = standardSvc.findById(uuid);
+		  }
+		  
+		  List<File> files = new ArrayList<File>();
+		  Set<StanJcrFile> jcrFiles = stan.getStanJcrFiles();
+		  for(StanJcrFile sjf:jcrFiles){
+			  String jcrUuid = sjf.getUuid();
+			  LOG.info("file name: " + sjf.getFileName());
+			  File file = documentsData.getNode(jcrUuid);
+			  files.add(file);
+		  }
+		  
+		  
+		  return content.with().set("stan", stan).set("files", files).ok();
 	  }	  
 	  
-	  @Assets({"standard_uploadcss", "fileuploadjs", "standarduploadjs"})
+	  @Assets({"standard_uploadcss", "standarduploadjs"})
 	  @View 
 	  public Response.Content upload_form() throws IOException{
 		  return standard_upload.ok();
 	  }
 	  
+	  /**
+	   * with out user input, search_text is empty string, search_type is null
+	   * so need to do data validation before searching.
+	   * @param search_text
+	   * @param search_type
+	   * @return
+	   */
+	  
+	  @Resource
+	  @Ajax
+	  public Response.Content search(String search_text, String[] search_type){
+		  
+		  search_text = search_text.trim();
+		  LOG.info("keyword: " + search_text);
+		  if(null != search_type){
+			  for(String s:search_type){
+				  LOG.info("search types: " + s);
+			  }
+		  }
+		  //with search types, query db to get qualified standard(s)
+		  
+		  
+		  //search jcr with keyword
+		  Collection<SearchResult> connectorResults = null;
+		  try {
+
+			QysFileSearchServiceConnector fssc = new QysFileSearchServiceConnector(
+					QysFileSearchServiceConnector.initFileSearchProp());
+			QysFileSearchServiceConnector.SEARCH_PATH = "/Groups/spaces";
+			// fssc.setSearchSubDir("standard");
+			connectorResults = fssc.searchQys(search_text, "");
+
+	      } catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+		  }
+		  LOG.info("total jcr records found: " + connectorResults.size());
+		  JSONArray ja = new JSONArray();
+		  for(SearchResult sr:connectorResults){
+			  String uuid = sr.getDetail();
+			  
+		  }
+		  
+		  Standard st = standardSvc.findById("e0e08d6f-b564-49cc-9699-b4f7e4ee1100");
+		  ja.put(new JSONObject(st));
+		  
+		  st = standardSvc.findById("e064882e-ea02-42a1-a180-8b9000620213");
+		  ja.put(new JSONObject(st));
+		  
+		  st = standardSvc.findById("75e819fb-350c-401f-8308-7681536235c9");
+		  ja.put(new JSONObject(st));
+		  
+		  JSONObject mainObj = new JSONObject();
+		  try {
+			mainObj.put("resultList", ja);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		  
+		  return Response.ok(mainObj.toString()).withMimeType("text/json").withCharset(Tools.UTF_8);
+	  }
 	  
 	  
 	

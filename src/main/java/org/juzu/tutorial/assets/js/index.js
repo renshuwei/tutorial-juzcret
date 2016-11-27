@@ -11,7 +11,7 @@
         })();
 		
 		
-		
+		/*
 		$("#tcdPageCode").createPage({
         		pageCount:20,
         		current:1,
@@ -19,6 +19,7 @@
 					
 			}
     	});
+    	*/
 		
 		function back()
 		{

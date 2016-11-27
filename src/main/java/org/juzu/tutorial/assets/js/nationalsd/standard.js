@@ -367,7 +367,7 @@ var path;
 			var result_table = result_table + "<tr>"+
 									"<td>"+
 										"<div class=\"tooltips\">"+
-											"<a href=\"standards_content.html?"+json_value+"\">"+name_value+"</a>"+
+											"<a href=\"#\" class=\"stan-link\" data-uuid=\""+ id_value + "\">"+name_value+"</a>"+
 											"<div class=\"tooltips1\">";
 											
 											if(i<=(page_start+parseInt((result_count-page_start+1)/2)))
@@ -394,6 +394,17 @@ var path;
 		
 		var result_div = document.getElementById("result_div");
 		result_div.innerHTML = result_table;
+		
+		$(".stan-link").on("click", function() {
+		      var uuid = $(this).attr("data-uuid");
+		      var jzStandardGetProperties = $('#standardModal').attr("data-link");
+		      $('#standard-properties').load(jzStandardGetProperties, {"uuid": uuid}, function () {
+		        //propertiesActions();
+		        //$('#propertiesTab a:first').tab('show');
+		    	// jQuery.noConflict();
+		        $('#standardModal').modal({"backdrop": false});
+		      });
+		    });
 		
 	}
 	

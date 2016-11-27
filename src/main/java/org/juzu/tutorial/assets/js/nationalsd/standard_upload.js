@@ -95,17 +95,6 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 			console.log("file upload successfully!");
 		}
 		
-		var file_one=creat_file_upload();
-		file_one.messages="messages";
-		file_one.fileselect="fileselect";
-		file_one.filedrag="filedrag";
-		file_one.submitbutton="submitbutton";
-
-		if (window.File && window.FileList && window.FileReader) {
-			file_one.Init();
-		}
-		
-		
 		function getNowFormatDate() {
 			var date = new Date();
 			var seperator1 = "-";
@@ -159,7 +148,7 @@ var imgPath = "/tutorial-juzcret/assets/net/wyun/";
 			var div_list=document.getElementById("messages");
 			var div_string=	"<div class=\"row\" style=\"margin-top:20px; padding-left:35%\">"+							
 								"<div class=\"\" id=\"preview"+image_count+"\" >"+
-									"<img src=\"/tutorial-juzcret/assets/net/wyun/img/use.jpg\" height=\"152\" width=\"200\"  id=\"imghead"+image_count+"\" class=\"img-responsive\" />"+
+									"<img src=\"/tutorial-juzcret/assets/net/wyun/img/use.jpg\" height=\"97\" width=\"148\"  id=\"imghead"+image_count+"\" class=\"img-responsive\" />"+
 								"</div>"+
 							"</div>"+
 							"<div class=\"row\" style=\"margin-top:10px; padding-left:35%\">"+

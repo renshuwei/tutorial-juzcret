@@ -29,7 +29,7 @@
 				<input type="text" data-toggle="dropdown" id="standardTypeTxt" name="standardTypeTxt" AUTOCOMPLETE="off">
 				
 				<ul class="dropdown-menu" style="padding:0px;">
-					<select multiple="multiple" id="standardType" name="standardType" onchange="ShowToText()" AUTOCOMPLETE="off">
+					<select multiple="multiple" id="standardType" name="standardType" AUTOCOMPLETE="off">
   						<option value="1">安全</option>
   						<option value="2">车身及悬架</option>
   						<option value="3">车轮</option>
@@ -273,4 +273,11 @@
 		</form>
 		</div>
 		
+		<div class="alert alert-success alert-dismissable" style="display:none;" id="uploadSuccess">
+           <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                  标准上载成功！
+        </div>
+		
 	</div>
+	
+	

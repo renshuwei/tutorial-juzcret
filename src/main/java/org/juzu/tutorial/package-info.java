@@ -32,21 +32,24 @@
 
 
 @Scripts({
-	@Script(id = "jquery", value = "js/jquery-1.8.3.min.js", location=AssetLocation.APPLICATION),
+	@Script(id = "jquery", value = "js/jquery-1.7.1.min.js", location=AssetLocation.APPLICATION),
 	@Script(id = "jquerypage", value = "js/jquery.page.js", depends="jquery", location=AssetLocation.APPLICATION),
-	@Script(id="juzuutil",  value = "js/jquery-juzu-utils-0.1.0.js", depends = "jquery", location=AssetLocation.APPLICATION),
+	//@Script(id = "jqueryform", value = "js/jquery.form.js", depends="jquery", location=AssetLocation.APPLICATION),
+	//@Script(id = "bootstrapjs", value = "js/bootstrap-min.js", depends="jquery", location=AssetLocation.APPLICATION),
+	@Script(id = "juzuutil",  value = "js/jquery-juzu-utils-0.1.0.js", depends = "jquery", location=AssetLocation.APPLICATION),
 	@Script(id = "nlibjs", value = "js/nlib.js", location=AssetLocation.APPLICATION),
+	@Script(id = "policycommonjs", value = "js/policy_js/policy_common.js", location=AssetLocation.APPLICATION),
     @Script(id = "indexjs", value = "js/index.js", depends="jquery", location=AssetLocation.APPLICATION),
     //interpretation
     @Script(id = "interpretationjs", value = "js/interpretation/interpretation.js", location=AssetLocation.APPLICATION),
     @Script(id = "interpretation_uploadjs", value = "js/interpretation/interpretation_upload.js", location=AssetLocation.APPLICATION),
     @Script(id = "new_interpretationjs", value = "js/interpretation/new_interpretation.js", location=AssetLocation.APPLICATION),
     //national standard
-    @Script(id = "standardjs",value ="js/nationalsd/standard.js",depends="jquery", location=AssetLocation.APPLICATION),
+    @Script(id = "standardjs",value ="js/nationalsd/standard.js",depends={"jquery", "juzuutil", "jquerypage", "policycommonjs"}, location=AssetLocation.APPLICATION),
     @Script(id = "standarduploadjs",value ="js/nationalsd/standard_upload.js",depends = {"jquery", "jquerypage", "nlibjs"}, location=AssetLocation.APPLICATION),
-    @Script(id = "fileuploadjs",value ="js/fileupload.js",location=AssetLocation.APPLICATION),
-    @Script(id = "mouseoutjs",value ="js/mouseout.js",location=AssetLocation.APPLICATION),
-    @Script(id = "mouseoverjs",value ="js/mouseover.js",location=AssetLocation.APPLICATION),
+    //@Script(id = "fileuploadjs",value ="js/fileupload.js",location=AssetLocation.APPLICATION),
+    @Script(id = "mouseoutjs",value ="js/mouseout.js",depends = "jquery", location=AssetLocation.APPLICATION),
+    @Script(id = "mouseoverjs",value ="js/mouseover.js",depends = "jquery", location=AssetLocation.APPLICATION),
     //local standard
     @Script(id = "echartsjs", value = "js/echarts.js", location=AssetLocation.APPLICATION),
     @Script(id = "amapjs", value = "http://webapi.amap.com/maps?v=1.3&key=b23cb51fd67fa09da9478fc6a14cc200&plugin=AMap.Geocoder",
@@ -69,6 +72,9 @@
     @Stylesheet(id = "local_uploadcss", value = "styles/local_upload.css", location = AssetLocation.APPLICATION),
     //
     @Stylesheet(id = "input_interpretcss", value = "styles/input_interpret.css", location = AssetLocation.APPLICATION),
+    
+    
+    @Stylesheet(id = "bootstrapcss", value = "styles/bootstrap.min.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "standardcss", value = "styles/standard.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "standard_uploadcss", value = "styles/standard_upload.css", location = AssetLocation.APPLICATION),
     

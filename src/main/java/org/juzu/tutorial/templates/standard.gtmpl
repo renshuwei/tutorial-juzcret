@@ -580,19 +580,12 @@
 <!-- ################################## -->
 <!-- ######### Standard MODAL ############ -->
 <!-- ################################## -->
-<div class="modal hide fade" id="standardModal" data-link="@{NationalStandardController.standardContent()}">
+<div class="modal hide fade" id="standardModal" role="dialog" data-link="@{NationalStandardController.standardContent()}">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">x</a>
     <h1 style="text-align:center; margin-bottom:5%;">国家标准正文</h1>
   </div>
-  <div style="margin-left:2px;">
-			<div class="input-append" style=" width:100%;">
-				<div class="btn-group btn-large" style="padding:0; margin:0; width:15%;">
-        		
-    			</div>
-				
-			</div>
-	</div>
+  
   <div class="modal-body-no">
 
     <div id="standard-properties" style="width:96%;text-align:center;padding:10px;">标准属性</div>
