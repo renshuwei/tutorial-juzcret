@@ -694,10 +694,13 @@ public class DocumentsDataHelper {
 	 */
 	protected String storeFile(String path, FileItem item, String name,
 			boolean isPrivateContext, String uuid) {
-		String filename = FilenameUtils.getName(item.getName());
+		
+		String fileName = FilenameUtils.getName(item.getName());
+		String jcrFileName = net.wyun.qys.util.Util.cleanNameUtil(fileName);
+		
 		SessionProvider sessionProvider = getUserSessionProvider();
 
-		log.info("name: " + name); //user name or space name
+		log.info("user/space name: " + name); //user name or space name
 		try {
 			// get info
 			Session session = sessionProvider.getSession("collaboration",
@@ -720,16 +723,16 @@ public class DocumentsDataHelper {
 				docNode = docNode.getNode(path);  //groups/spaces/gyspl/documents/fs/standard/new-folder
 			}
 
-			if (!docNode.hasNode(filename)
+			if (!docNode.hasNode(jcrFileName)
 					&& (uuid == null || "---".equals(uuid))) {//new node
-				Node fileNode = docNode.addNode(filename, "nt:file");
-				fileNode.setProperty(NodetypeConstant.EXO_TITLE, filename);
+				Node fileNode = docNode.addNode(jcrFileName, "nt:file");  //file name in jcr
+				fileNode.setProperty(NodetypeConstant.EXO_TITLE, fileName);  //but the title we can still use the utf-8 chars
 				Node jcrContent = fileNode.addNode("jcr:content", "nt:resource");
 				jcrContent.setProperty("jcr:data", item.getInputStream());
 				jcrContent.setProperty("jcr:lastModified", Calendar.getInstance());
 				jcrContent.setProperty("jcr:encoding", "UTF-8");
 				
-				String extension = FilenameUtils.getExtension(filename);
+				String extension = FilenameUtils.getExtension(fileName);
 				jcrContent.setProperty("jcr:mimeType", MimeTypeMapping.getMimeType(extension));
 				
 				DocumentsDataHelper.updateTimestamp(docNode);
@@ -742,7 +745,7 @@ public class DocumentsDataHelper {
 				if (uuid != null) {
 					fileNode = session.getNodeByUUID(uuid);
 				} else {
-					fileNode = docNode.getNode(filename);
+					fileNode = docNode.getNode(fileName);
 				}
 				if (fileNode.canAddMixin("mix:versionable"))
 					fileNode.addMixin("mix:versionable");
@@ -760,25 +763,6 @@ public class DocumentsDataHelper {
 				session.save();
 			}
 
-			if (path.startsWith("Folksonomy/")) {
-				if (uuid != null) {
-					if (!isPrivateContext)
-						path = path.replace("Folksonomy/",
-								"ApplicationData/Tags/");
-					// Node fileNode = session.getNodeByUUID(uuid);
-					Node tagNode = homeNode.getNode(path);
-					Node linkNode = tagNode.addNode(filename, "exo:symlink");
-					linkNode.setProperty("exo:uuid", uuid);
-					linkNode.setProperty("exo:workspace", "collaboration");
-					linkNode.setProperty("exo:primaryType", "nt:file");
-					tagNode.save();
-					DocumentsDataHelper.updateTimestamp(tagNode);
-					DocumentsDataHelper.updateTimestamp(tagNode.getParent());
-					DocumentsDataHelper.updateTimestamp(homeNode);
-
-					session.save();
-				}
-			}
 			return uuid;
 
 		} catch (Exception e) {
