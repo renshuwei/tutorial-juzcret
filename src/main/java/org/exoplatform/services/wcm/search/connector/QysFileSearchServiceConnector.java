@@ -16,12 +16,18 @@
  */
 package org.exoplatform.services.wcm.search.connector;
 
+import java.io.File;
+import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import org.exoplatform.commons.api.search.data.SearchContext;
+import org.exoplatform.commons.api.search.data.SearchResult;
 import org.exoplatform.container.definition.PortalContainerConfig;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.PortalContainerInfo;
@@ -35,6 +41,9 @@ import org.exoplatform.services.wcm.core.NodetypeConstant;
 import org.exoplatform.services.wcm.search.QueryCriteria;
 import org.exoplatform.services.wcm.search.ResultNode;
 import org.exoplatform.services.wcm.utils.WCMCoreUtils;
+import org.exoplatform.web.controller.metadata.ControllerDescriptor;
+import org.exoplatform.web.controller.metadata.DescriptorBuilder;
+import org.exoplatform.web.controller.router.Router;
 
 /**
  * The search should be capable to match files of the DMS. \
@@ -64,6 +73,77 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
 	  
   }
   
+  /**
+   * 
+   * @param query, query string to be searched in JCR
+   * @param subDir, sub directory to limit the search scope, for ex., standard
+   */
+  public Collection<SearchResult> searchQys(String query, String subDir){
+	  Collection<SearchResult> returnResults = new ArrayList<SearchResult>();
+	  Collection<SearchResult> searchResults = null;
+	  try {
+	      File controllerXml = new File("/opt/platform-community-4.3.1/gatein/conf/controller.xml");
+	      URL url = controllerXml.toURI().toURL();
+	      ControllerDescriptor routerDesc = new DescriptorBuilder().build(url.openStream());
+	      Router router = new Router(routerDesc);
+	      SearchContext context = new SearchContext(router, "intranet");
+	      List<String> sites = new ArrayList<String>();
+	      sites.add("intranet");
+	      List<String> types = new ArrayList<String>();
+	      types.add("all");
+	      int offset = 0;
+	      int limit = 30;
+	      String sort = "relevancy";
+	      String order = "desc";
+	      
+	      //Map<String, Collection<SearchResult>> results = searchService.search(context, query, sites, types, offset, limit, sort, order);
+	      
+	      //QysFileSearchServiceConnector fssc = new QysFileSearchServiceConnector(QysFileSearchServiceConnector.initFileSearchProp());
+	      this.setSearchSubDir(subDir);
+	      
+	      searchResults = search(context, query, sites, offset, limit, sort, order);
+	      while(searchResults.size() == limit){
+	    	  returnResults.addAll(searchResults);
+	    	  offset += limit;
+	    	  searchResults = search(context, query, sites, offset, limit, sort, order);
+	      }
+	      
+	      
+	      String baseUri = System.getenv("exo_base_uri"); //"http://localhost:8080/";
+	      if(null == baseUri) baseUri = "http://localhost:8080/";
+	      LOG.info("baseUri: " + baseUri);
+	      
+	      String resultUrl, imageUrl;      
+	      
+	      // use absolute path for URLs in search results
+	      //for(Collection<SearchResult> connectorResults:results.values()){
+	        for(SearchResult result:returnResults){
+	          resultUrl = result.getUrl();
+	          LOG.info("result url: " + resultUrl);
+	          imageUrl =  result.getImageUrl();
+	          LOG.info("image url: " + imageUrl);
+	          LOG.info("other info: " + result.getExcerpt());
+	          LOG.info("detail: " + result.getDetail());
+	          
+	          if(null!=resultUrl && resultUrl.startsWith("/")) {
+	        	  result.setUrl(baseUri + resultUrl);
+	          }
+	          if(null!=imageUrl && imageUrl.startsWith("/")) result.setImageUrl(baseUri + imageUrl);          
+	        }        
+	     // }
+	      
+	    } catch (Exception e) {
+	      LOG.error(e.getMessage(), e);
+	    }
+	  return returnResults;
+  }
+  
+  
+  
+  
+  
+  
+  
   protected String getDetails(ResultNode retNode, SearchContext context) throws Exception {
 	    //String details = super.getDetails(retNode, context);
 	  
@@ -71,14 +151,14 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
 		  
   } 
   
-  private String subDirectory = "";
+  private String subDirectory = "";  //standard; localpolicy, nationalpolicy
   
   public void setSearchSubDir(String subDir){
 	  this.subDirectory = subDir;
   }
   
   
-  private final static String SEARCH_PATH = "/Groups/spaces/qyspl";
+  public static String SEARCH_PATH = "/Groups/spaces/qyspl/Documents/fs/";
   @Override
   protected QueryCriteria createQueryCriteria(String query, long offset, long limit, String sort, String order) {
     QueryCriteria criteria = super.createQueryCriteria(query, offset, limit, sort, order);
@@ -87,6 +167,8 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
     if (ConversationState.getCurrent().getIdentity().getUserId() != null) {
       criteria.setSearchPath(docPath);
     }
+    LOG.info(criteria.toString());
+    LOG.info("page mode: " + criteria.getPageMode());
     return criteria;
   }
 
