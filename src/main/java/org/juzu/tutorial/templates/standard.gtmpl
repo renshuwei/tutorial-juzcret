@@ -31,42 +31,42 @@
 				
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="安全">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="1">
   						<span>安全</span>
 					</span>
 				</li>
 				
         		<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="灯光">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="5">
   						<span>灯光</span>
 					</span>
 				</li>
 				
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="车轮">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="3">
   						<span>车轮</span>
 					</span>
 				</li>
                 
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="材料">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="4">
   						<span>材料</span>
 					</span>
 				</li>
                 
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="电动车轮">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="15">
   						<span>电动车辆</span>
 					</span>
 				</li>
                 
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="燃气汽车">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="20">
   						<span>燃气汽车</span>
 					</span>
 				</li>
@@ -75,37 +75,37 @@
     		<ul class="breadcrumb" style="margin-left:70px;">	
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="电器">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="8">
   						<span>电器</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="排放">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="13">
   						<span>排放</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="防盗">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="9">
   						<span>防盗</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="节能">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="12">
   						<span>节能</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="回收利用">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="10">
   						<span>回收利用</span>
 					</span>
 				</li>
                  <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="专用车">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="18">
   						<span>专用车</span>
 					</span>
 				</li>
@@ -113,31 +113,31 @@
             <ul class="breadcrumb" style="margin-left:70px;">	
 				<li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox"  name="search_type" id="search_type" value="仪表">
+  						<input type="checkbox" class="checkbox"  name="search_type" id="search_type" value="21">
   						<span>仪表</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="制动">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="14">
   						<span>制动</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="挂车">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="16">
   						<span>挂车</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="客车">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="17">
   						<span>客车</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="汽车电子与电磁兼容">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="7">
   						<span>汽车电子与电磁兼容</span>
 					</span>
 				</li>
@@ -146,26 +146,26 @@
             <ul class="breadcrumb" style="margin-left:70px;">
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="底盘">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="6">
   						<span>底盘</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="液化石油气汽车">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="19">
   						<span>液化石油气汽车</span>
 					</span>
 				</li>
                 
                  <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="环保（不含排放）">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="11">
   						<span>环保（不含排放）</span>
 					</span>
 				</li>
                 <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="车身及悬架">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="2">
   						<span>车身及悬架</span>
 					</span>
 				</li>
@@ -173,7 +173,7 @@
              <ul class="breadcrumb" style="margin-left:70px;">
                  <li>
 					<span class="uiCheckbox">
-  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="其他">
+  						<input type="checkbox" class="checkbox" name="search_type" id="search_type" value="22">
   						<span>其他</span>
 					</span>
 				</li>
