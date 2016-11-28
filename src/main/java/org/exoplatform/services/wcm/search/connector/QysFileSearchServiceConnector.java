@@ -102,11 +102,11 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
 	      this.setSearchSubDir(subDir);
 	      
 	      searchResults = search(context, query, sites, offset, limit, sort, order);
-	      while(searchResults.size() == limit){
+	      do{
 	    	  returnResults.addAll(searchResults);
 	    	  offset += limit;
 	    	  searchResults = search(context, query, sites, offset, limit, sort, order);
-	      }
+	      }while(searchResults.size() == limit);
 	      
 	      
 	      String baseUri = System.getenv("exo_base_uri"); //"http://localhost:8080/";
@@ -159,11 +159,12 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
   
   
   public static String SEARCH_PATH = "/Groups/spaces/qyspl/Documents/fs/";
+  private final static String affix = "/%";
   @Override
   protected QueryCriteria createQueryCriteria(String query, long offset, long limit, String sort, String order) {
     QueryCriteria criteria = super.createQueryCriteria(query, offset, limit, sort, order);
     
-    String docPath = SEARCH_PATH + subDirectory;
+    String docPath = SEARCH_PATH + subDirectory + affix;
     if (ConversationState.getCurrent().getIdentity().getUserId() != null) {
       criteria.setSearchPath(docPath);
     }
