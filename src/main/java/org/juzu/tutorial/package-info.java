@@ -74,7 +74,7 @@
     @Stylesheet(id = "input_interpretcss", value = "styles/input_interpret.css", location = AssetLocation.APPLICATION),
     
     
-    @Stylesheet(id = "bootstrapcss", value = "styles/bootstrap.min.css", location = AssetLocation.APPLICATION),
+   // @Stylesheet(id = "bootstrapcss", value = "styles/bootstrap.min.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "standardcss", value = "styles/standard.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "standard_uploadcss", value = "styles/standard_upload.css", location = AssetLocation.APPLICATION),
     
