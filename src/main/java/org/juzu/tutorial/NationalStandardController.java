@@ -5,7 +5,10 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -131,12 +134,35 @@ public class NationalStandardController {
 		  
 		  search_text = search_text.trim();
 		  LOG.info("keyword: " + search_text);
+		  
+		  Set<StandardType> types = new HashSet<StandardType>();
+		  if(search_type != null){
+			  for(String i:search_type){
+				  LOG.info("type: " + i);  //StandardType in numbers
+				  Integer n = Integer.parseInt(i);
+				  types.add(StandardType.typeForValue(n));
+			  }
+		  }
+		  
+		  /*
 		  if(null != search_type){
-			  for(String s:search_type){
+			  for(StandardType s:search_type){
 				  LOG.info("search types: " + s);
 			  }
 		  }
+		  */
 		  //with search types, query db to get qualified standard(s)
+		 List<Standard> stanList = standardSvc.findByTypes(types);
+		 
+		 Map<String, Standard> stanMap = new HashMap<String, Standard>();
+		 for(Standard stan:stanList){
+			 stanMap.put(stan.getUuid(), stan);
+			 Set<StanJcrFile> jcrFiles = stan.getStanJcrFiles();
+			 for(StanJcrFile sjf:jcrFiles){
+				 stanMap.put(sjf.getUuid(), stan);
+			 }
+			 
+		 }
 		  
 		  
 		  //search jcr with keyword
@@ -145,28 +171,36 @@ public class NationalStandardController {
 
 			QysFileSearchServiceConnector fssc = new QysFileSearchServiceConnector(
 					QysFileSearchServiceConnector.initFileSearchProp());
-			QysFileSearchServiceConnector.SEARCH_PATH = "/Groups/spaces";
-			// fssc.setSearchSubDir("standard");
-			connectorResults = fssc.searchQys(search_text, "");
+			//QysFileSearchServiceConnector.SEARCH_PATH = "/Groups/spaces";
+		    //fssc.setSearchSubDir("standard");
+			connectorResults = fssc.searchQys(search_text, "standard");
 
 	      } catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 		  }
 		  LOG.info("total jcr records found: " + connectorResults.size());
-		  JSONArray ja = new JSONArray();
+		  
+		  Set<Standard> finalSet = new HashSet<Standard>();
 		  for(SearchResult sr:connectorResults){
 			  String uuid = sr.getDetail();
-			  
+			  if(stanMap.containsKey(uuid)){
+				  finalSet.add(stanMap.get(uuid));
+			  }
 		  }
+		   
+		  JSONObject mainObj = this.generateSearchResult(finalSet);
+		 
 		  
-		  Standard st = standardSvc.findById("e0e08d6f-b564-49cc-9699-b4f7e4ee1100");
-		  ja.put(new JSONObject(st));
+		  return Response.ok(mainObj.toString()).withMimeType("text/json").withCharset(Tools.UTF_8);
+	  }
+	  
+		 
+	  private JSONObject generateSearchResult(Set<Standard> stanSets){
+          JSONArray ja = new JSONArray();
 		  
-		  st = standardSvc.findById("e064882e-ea02-42a1-a180-8b9000620213");
-		  ja.put(new JSONObject(st));
-		  
-		  st = standardSvc.findById("75e819fb-350c-401f-8308-7681536235c9");
-		  ja.put(new JSONObject(st));
+          for(Standard st:stanSets){
+        	  ja.put(new JSONObject(st));
+          }
 		  
 		  JSONObject mainObj = new JSONObject();
 		  try {
@@ -175,8 +209,22 @@ public class NationalStandardController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		  return mainObj;
+	  }
+	  
+	  Set<Standard> testingStandardSet(){
+		  Set<Standard> finalSet = new HashSet<Standard>();
+	  
+		  Standard st = standardSvc.findById("e0e08d6f-b564-49cc-9699-b4f7e4ee1100");
+		  finalSet.add(st);
 		  
-		  return Response.ok(mainObj.toString()).withMimeType("text/json").withCharset(Tools.UTF_8);
+		  st = standardSvc.findById("e064882e-ea02-42a1-a180-8b9000620213");
+		  finalSet.add(st);
+		  
+		  st = standardSvc.findById("75e819fb-350c-401f-8308-7681536235c9");
+		  finalSet.add(st);
+		  
+		  return finalSet;
 	  }
 	  
 	  
