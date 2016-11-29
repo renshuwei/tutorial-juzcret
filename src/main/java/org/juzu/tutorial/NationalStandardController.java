@@ -81,8 +81,8 @@ public class NationalStandardController {
 	  @Assets({"standardcss", "standardjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
 	  public Response.Content standard() throws IOException{
-		  Standard s = standardSvc.findById("ff8081815869c2c1015869ce9d5a0003");
-		  LOG.info(s.getCreator() + ", " + s.getName() + ", " + s.getStanTags().toString());
+		//  Standard s = standardSvc.findById("ff8081815869c2c1015869ce9d5a0003");
+		 // LOG.info(s.getCreator() + ", " + s.getName() + ", " + s.getStanTags().toString());
 		  return standard.ok();
 	  }
 	  /*
