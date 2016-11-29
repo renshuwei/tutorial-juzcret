@@ -1,4 +1,6 @@
-<div class="container">
+
+	
+	<div class="container">
 		
 		<div class="container_center">
 		
@@ -6,7 +8,7 @@
 		
 		
 		<div class="input-append" style="width:95%;">
-   			<button type="button"  onclick="window.location.href='@{NationalStandardController.standard()}'" class="btn btn-block btn-primary" style="width:10%; float:right;">返回</button>
+   			<button type="button"  onclick="window.location.href='@{NationalStandardController.back()}'" class="btn btn-block btn-primary" style="width:10%; float:right;">返回</button>
    		</div>
 		 
 		<form id="form1" action="@{NationalStandardController.upload()}" method="post" name="f1" enctype="multipart/form-data">
@@ -29,29 +31,29 @@
 				<input type="text" data-toggle="dropdown" id="standardTypeTxt" name="standardTypeTxt" AUTOCOMPLETE="off">
 				
 				<ul class="dropdown-menu" style="padding:0px;">
-					<select multiple="multiple" id="standardType" name="standardType" AUTOCOMPLETE="off">
-  						<option value="1">安全</option>
-  						<option value="2">车身及悬架</option>
-  						<option value="3">车轮</option>
-  						<option value="4">材料</option>
-  						<option value="5">灯光</option>
-						<option value="6">底盘</option>
-  						<option value="7">汽车电子与电磁兼容</option>
-  						<option value="8">电器</option>
-  						<option value="9">防盗</option>
-  						<option value="10">回收利用</option>
-						<option value="11">环保（不含排放）</option>
-  						<option value="12">节能</option>
-  						<option value="13">排放</option>
-  						<option value="14">制动</option>
-  						<option value="15">电动车辆</option>
-						<option value="16">挂车</option>
-  						<option value="17">客车</option>
-  						<option value="18">专用车</option>
-  						<option value="19">液化石油气汽车</option>
-  						<option value="20">燃气汽车</option>
-						<option value="21">仪表</option>
-  						<option value="22">其他</option>
+					<select multiple="multiple" id="standardType" name="standardType" onchange="ShowToText()" AUTOCOMPLETE="off">
+  						<option value="安全">安全</option>
+  						<option value="车身及悬架">车身及悬架</option>
+  						<option value="车轮">车轮</option>
+  						<option value="材料">材料</option>
+  						<option value="灯光">灯光</option>
+						<option value="底盘">底盘</option>
+  						<option value="汽车电子与电磁兼容">汽车电子与电磁兼容</option>
+  						<option value="电器">电器</option>
+  						<option value="防盗">防盗</option>
+  						<option value="回收利用">回收利用</option>
+						<option value="环保（不含排放）">环保（不含排放）</option>
+  						<option value="节能">节能</option>
+  						<option value="排放">排放</option>
+  						<option value="制动">制动</option>
+  						<option value="电动车辆">电动车辆</option>
+						<option value="挂车">挂车</option>
+  						<option value="客车">客车</option>
+  						<option value="专用车">专用车</option>
+  						<option value="液化石油气汽车">液化石油气汽车</option>
+  						<option value="燃气汽车">燃气汽车</option>
+						<option value="仪表">仪表</option>
+  						<option value="其他">其他</option>
 					</select>
 				</ul>
    			</div>
@@ -60,7 +62,7 @@
    			<span class="span_title">标签&nbsp;&nbsp;</span>
 			
 			<div class="btn-group">
-				<input type="text" data-toggle="dropdown" id="tag" name="selectTag" AUTOCOMPLETE="off">
+				<input type="text" data-toggle="dropdown" id="tag" name="tag" AUTOCOMPLETE="off">
 				<!--
                 <ul class="dropdown-menu" style=" padding:0px;">
 					<select multiple="multiple"  id="selectTag" name="selectTag" onChange="ShowToTextTag()">
@@ -243,8 +245,8 @@
 						</div>
 						</div>-->
 						<div style="padding-bottom:15px">
-                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="添加文件" id="fileselect"/>
-                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="删除文件" id="fileselect2"/>
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="添加文件" id="fileselect"  onClick="file_add()"/>
+                                <input class="btn" type="button" style="font-size:13px; padding:2px 10px; margin-right:10px;" value="删除文件" id="fileselect2"  onClick="file_delete()"/>
                                 <!--<div id="filedrag">或者拖动文件到这里</div>-->
                         </div>
 						
@@ -263,21 +265,15 @@
 		<div></div>
 		
 		<input type="hidden" id="author" name="author" value="admin">
-        <input type="hidden" id="department" name="department" value="部门1">
+        <input type="hidden" id="department" name="department" value="工信部">
         <input type="hidden" id="createDate" name="createDate" value="">
 		<div class="input-append" style="width:95%;">
         	<!--notes_add_touch()-->
-   			<button id="dijiao" type="button" class="btn btn-block btn-primary" style="width:10%; float:right;" >提交</button>
+   			<button type="button" class="btn btn-block btn-primary" style="width:10%; float:right;" onclick="notes_add_touch()">提交</button>
    		</div>
         
 		</form>
 		</div>
 		
-		<div class="alert alert-success alert-dismissable" style="display:none;" id="uploadSuccess">
-           <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                  标准上载成功！
-        </div>
-		
-	</div>
-	
+	</div>	
 	

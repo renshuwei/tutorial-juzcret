@@ -61,38 +61,51 @@ public class NationalStandardController {
 	  DocumentsDataHelper documentsData;
 	  
 	  @Inject
-	  @Path("standard.gtmpl")
-	  Template standard;
+	  @Path("standards.gtmpl")
+	  Template standards;
 	  
 	  @Inject
-	  @Path("standard_upload.gtmpl")
-	  Template standard_upload;
+	  @Path("standards_upload.gtmpl")
+	  Template standards_upload;
 	  
-	  /*
 	  @Inject
 	  @Path("new_standards.gtmpl")
 	  Template new_standards;
-	  */
-	  
-	  @Inject
+	
+	  /*@Inject
 	  @Path("standard_content.gtmpl")
-	  Template content;
+	  Template content;*/
 	  
 	  @Assets({"standardcss", "standardjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
-	  public Response.Content standard() throws IOException{
+	  public Response.Content standards() throws IOException{
 		//  Standard s = standardSvc.findById("ff8081815869c2c1015869ce9d5a0003");
 		 // LOG.info(s.getCreator() + ", " + s.getName() + ", " + s.getStanTags().toString());
-		  return standard.ok();
+		  return standards.ok();
 	  }
-	  /*
-	  @Assets({"new_standardscss","new_standardsjs"})
+	  
+	  //standards.gtmpl中的上传
+	  @View
+	  public Response.Content update_data() throws IOException{
+		  return standards_upload.ok();
+	  }
+	  
+	  @View
+	  public Response.Content back() throws IOException{
+		  return standards.ok();
+	  }
+	  
 	  @View
 	  public Response.Content new_standards() throws IOException{
 		  return new_standards.ok();
 	  }
-	  */
 	  
+	  //standards_content.gtmpl的返回
+	  @View
+	  public Response.Content content_back() throws IOException{
+		  return standards.ok();
+	  }
+	/* 暂时注释
 	  @Resource
 	  @Ajax
 	  public Response.Content standardContent(String uuid) throws IOException{
@@ -112,21 +125,14 @@ public class NationalStandardController {
 		  
 		  
 		  return content.with().set("stan", stan).set("files", files).ok();
-	  }	  
-	  
+	  }	 */ 
+	/*  暂时注释，到227行
 	  @Assets({"standard_uploadcss", "standarduploadjs"})
 	  @View 
 	  public Response.Content upload_form() throws IOException{
-		  return standard_upload.ok();
+		  return standards_upload.ok();
 	  }
-	  
-	  /**
-	   * with out user input, search_text is empty string, search_type is null
-	   * so need to do data validation before searching.
-	   * @param search_text
-	   * @param search_type
-	   * @return
-	   */
+	
 	  
 	  @Resource
 	  @Ajax
@@ -143,14 +149,7 @@ public class NationalStandardController {
 				  types.add(StandardType.typeForValue(n));
 			  }
 		  }
-		  
-		  /*
-		  if(null != search_type){
-			  for(StandardType s:search_type){
-				  LOG.info("search types: " + s);
-			  }
-		  }
-		  */
+		
 		  //with search types, query db to get qualified standard(s)
 		 List<Standard> stanList = standardSvc.findByTypes(types);
 		 
@@ -225,7 +224,7 @@ public class NationalStandardController {
 		  finalSet.add(st);
 		  
 		  return finalSet;
-	  }
+	  }*/
 	  
 	  
 	

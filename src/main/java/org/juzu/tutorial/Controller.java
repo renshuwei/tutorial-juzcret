@@ -98,39 +98,9 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   @Path("index.gtmpl")
   Template index;
   
-  @Inject
-  @Path("interpretation.gtmpl")
-  Template interpretation;
-  
-  @Inject
-  @Path("new_interpretation.gtmpl")
-  Template new_interpretation;
-  
-  @Inject
-  @Path("interpretation_upload.gtmpl")
-  Template interpretation_upload;
-  
-  @Assets({"interpretationcss", "interpretationjs"})  
-  @View
-  public Response.Content interpretation() throws IOException{
-	  return interpretation.ok();
-  }
-  
-  //interpretation.gtmpl中的上传页面,在map.gtmpl中也有一个update_data()方法
-  @Assets({"interpretation_uploadjs","interpretation_uploadcss"})
-  @View
-  public Response.Content update_data() throws IOException{
-	  return interpretation_upload.ok();
-  }
-  
-  @Assets({"new_interpretationjs","new_interpretationcss"})
-  @View
-  public Response.Content new_interpretation() throws IOException{
-	  return new_interpretation.ok();
-  }
 
-  @Assets({"indexcss", "indexjs"})
-  //@Assets("indexcss")
+
+  @Assets({"indexcss", "indexjs"})  
   @View
   public Response.Content index(SecurityContext securityContext) throws IOException {
 	  String username = securityContext.getRemoteUser();

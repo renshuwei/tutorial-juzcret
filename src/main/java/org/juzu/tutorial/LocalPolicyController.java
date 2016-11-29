@@ -40,7 +40,7 @@ private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.clas
   
 
   
-  @Inject
+ /* @Inject
   @Path("new_interpretation.gtmpl")
   Template new_interpretation;
   
@@ -63,11 +63,11 @@ private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.clas
   public Response.Content  update_data() throws IOException{
 	  return local_upload.ok();
   }
-  @Assets({"mapjs",/*"echartsjs",*/ "jquerypage", "mapcss"})
+  @Assets({"mapjs","echartsjs", "jquerypage", "mapcss"})
   @View
   public Response.Content map() throws IOException{
 	  return map.ok();
-  }
+  }*/
   
   
 }

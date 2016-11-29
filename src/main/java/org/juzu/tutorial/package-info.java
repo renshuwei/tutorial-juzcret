@@ -40,40 +40,38 @@
 	@Script(id = "nlibjs", value = "js/nlib.js", location=AssetLocation.APPLICATION),
 	@Script(id = "policycommonjs", value = "js/policy_js/policy_common.js", location=AssetLocation.APPLICATION),
     @Script(id = "indexjs", value = "js/index.js", depends="jquery", location=AssetLocation.APPLICATION),
-    //interpretation
-    @Script(id = "interpretationjs", value = "js/interpretation/interpretation.js", location=AssetLocation.APPLICATION),
-    @Script(id = "interpretation_uploadjs", value = "js/interpretation/interpretation_upload.js", location=AssetLocation.APPLICATION),
-    @Script(id = "new_interpretationjs", value = "js/interpretation/new_interpretation.js", location=AssetLocation.APPLICATION),
-    //national standard
-    @Script(id = "standardjs",value ="js/nationalsd/standard.js",depends={"jquery", "juzuutil", "jquerypage", "policycommonjs"}, location=AssetLocation.APPLICATION),
-    @Script(id = "standarduploadjs",value ="js/nationalsd/standard_upload.js",depends = {"jquery", "jquerypage", "nlibjs"}, location=AssetLocation.APPLICATION),
+    //政策与解读
+    @Script(id = "interpretationjs", value = "js/interpretation.js", location=AssetLocation.APPLICATION),
+    @Script(id = "interpretation_uploadjs", value = "js/interpretation_upload.js", location=AssetLocation.APPLICATION),
+    @Script(id = "new_interpretationjs", value = "js/new_interpretation.js", location=AssetLocation.APPLICATION),
+    //国家标准
+    @Script(id = "standardjs",value ="js/standard.js",depends={"jquery", "juzuutil", "jquerypage", "policycommonjs"}, location=AssetLocation.APPLICATION),
+    @Script(id = "standarduploadjs",value ="js/standard_upload.js",depends = {"jquery", "jquerypage", "nlibjs"}, location=AssetLocation.APPLICATION),
     //@Script(id = "fileuploadjs",value ="js/fileupload.js",location=AssetLocation.APPLICATION),
     @Script(id = "mouseoutjs",value ="js/mouseout.js",depends = "jquery", location=AssetLocation.APPLICATION),
     @Script(id = "mouseoverjs",value ="js/mouseover.js",depends = "jquery", location=AssetLocation.APPLICATION),
-    //local standard
+    //地方政策
     @Script(id = "echartsjs", value = "js/echarts.js", location=AssetLocation.APPLICATION),
-    @Script(id = "amapjs", value = "http://webapi.amap.com/maps?v=1.3&key=b23cb51fd67fa09da9478fc6a14cc200&plugin=AMap.Geocoder",
-    		  location = AssetLocation.URL),
-    @Script(id = "mapjs", value = "js/localpl/map.js", depends={"amapjs", "jquery", "echartsjs"}, location=AssetLocation.APPLICATION),    
-    @Script(id = "local_uploadjs", value = "js/localpl/local_upload.js", location=AssetLocation.APPLICATION),
-    @Script(id = "new_localjs", value = "js/localpl/new_local.js", location=AssetLocation.APPLICATION),
+    @Script(id = "amapjs", value = "http://webapi.amap.com/maps?v=1.3&key=b23cb51fd67fa09da9478fc6a14cc200&plugin=AMap.Geocoder",location = AssetLocation.URL),
+    @Script(id = "mapjs", value = "js/map.js", depends={"amapjs", "jquery", "echartsjs"}, location=AssetLocation.APPLICATION),    
+    @Script(id = "local_uploadjs", value = "js/local_upload.js", location=AssetLocation.APPLICATION),
+    @Script(id = "new_localjs", value = "js/new_local.js", location=AssetLocation.APPLICATION),
     
     
 })
 
 @Stylesheets ({
     @Stylesheet(id = "indexcss", value = "styles/index.css", location = AssetLocation.APPLICATION),
-    //
+    //政策与解读
     @Stylesheet(id = "interpretationcss", value = "styles/interpretation.css", location = AssetLocation.APPLICATION),    
     @Stylesheet(id = "interpretation_uploadcss", value = "styles/interpretation_upload.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "new_interpretationcss", value = "styles/new_interpretation.css", location = AssetLocation.APPLICATION),
-    //local
+    //地方政策
     @Stylesheet(id = "mapcss", value = "styles/map.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "local_uploadcss", value = "styles/local_upload.css", location = AssetLocation.APPLICATION),
     //
     @Stylesheet(id = "input_interpretcss", value = "styles/input_interpret.css", location = AssetLocation.APPLICATION),
-    
-    
+    //国家标准    
    // @Stylesheet(id = "bootstrapcss", value = "styles/bootstrap.min.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "standardcss", value = "styles/standard.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "standard_uploadcss", value = "styles/standard_upload.css", location = AssetLocation.APPLICATION),
