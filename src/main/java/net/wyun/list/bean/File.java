@@ -54,23 +54,24 @@ public class File implements Comparable<File> {
     this.createdDate = createdDate;
   }
 
+  private final static String root = "/tutorial-juzcret";
   public String getIcon() {
     if (name.endsWith(".ppt") || name.endsWith(".pptx"))
-      return "/documents/img/icon-ppt.png";
+      return root + "/img/icon-ppt.png";
     else if (name.endsWith(".xls") || name.endsWith(".xlsx"))
-      return "/documents/img/icon-xls.png";
+      return root + "/img/icon-xls.png";
     else if (name.endsWith(".doc") || name.endsWith(".docx"))
-      return "/documents/img/icon-doc.png";
+      return root + "/img/icon-doc.png";
     else if (name.endsWith(".odp"))
-      return "/documents/img/icon-odp.png";
+      return root + "/img/icon-odp.png";
     else if (name.endsWith(".ods"))
-      return "/documents/img/icon-ods.png";
+      return root + "/img/icon-ods.png";
     else if (name.endsWith(".odt"))
-      return "/documents/img/icon-odt.png";
+      return root + "/img/icon-odt.png";
     else if (name.endsWith(".pdf"))
-      return "/documents/img/icon-pdf.png";
+      return root + "/img/icon-pdf.png";
     else if (!isFile())
-      return "/documents/img/Files-folder.png";
+      return root + "/img/Files-folder.png";
      else
       return "/rest/thumbnailImage/custom/32x32/repository/collaboration"+path;
   }
