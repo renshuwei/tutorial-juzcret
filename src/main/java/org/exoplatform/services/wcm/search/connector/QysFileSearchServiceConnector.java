@@ -109,9 +109,8 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
 	      }while(searchResults.size() == limit);
 	      
 	      
-	      String baseUri = System.getenv("exo_base_uri"); //"http://localhost:8080/";
-	      if(null == baseUri) baseUri = "http://localhost:8080/";
-	      LOG.info("baseUri: " + baseUri);
+	      String baseUrl = obtainExoBaseUrl();
+	      LOG.info("exo base url: " + baseUrl);
 	      
 	      String resultUrl, imageUrl;      
 	      
@@ -126,9 +125,9 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
 	          LOG.info("detail: " + result.getDetail());
 	          
 	          if(null!=resultUrl && resultUrl.startsWith("/")) {
-	        	  result.setUrl(baseUri + resultUrl);
+	        	  result.setUrl(baseUrl + resultUrl);
 	          }
-	          if(null!=imageUrl && imageUrl.startsWith("/")) result.setImageUrl(baseUri + imageUrl);          
+	          if(null!=imageUrl && imageUrl.startsWith("/")) result.setImageUrl(baseUrl + imageUrl);          
 	        }        
 	     // }
 	      
@@ -139,7 +138,15 @@ public class QysFileSearchServiceConnector extends BaseContentSearchServiceConne
   }
   
   
-  
+  private String obtainExoBaseUrl(){
+	  //exo.base.url
+	  String baseUrl = System.getenv("exo_base_url"); 
+	  
+      if(null != baseUrl) return baseUrl;
+      
+      baseUrl = "http://localhost:8080/";
+      return baseUrl;
+  }
   
   
   
