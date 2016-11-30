@@ -38,36 +38,50 @@ private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.clas
   @Inject
   StandardService standardSvc;
   
+  @Inject
+  @Path("map.gtmpl")
+  Template map;
 
-  
- /* @Inject
-  @Path("new_interpretation.gtmpl")
-  Template new_interpretation;
-  
   @Inject
   @Path("local_upload.gtmpl")
   Template local_upload;
   
   @Inject
-  @Path("map.gtmpl")
-  Template map;
+  @Path("new_interpretation.gtmpl")
+  Template new_interpretation;
+
+  //map.gtmpl的上传
+  @Assets({"local_uploadjs","local_uploadcss"})
+  @View
+  public Response.Content  update_data() throws IOException{
+	  return local_upload.ok();
+  }
+  
+  @Assets({"mapjs","echartsjs", "jquerypage", "mapcss"})
+  @View
+  public Response.Content map() throws IOException{
+	  return map.ok();
+  }
+  
+  //local_upload.gtmpl中的返回
+  @Assets({"mapjs","echartsjs", "jquerypage", "mapcss"})
+  @View
+  public Response.Content back() throws IOException{
+	  return map.ok();
+  }
   
   @Assets({"new_localjs","new_interpretationcss"})
   @View
   public Response.Content new_local() throws IOException{
 	  return new_interpretation.ok();
   }
-  //最新地方政策的上传页面
-  @Assets({"local_uploadjs","local_uploadcss"})
-  @View
-  public Response.Content  update_data() throws IOException{
-	  return local_upload.ok();
-  }
   @Assets({"mapjs","echartsjs", "jquerypage", "mapcss"})
   @View
-  public Response.Content map() throws IOException{
+  public Response.Content content_back() throws IOException{
 	  return map.ok();
-  }*/
+  }
+  
+  
   
   
 }
