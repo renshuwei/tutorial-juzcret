@@ -98,7 +98,48 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   @Path("index.gtmpl")
   Template index;
   
+  @Inject
+  @Path("interpretation.gtmpl")
+  Template interpretation;
+  
+  @Inject
+  @Path("interpretation_upload.gtmpl")
+  Template interpretation_upload;
 
+  @Inject
+  @Path("new_interpretation.gtmpl")
+  Template new_interpretation;
+  
+  
+  
+  
+  
+  @View
+  public Response.Content interpretation() throws IOException{
+	  return interpretation.ok();
+  }
+  
+  @View
+  public Response.Content new_interpretation() throws IOException{
+	  return new_interpretation.ok();
+  }
+  
+ //interpretation.gtmpl中的上传
+  @View
+  public Response.Content  update_data() throws IOException{
+	  return interpretation_upload.ok();
+  }
+  //interpretation_upload.gtmpl中的返回
+  @View
+  public Response.Content back() throws IOException{
+	  return interpretation.ok();
+  }
+  //interpretation_content.gtmpl中的返回
+  @View
+  public Response.Content content_back() throws IOException{
+	  return interpretation.ok();
+  }
+ 
 
   @Assets({"indexcss", "indexjs"})  
   @View
