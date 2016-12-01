@@ -145,7 +145,7 @@ public class NationalStandardController {
 		  return standards_upload.ok();
 	  }
 	
-	  
+/*	  在服务器上build测试通不过
 	  @Resource
 	  @Ajax
 	  public Response.Content search(String search_text, String[] search_type){
@@ -204,7 +204,7 @@ public class NationalStandardController {
 		  
 		  return Response.ok(mainObj.toString()).withMimeType("text/json").withCharset(Tools.UTF_8);
 	  }
-	  
+	  */
 		 
 	  private JSONObject generateSearchResult(Set<Standard> stanSets){
           JSONArray ja = new JSONArray();
