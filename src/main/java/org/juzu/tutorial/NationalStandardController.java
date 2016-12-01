@@ -60,22 +60,23 @@ public class NationalStandardController {
 	  @Inject
 	  DocumentsDataHelper documentsData;
 	  
+	  //源注解，特殊，建议保留，2016-12-1
 	  @Inject
-	  @Path("standards.gtmpl")
-	  Template standards;
+	  @Path("standards_content.gtmpl")
+	  Template content;
 	  
 	  @Inject
 	  @Path("standards_upload.gtmpl")
 	  Template standards_upload;
 	  
 	  @Inject
+	  @Path("standards.gtmpl")
+	  Template standards;
+	  
+	  @Inject
 	  @Path("new_standards.gtmpl")
 	  Template new_standards;	
 	  
-	  @Inject
-	  @Path("standards_content.gtmpl")
-	  Template content;
-
 	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
 	  public Response.Content standards() throws IOException{
@@ -84,30 +85,39 @@ public class NationalStandardController {
 		  return standards.ok();
 	  }
 	  
-	  //standards.gtmpl中的上传
-	  @Assets({"standards_uploadjs","standards_uploadcss"})
-	  @View
-	  public Response.Content update_data() throws IOException{
-		  return standards_upload.ok();
-	  }
-	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
-	  @View
-	  public Response.Content back() throws IOException{
-		  return standards.ok();
-	  }
 	  @Assets({"new_standardscss","new_standardsjs"})
 	  @View
 	  public Response.Content new_standards() throws IOException{
 		  return new_standards.ok();
 	  }
 	  
-	  //standards_content.gtmpl的返回
+	  //standards.gtmpl中的上传
+	  @Assets({"standards_uploadjs","standards_uploadcss"})
+	  @View
+	  public Response.Content update_data() throws IOException{
+		  return standards_upload.ok();
+	  }
+	  //standatds_upload.gtmpl中的返回
+	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
+	  @View
+	  public Response.Content back() throws IOException{
+		  return standards.ok();
+	  }
+	  
+	//standards_content.gtmpl的返回
 	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
 	  public Response.Content content_back() throws IOException{
 		  return standards.ok();
 	  }
+	  
+	  /*2016-12-1
+	  @Inject
+	  @Path("standards_upload.gtmpl")
+	  Template standards_upload;
+
 	
+*/	
 	  @Resource
 	  @Ajax
 	  public Response.Content standardContent(String uuid) throws IOException{

@@ -97,7 +97,7 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   @Inject
   @Path("index.gtmpl")
   Template index;
-  
+  /*2016-12-1
   @Inject
   @Path("interpretation.gtmpl")
   Template interpretation;
@@ -109,10 +109,10 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   @Inject
   @Path("new_interpretation.gtmpl")
   Template new_interpretation;
+  */
   
   
-  
-  
+  /*2016-12-1
   @Assets({"interpretationcss","interpretationjs"})
   @View
   public Response.Content interpretation() throws IOException{
@@ -141,7 +141,7 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   @View
   public Response.Content content_back() throws IOException{
 	  return interpretation.ok();
-  }
+  }*/
  
 
   @Assets({"indexcss", "indexjs"})  

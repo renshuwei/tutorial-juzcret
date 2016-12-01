@@ -37,7 +37,7 @@ private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.clas
   
   @Inject
   StandardService standardSvc;
-  
+  /*
   @Inject
   @Path("map.gtmpl")
   Template map;
@@ -79,7 +79,7 @@ private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.clas
   @View
   public Response.Content content_back() throws IOException{
 	  return map.ok();
-  }
+  }*/
   
   
   
