@@ -36,7 +36,7 @@
 	@Script(id = "jquerypage", value = "js/jquery.page.js", depends="jquery", location=AssetLocation.APPLICATION),
 	@Script(id = "jqueryform", value = "js/jquery.form.js", depends="jquery", location=AssetLocation.APPLICATION),
 	@Script(id = "jqueryfiledropjs", value = "js/jquery.filedrop.js", location=AssetLocation.APPLICATION),
-	//@Script(id = "juzuutil",  value = "js/jquery-juzu-utils-0.1.0.js", depends = "jquery", location=AssetLocation.APPLICATION),
+	@Script(id = "juzuutil",  value = "js/jquery-juzu-utils-0.1.0.js", depends = "jquery", location=AssetLocation.APPLICATION),
 	@Script(id = "jszipminjs",  value = "js/jszip.min.js", location=AssetLocation.APPLICATION),
 	
 	@Script(id = "libjs", value = "js/lib.js", location=AssetLocation.APPLICATION),	
@@ -55,10 +55,8 @@
     @Script(id = "standards_uploadjs",value ="js/standards_upload.js",depends = {"jquery", "jquerypage", "nlibjs"}, location=AssetLocation.APPLICATION),
     @Script(id = "standards_content_afterjs",value ="js/standards_content_after.js", location=AssetLocation.APPLICATION),
     @Script(id = "standards_oldjs",value ="js/standards_old.js", location=AssetLocation.APPLICATION),
-    @Script(id = "standards_upload_afterjs",value ="js/standards_upload_after.js", location=AssetLocation.APPLICATION),
-   
-    
-    //@Script(id = "fileuploadjs",value ="js/fileupload.js",location=AssetLocation.APPLICATION),    
+    @Script(id = "standards_upload_afterjs",value ="js/standards_upload_after.js", location=AssetLocation.APPLICATION),     
+      
     @Script(id = "new_standardsjs",value ="js/new_standards.js", location=AssetLocation.APPLICATION),
     
     //地方政策 
