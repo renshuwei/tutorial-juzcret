@@ -113,28 +113,31 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   
   
   
-  
+  @Assets({"interpretationcss","interpretationjs"})
   @View
   public Response.Content interpretation() throws IOException{
 	  return interpretation.ok();
   }
-  
+  @Assets({"new_interpretationjs","new_interpretationcss"})
   @View
   public Response.Content new_interpretation() throws IOException{
 	  return new_interpretation.ok();
   }
   
  //interpretation.gtmpl中的上传
+  @Assets({"interpretation_uploadcss","interpretation_uploadjs"})
   @View
   public Response.Content  update_data() throws IOException{
 	  return interpretation_upload.ok();
   }
   //interpretation_upload.gtmpl中的返回
+  @Assets({"interpretationcss","interpretationjs"})
   @View
   public Response.Content back() throws IOException{
 	  return interpretation.ok();
   }
   //interpretation_content.gtmpl中的返回
+  @Assets({"interpretationcss","interpretationjs"})
   @View
   public Response.Content content_back() throws IOException{
 	  return interpretation.ok();

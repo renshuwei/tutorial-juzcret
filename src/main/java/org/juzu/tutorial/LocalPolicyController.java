@@ -57,14 +57,14 @@ private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.clas
 	  return local_upload.ok();
   }
   
-  @Assets({"mapjs","echartsjs", "jquerypage", "mapcss"})
+  @Assets({"mapjs", "jquerypage", "mapcss"})
   @View
   public Response.Content map() throws IOException{
 	  return map.ok();
   }
   
   //local_upload.gtmpl中的返回
-  @Assets({"mapjs","echartsjs", "jquerypage", "mapcss"})
+  @Assets({"mapjs", "jquerypage", "mapcss"})
   @View
   public Response.Content back() throws IOException{
 	  return map.ok();
@@ -75,7 +75,7 @@ private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.clas
   public Response.Content new_local() throws IOException{
 	  return new_interpretation.ok();
   }
-  @Assets({"mapjs","echartsjs", "jquerypage", "mapcss"})
+  @Assets({"mapjs", "jquerypage", "mapcss"})
   @View
   public Response.Content content_back() throws IOException{
 	  return map.ok();

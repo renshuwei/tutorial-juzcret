@@ -5,7 +5,7 @@ var page_num = 1;
 localStorage.json_str ="";
 function update_data()
 {
-	window.location.href="interpretation_upload.html?new=1&update=0";
+	window.location.href="standards_upload.html?new=1&update=0";
 }
 get_history(history_array);
 function get_history(history_array)
@@ -40,7 +40,8 @@ function get_history(history_array)
 }
 
 
-var path;
+
+	var path;
 	//alert("aaaaaaaaaaa");
 	function create_one_add(path)
 	{
@@ -90,7 +91,6 @@ var path;
 					}
 					//alert(page_count);
 					get_page(page_count,json);
-					//alert(page_num);
 					get_page_result(json,page_num);
 					/*
 					var result_table = "";
@@ -196,147 +196,127 @@ var path;
 	//document.getElementById("createDate").value = getNowFormatDate();
 	//alert(get_url_base());
 	
-function get_page_result(json,page_num)
-{
-	var result_table = "";
-	var page_start = (page_num-1)*page_size;
-	if(json.resultList.length < (page_start+page_size))
+	function get_page_result(json,page_num)
 	{
-		var result_count = json.resultList.length;
-	}
-	else
-	{
-		var result_count = page_start+page_size;
-	}
-	var result_table = "";
-	for(var i=page_start; i < result_count;i++)
-	{
-		var id_value = json.resultList[i].id;
-		
-		var name_value = json.resultList[i].name;
-		//alert(name_value);
-		var num_value = json.resultList[i].num;
-		//alert(num_value);
-		var type_value = json.resultList[i].type;
-		//alert(type_value);
-		var txt_value = json.resultList[i].txt;
-		//alert(txt_value);
-		var dept_value = json.resultList[i].dept;
-		//alert(dept_value);
-		var createDate_value = json.resultList[i].createDate;
-		//alert(createDate_value);
-		var tag_str = json.resultList[i].stanTags[0];
-		var tagobj=eval('('+tag_str+')');
-		var tag_value = tagobj.tag;
-		var tag_value = tag_value.replace(/\s+/g,"、");
-		var files_str = json.resultList[i].stanJcrFiles[0];
-		//alert(files_str);
-		var file_str_arr = new Array();
-		var file_str_arr = files_str.split("},"); //字符分割
-		var file_value = "";
-		var uuid_value = "";
-		for (j=0;j<file_str_arr.length ;j++ )
+		var result_table = "";
+		var page_start = (page_num-1)*page_size;
+		if(json.resultList.length < (page_start+page_size))
 		{
-			if(j!=(file_str_arr.length-1))
-			{
-				
-				var file_str = file_str_arr[j]+'}';
-				
-			}
-			else
-			{
-				var file_str = file_str_arr[j];
-			}
-			var file_obj=eval('('+file_str+')');
-			//alert(file_obj.fileName)
-			var file_value = file_value+file_obj.fileName+';';
-			var uuid_value = uuid_value+file_obj.uuid+';';
+			var result_count = json.resultList.length;
 		}
-		
-		var files_str2 = json.resultList[i].interpretationFiles[0];
-		//alert(files_str);
-		var file_str_arr2 = new Array();
-		file_str_arr2 = files_str2.split("},"); //字符分割
-		file_value2 =""
-		for (j=0;j<file_str_arr2.length ;j++ )
+		else
 		{
-			if(j!=(file_str_arr2.length-1))
-			{
-				
-				var file_str2 = file_str_arr2[j]+'}';
-				
-			}
-			else
-			{
-				var file_str2 = file_str_arr2[j];
-			}
-			var file_obj2=eval('('+file_str2+')');
-			//alert(file_obj.fileName)
-			var file_value2 = file_value2+file_obj2.fileName+';';
+			var result_count = page_start+page_size;
 		}
-		var policyTxt_value = json.resultList[i].policyTxt;
-		var interpretationTxt_value = json.resultList[i].interpretationTxt;
-		var json_value ="id="+id_value+"&name="+name_value+"&num="+num_value+"&dept="+dept_value+"&createDate="+createDate_value+"&type="+type_value+"&tag="+tag_value+"&policyTxt="+policyTxt_value+"&interpretationTxt="+interpretationTxt_value+"&policyFiles="+file_value+"&policyUrls="+uuid_value+"&interpretationFiles="+file_value2+"&new=1&update=1";
-		var result_table = result_table + "<tr>"+
-											"<td >"+																			
-												"<div class=\"tooltips\">"+ 
-													"<div class=\"tooltips1\">";
-													if(i<=(page_start+parseInt((result_count-page_start+1)/2)))
-													{
-														result_table = result_table + "<span class=\"top2\">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。";
-													}
-													else
-													{
-														result_table = result_table + "<span class=\"top1\">新能源汽车领域有19个重点项目入选，共计划补贴约10.15个亿，重点围绕动力电池与电池管理、电机驱动与电力电子、电动汽车智能化、燃料电池动力系统等6个技术方向，部署38个重点研究任务。";
-													}
-														result_table = result_table + "</span>"+
-													"</div>"+
-													"<a href=\"interpretation_content.html?"+json_value+"\">"+name_value+"</a>"+                            									"</div>"+
-											"</td>"+
-											"<td>"+num_value+"</td>"+
-											"<td>"+dept_value+"</td>"+
-											"<td>"+tag_value+"</td>"+															
-										"</tr>";
+		for(var i=page_start; i < result_count;i++)
+		{
+			
+			var name_value = json.resultList[i].name;
+			//alert(name_value);
+			//var json_value = JSON.stringify(json.resultList[i]);
+			var num_value = json.resultList[i].num;
+			//alert(num_value);
+			var type_value = json.resultList[i].type;
+			//alert(type_value);
+			var txt_value = json.resultList[i].txt;
+			//alert(txt_value);
+			var id_value = json.resultList[i].id;
+			var dept_value = json.resultList[i].dept;
+			var createDate_value = json.resultList[i].createDate;
+			var files_str = json.resultList[i].stanJcrFiles[0];
+			//alert(files_str);
+			var file_str_arr = new Array();
+			file_str_arr = files_str.split("},"); //字符分割
+			var file_value = "";
+			var uuid_value = "";
+			for (j=0;j<file_str_arr.length ;j++ )
+			{
+				if(j!=(file_str_arr.length-1))
+				{
+					
+					var file_str = file_str_arr[j]+'}';
+					
+				}
+				else
+				{
+					var file_str = file_str_arr[j]
+				}
+				var file_obj=eval('('+file_str+')');
+				//alert(file_obj.fileName)
+				var file_value = file_value+file_obj.fileName+';';
+				var uuid_value = uuid_value+file_obj.uuid+';';
+			}
+			//alert(uuid_value);
+			var tag_str = json.resultList[i].stanTags[0];
+			var tagobj=eval('('+tag_str+')');
+			var tag_value = tagobj.tag;
+			var tag_value = tag_value.replace(/\s+/g,"、");
+			//alert(tag_value);
+			//alert(json_value);
+			var json_value ="id="+id_value+"&name="+name_value+"&num="+num_value+"&dept="+dept_value+"&createDate="+createDate_value+"&type="+type_value+"&tag="+tag_value+"&txt="+txt_value+"&files="+file_value+"&urls="+uuid_value+"&new=1&update=1";
+			var result_table = result_table + "<tr>"+
+									"<td>"+
+										"<div class=\"tooltips\">"+
+											"<a href=\"standards_content.html?"+json_value+"\">"+name_value+"</a>"+
+											"<div class=\"tooltips1\">";
+											
+											if(i<=(page_start+parseInt((result_count-page_start+1)/2)))
+											{
+												
+												result_table = result_table +"<span class=\"top2\">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>";
+												
+											}
+											else
+											{
+												result_table = result_table +"<span class=\"top1\">显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示注释显示。</span>";
+											}                        									
+											result_table = result_table +"</div>"+
+										"</div>"+
+									"</td>"+
+									"<td>"+num_value+"</td>"+
+									"<td>"+tag_value+"</td>"+
+								"</tr>";
+			
+			
+			
+		}
+		//alert(result_table);
 		
-		
+		var result_div = document.getElementById("result_div");
+		result_div.innerHTML = result_table;
+	}	
+	function get_page(page_count)
+	{
+		$("#tcdPageCode").createPage({
+				pageCount:page_count,
+				current:1,
+				backFn:function(p){
+					
+			}
+		});
 	}
-
-	var result_div = document.getElementById("result_div");
-	result_div.innerHTML = result_table;
+	function get_page_num(page_num)
+	{
+		//alert("页面"+page_num);
+		json = JSON.parse(localStorage.json_str);
+		get_page_result(json,page_num);
+	}
+	//alert(getNowFormatDate());
+	//alert(getNowFormatDate());
+	//document.getElementById("createDate").value = getNowFormatDate();
+	//alert(get_url_base());
 	
-}
-function get_page(page_count)
-{
-	$("#tcdPageCode").createPage({
-			pageCount:page_count,
-			current:1,
-			backFn:function(p){
-				
-		}
-	});
-}
-function get_page_num(page_num)
-{
-	//alert("页面"+page_num);
-	json = JSON.parse(localStorage.json_str);
-	get_page_result(json,page_num);
-}
-//alert(getNowFormatDate());
-//alert(getNowFormatDate());
-//document.getElementById("createDate").value = getNowFormatDate();
-//alert(get_url_base());
-
-//alert("国家标准搜索按钮被点击！");
-var path =get_url_base()+"/json/get_interpretation_notes_json.php";
-//alert(path);
-var notes_add=create_one_add(path);
-//alert("1234567");
-notes_add.form="form1";
-//alert(news_add.form);
-notes_add.check_fn=function()
-{
-	//alert("aaaaaaaaaa")
-	
-	return true;	
-}
-notes_add.send_fn_ajax();
+	//alert("国家标准搜索按钮被点击！");
+	var path =get_url_base()+"/json/get_standard_notes_json.php";
+	//alert(path);
+	var notes_add=create_one_add(path);
+	//alert("1234567");
+	notes_add.form="form1";
+	//alert(news_add.form);
+	notes_add.check_fn=function()
+	{
+		//alert("aaaaaaaaaa")
+		
+		return true;	
+	}
+   notes_add.send_fn_ajax();

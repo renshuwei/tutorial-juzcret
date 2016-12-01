@@ -32,32 +32,63 @@
 
 
 @Scripts({
-	@Script(id = "jquery", value = "js/jquery-1.7.1.min.js", location=AssetLocation.APPLICATION),
+	@Script(id = "jquery", value = "js/jquery-1.8.3.min.js", location=AssetLocation.APPLICATION),
 	@Script(id = "jquerypage", value = "js/jquery.page.js", depends="jquery", location=AssetLocation.APPLICATION),
-	//@Script(id = "jqueryform", value = "js/jquery.form.js", depends="jquery", location=AssetLocation.APPLICATION),
-	//@Script(id = "bootstrapjs", value = "js/bootstrap-min.js", depends="jquery", location=AssetLocation.APPLICATION),
-	@Script(id = "juzuutil",  value = "js/jquery-juzu-utils-0.1.0.js", depends = "jquery", location=AssetLocation.APPLICATION),
+	@Script(id = "jqueryform", value = "js/jquery.form.js", depends="jquery", location=AssetLocation.APPLICATION),
+	@Script(id = "jqueryfiledropjs", value = "js/jquery.filedrop.js", location=AssetLocation.APPLICATION),
+	//@Script(id = "juzuutil",  value = "js/jquery-juzu-utils-0.1.0.js", depends = "jquery", location=AssetLocation.APPLICATION),
+	@Script(id = "jszipminjs",  value = "js/jszip.min.js", location=AssetLocation.APPLICATION),
+	
+	@Script(id = "libjs", value = "js/lib.js", location=AssetLocation.APPLICATION),	
 	@Script(id = "nlibjs", value = "js/nlib.js", location=AssetLocation.APPLICATION),
-	@Script(id = "policycommonjs", value = "js/policy_js/policy_common.js", location=AssetLocation.APPLICATION),
+	@Script(id = "policycommonjs", value = "policy_js/policy_common.js", location=AssetLocation.APPLICATION),
     @Script(id = "indexjs", value = "js/index.js", depends="jquery", location=AssetLocation.APPLICATION),
     //政策与解读
     @Script(id = "interpretationjs", value = "js/interpretation.js", location=AssetLocation.APPLICATION),
     @Script(id = "interpretation_uploadjs", value = "js/interpretation_upload.js", location=AssetLocation.APPLICATION),
     @Script(id = "new_interpretationjs", value = "js/new_interpretation.js", location=AssetLocation.APPLICATION),
+    @Script(id = "interpretation_content_afterjs", value = "js/interpretation_content_after.js", location=AssetLocation.APPLICATION),
+    @Script(id = "interpretation_upload_afterjs", value = "js/interpretation_upload_after.js", location=AssetLocation.APPLICATION),
+    
     //国家标准
-    @Script(id = "standardjs",value ="js/standard.js",depends={"jquery", "juzuutil", "jquerypage", "policycommonjs"}, location=AssetLocation.APPLICATION),
-    @Script(id = "standarduploadjs",value ="js/standard_upload.js",depends = {"jquery", "jquerypage", "nlibjs"}, location=AssetLocation.APPLICATION),
-    //@Script(id = "fileuploadjs",value ="js/fileupload.js",location=AssetLocation.APPLICATION),
-    @Script(id = "mouseoutjs",value ="js/mouseout.js",depends = "jquery", location=AssetLocation.APPLICATION),
-    @Script(id = "mouseoverjs",value ="js/mouseover.js",depends = "jquery", location=AssetLocation.APPLICATION),
-    //地方政策
-    @Script(id = "echartsjs", value = "js/echarts.js", location=AssetLocation.APPLICATION),
+    @Script(id = "standardsjs",value ="js/standards.js",depends={"jquery", "juzuutil", "jquerypage", "policycommonjs"}, location=AssetLocation.APPLICATION),
+    @Script(id = "standards_uploadjs",value ="js/standards_upload.js",depends = {"jquery", "jquerypage", "nlibjs"}, location=AssetLocation.APPLICATION),
+    @Script(id = "standards_content_afterjs",value ="js/standards_content_after.js", location=AssetLocation.APPLICATION),
+    @Script(id = "standards_oldjs",value ="js/standards_old.js", location=AssetLocation.APPLICATION),
+    @Script(id = "standards_upload_afterjs",value ="js/standards_upload_after.js", location=AssetLocation.APPLICATION),
+   
+    
+    //@Script(id = "fileuploadjs",value ="js/fileupload.js",location=AssetLocation.APPLICATION),    
+    @Script(id = "new_standardsjs",value ="js/new_standards.js", location=AssetLocation.APPLICATION),
+    
+    //地方政策 
+    @Script(id = "echartsjs", value = "js/echarts.js", location=AssetLocation.APPLICATION), 
+    @Script(id = "echartsminjs", value = "js/echarts.min.js", location=AssetLocation.APPLICATION),
+    
     @Script(id = "amapjs", value = "http://webapi.amap.com/maps?v=1.3&key=b23cb51fd67fa09da9478fc6a14cc200&plugin=AMap.Geocoder",location = AssetLocation.URL),
     @Script(id = "mapjs", value = "js/map.js", depends={"amapjs", "jquery", "echartsjs"}, location=AssetLocation.APPLICATION),    
-    @Script(id = "local_uploadjs", value = "js/local_upload.js", location=AssetLocation.APPLICATION),
+    @Script(id = "local_uploadjs", value = "js/local_upload.js", location=AssetLocation.APPLICATION),    
+    @Script(id = "local_content_afterjs", value = "js/local_content_after.js", location=AssetLocation.APPLICATION),
+    @Script(id = "local_upload_afterjs", value = "js/local_upload_after.js", location=AssetLocation.APPLICATION),
     @Script(id = "new_localjs", value = "js/new_local.js", location=AssetLocation.APPLICATION),
     
     
+    //暂时未用到的js文件
+    @Script(id = "calenderjs", value = "js/calender.js", location=AssetLocation.APPLICATION),
+    @Script(id = "car_infojs", value = "js/car_info.js", location=AssetLocation.APPLICATION),    
+    
+    @Script(id = "filedragjs", value = "js/filedrag.js", location=AssetLocation.APPLICATION),
+    @Script(id = "fileuploadjs",value ="js/fileupload.js",location=AssetLocation.APPLICATION),
+    @Script(id = "get_map_datejs",value ="js/get_map_date.js",location=AssetLocation.APPLICATION),
+    @Script(id = "historyjs",value ="js/history.js",location=AssetLocation.APPLICATION),
+    @Script(id = "new_projectsjs",value ="js/new_projects.js",location=AssetLocation.APPLICATION),
+    @Script(id = "projectsjs",value ="js/projects.js",location=AssetLocation.APPLICATION),
+    @Script(id = "publicjs",value ="js/public.js",location=AssetLocation.APPLICATION),
+    @Script(id = "scriptjs",value ="js/script.js",location=AssetLocation.APPLICATION),
+    @Script(id = "searchjs",value ="js/search.js",location=AssetLocation.APPLICATION),
+    @Script(id = "upload-filedropjs",value ="js/upload-filedrop.js",location=AssetLocation.APPLICATION),
+    @Script(id = "mouseoutjs",value ="js/mouseout.js",depends = "jquery", location=AssetLocation.APPLICATION),
+    @Script(id = "mouseoverjs",value ="js/mouseover.js",depends = "jquery", location=AssetLocation.APPLICATION),
 })
 
 @Stylesheets ({
@@ -70,11 +101,22 @@
     @Stylesheet(id = "mapcss", value = "styles/map.css", location = AssetLocation.APPLICATION),
     @Stylesheet(id = "local_uploadcss", value = "styles/local_upload.css", location = AssetLocation.APPLICATION),
     //
-    @Stylesheet(id = "input_interpretcss", value = "styles/input_interpret.css", location = AssetLocation.APPLICATION),
+    
     //国家标准    
    // @Stylesheet(id = "bootstrapcss", value = "styles/bootstrap.min.css", location = AssetLocation.APPLICATION),
-    @Stylesheet(id = "standardcss", value = "styles/standard.css", location = AssetLocation.APPLICATION),
-    @Stylesheet(id = "standard_uploadcss", value = "styles/standard_upload.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "standardscss", value = "styles/standards.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "standards_uploadcss", value = "styles/standards_upload.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "new_standardscss", value = "styles/new_standards.css", location = AssetLocation.APPLICATION),
+    //好像暂时没有用到
+    @Stylesheet(id = "assetscss", value = "styles/assets.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "car_infocss", value = "styles/car_info.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "contentcss", value = "styles/content.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "new_projectscss", value = "styles/new_projects.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "projectscss", value = "styles/projects.css", location = AssetLocation.APPLICATION),
+   
+    @Stylesheet(id = "searchcss", value = "styles/search.css", location = AssetLocation.APPLICATION),
+    @Stylesheet(id = "uploadfiledropcss", value = "styles/upload-filedrop.css", location = AssetLocation.APPLICATION),
+    
     
 })
 

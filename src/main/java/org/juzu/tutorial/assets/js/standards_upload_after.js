@@ -1,31 +1,6 @@
-	var image_count=0;
-	var _gauges = _gauges || [];
-	(function() {
-		var t = document.createElement('script');
-		t.type = 'text/javascript';
-		t.async = true;
-		t.id = 'gauges-tracker';
-		t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
-		t.src = '//secure.gaug.es/track.js';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(t, s);
-	})();
-	
-	function back()
-	{
-		if(getPar("new")=="0")
-		{
-			window.location.href="standards.html";
-			
-		}
-		else if(getPar("new")=="1")
-		{
-			window.location.href="new_standards.html";
-		}
-		
-		
-	}
-		 /*
+ 
+ var image_count=0;
+ /*
  	*	上传数据
  	*/
 	if(getPar("update")=="1")
@@ -102,10 +77,49 @@
 				dataType: 'json',
 				success: function (json) {
 					//alert("返回的结果是josn");
-					//alert(json.id);
+					alert(JSON.stringify(json));
+					var id_value = json.id;
+					var name_value = json.name;
+					var num_value = json.num;
+					var type_value = json.type;
+					var dept_value = json.dept;
+					var createDate_value = json.createDate;
+					var txt_value = json.txt;
+					var tag_str = json.stanTags[0];
+					var tagobj=eval('('+tag_str+')');
+					var tag_value = tagobj.tag;
+					//alert(tag_value);
+					var files_str = json.stanJcrFiles[0];
+					//alert(files_str);
+					var file_str_arr = new Array();
+					var file_str_arr = files_str.split("},"); //字符分割
+					var file_value = "";
+					var uuid_value = "";
+					for (j=0;j<file_str_arr.length ;j++ )
+					{
+						if(j!=(file_str_arr.length-1))
+						{
+							
+							var file_str = file_str_arr[j]+'}';
+							
+						}
+						else
+						{
+							var file_str = file_str_arr[j];
+						}
+						var file_obj=eval('('+file_str+')');
+						//alert(file_obj.fileName)
+						var file_value = file_value+file_obj.fileName+';';
+						var uuid_value = uuid_value+file_obj.uuid+';';
+					}
+					//alert(file_value);
+					//alert(uuid_value);
+					var json_value ="id="+id_value+"&name="+name_value+"&num="+num_value+"&dept="+dept_value+"&createDate="+createDate_value+"&type="+type_value+"&tag="+tag_value+"&txt="+txt_value+"&files="+file_value+"&urls="+uuid_value+"&new="+getPar("new")+"&update=1";
+					//alert(json_value);
 					if(json.id>'0')
 					{
 						alert("添加数据成功！");
+						window.location.href="standards_content.html?"+json_value;
 					}
 					else
 					{
@@ -119,7 +133,7 @@
 				{
 					alert("json接口出错！")
 					//alert("bbbbb");
-					//displayProp(data);
+					displayProp(data);
 				}
 			}); //ajaxSubmit
 			
@@ -186,7 +200,7 @@
 			alert("请输入标签!");
 			return false;
 		}
-		if($("#form1").find("textarea[name='text']").val()=="".trim())
+		if(($("#form1").find("textarea[name='text']").val()=="".trim())&&(image_count==0))
 		{
 			alert("请输入标准原文！");
 			return false;
@@ -201,7 +215,7 @@
 		//alert("aaaaaaaaaaaaaaaa");
 		notes_add.send_fn_ajax();
 	}
-	
+		
 	
 	function file_add()
 	{
@@ -212,7 +226,6 @@
 								"<img src=\"img/use.jpg\" height=\"152\" width=\"200\"  id=\"imghead"+image_count+"\" class=\"img-responsive\" />"+
 							"</div>"+
 						"</div>"+
-
 						"<div class=\"row\" style=\"margin-top:10px; padding-left:35%\">"+
 							"<input type=\"file\"  name=\"uploadinput[]\" onChange=\"previewImage(this,"+image_count+")\" />"+
 						"</div>";

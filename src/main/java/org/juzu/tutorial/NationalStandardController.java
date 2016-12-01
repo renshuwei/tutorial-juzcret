@@ -70,13 +70,9 @@ public class NationalStandardController {
 	  
 	  @Inject
 	  @Path("new_standards.gtmpl")
-	  Template new_standards;
-	
-	  /*@Inject
-	  @Path("standard_content.gtmpl")
-	  Template content;*/
-	  
-	  @Assets({"standardcss", "standardjs", "mouseoutjs", "mouseoverjs"}) 
+	  Template new_standards;	
+
+	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
 	  public Response.Content standards() throws IOException{
 		//  Standard s = standardSvc.findById("ff8081815869c2c1015869ce9d5a0003");
@@ -85,22 +81,24 @@ public class NationalStandardController {
 	  }
 	  
 	  //standards.gtmpl中的上传
+	  @Assets({"standards_uploadjs","standards_uploadcss"})
 	  @View
 	  public Response.Content update_data() throws IOException{
 		  return standards_upload.ok();
 	  }
-	  
+	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
 	  public Response.Content back() throws IOException{
 		  return standards.ok();
 	  }
-	  
+	  @Assets({"new_standardscss","new_standardsjs"})
 	  @View
 	  public Response.Content new_standards() throws IOException{
 		  return new_standards.ok();
 	  }
 	  
 	  //standards_content.gtmpl的返回
+	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
 	  public Response.Content content_back() throws IOException{
 		  return standards.ok();

@@ -1,0 +1,40 @@
+.container{
+	width:90%;
+	padding:0;
+	margin:0;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+
+.container_left{
+	width:78%;
+	/*background:#CCCCCC;*/
+	float:left;
+	display:block;
+	padding:0;
+	margin:0;
+}
+
+.container_right{
+	width:22%;
+	/*background:#000099;*/
+	float:right;
+	display:block;
+	padding:0;
+	margin:0;
+}
+
+
+/******/
+.breadcrumb{
+	margin-bottom:10px;
+}
+
+
+.btn{
+	background:#578DC9;
+	color:#FFFFFF;
+}
+	

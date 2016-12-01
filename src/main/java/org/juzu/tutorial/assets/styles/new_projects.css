@@ -1,0 +1,95 @@
+*{ margin:0; padding:0; list-style:none;}
+			
+a{ text-decoration:none;}
+
+a:hover{ text-decoration:none;}
+
+.tcdPageCode{padding: 0px 0px;text-align: right;color: #ccc; font-size:13px;}
+
+.tcdPageCode a{display: inline-block;color: #578DC9;display: inline-block;height: 23px;	line-height: 23px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+
+.tcdPageCode a:hover{text-decoration: none;border: 1px solid #578DC9;}
+
+.tcdPageCode span.current{display: inline-block;height: 23px;line-height: 23px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #578DC9;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+
+.tcdPageCode span.disabled{	display: inline-block;height: 23px;line-height: 23px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+
+	
+.container{
+	width:92%;
+	padding:0;
+	margin:0;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+
+.container_left{
+	width:78%;
+	/*background:#CCCCCC;*/
+	float:left;
+	display:block;
+	padding:0;
+	margin:0;
+}
+
+.container_right{
+	width:20%;
+	/*background:#000099;*/
+	float:right;
+	display:block;
+	padding:0;
+	margin:0;
+}
+
+
+/******/
+.breadcrumb{
+	margin-bottom:10px;
+}
+
+
+.btn{
+	background:#578DC9;
+	color:#FFFFFF;
+}
+
+
+.top1
+{
+top:-150px;
+}
+.top2
+{
+top:70px;
+}
+
+.tooltips
+{
+position:relative; /*这个是关键*/
+z-index:2;
+}
+.tooltips:hover
+{
+z-index:3;
+background:none; /*没有这个在IE中不可用*/
+}
+.tooltips span
+{
+display: none;
+}
+.tooltips:hover span{ /*span 标签仅在 :hover 状态时显示*/
+display:block;
+position:absolute;
+left:15px;
+width:30em;
+border:1px solid black;
+word-break:normal; 
+white-space:pre-wrap;
+word-wrap : break-word ;
+overflow: hidden ;
+background-color:#FFFF6F;
+padding: 3px;
+color:black;
+}

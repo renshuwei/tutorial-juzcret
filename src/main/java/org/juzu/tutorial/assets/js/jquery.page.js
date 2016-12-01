@@ -1,7 +1,4 @@
-//分页插件
-/**
-2014-08-05 ch
-**/
+
 (function($){
 	var ms = {
 		init:function(obj,args){
@@ -11,10 +8,13 @@
 			})();
 		},
 		//填充html
-		fillHtml:function(obj,args){
+		fillHtml:function(obj,args,json){
 			return (function(){
 				obj.empty();
 				//上一页
+				//alert(args.current);
+				get_page_num(args.current);
+				//page_num = args.current;
 				if(args.current > 1){
 					obj.append('<a href="javascript:;" class="prevPage">上一页</a>');
 				}else{
@@ -98,5 +98,3 @@
 		ms.init(this,args);
 	}
 })(jQuery);
-
-//代码整理：懒人之家 www.lanrenzhijia.com

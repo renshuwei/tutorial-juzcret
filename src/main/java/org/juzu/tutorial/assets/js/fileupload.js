@@ -33,6 +33,7 @@ function creat_file_upload()
 		
 		for (var i = 0, f; f = files[i]; i++) {
 			object.ParseFile(f);
+			//alert("正在上传第"+(i+1)+"个文件!");
 		}
 
 	}
@@ -46,6 +47,8 @@ function creat_file_upload()
 			"</strong>&nbsp;&nbsp;&nbsp;大小: <strong>" + file.size +
 			"</strong> bytes</p>"
 		);
+		//alert("正在上传"+ file.name+"文件!");
+		handleDrop(file);
 
 	}
 	
