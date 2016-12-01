@@ -71,6 +71,10 @@ public class NationalStandardController {
 	  @Inject
 	  @Path("new_standards.gtmpl")
 	  Template new_standards;	
+	  
+	  @Inject
+	  @Path("standards_content.gtmpl")
+	  Template content;
 
 	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
@@ -103,7 +107,7 @@ public class NationalStandardController {
 	  public Response.Content content_back() throws IOException{
 		  return standards.ok();
 	  }
-	/* 暂时注释
+	
 	  @Resource
 	  @Ajax
 	  public Response.Content standardContent(String uuid) throws IOException{
@@ -123,9 +127,9 @@ public class NationalStandardController {
 		  
 		  
 		  return content.with().set("stan", stan).set("files", files).ok();
-	  }	 */ 
-	/*  暂时注释，到227行
-	  @Assets({"standard_uploadcss", "standarduploadjs"})
+	  }	 
+	
+	  @Assets({"standards_uploadjs","standards_uploadcss"})
 	  @View 
 	  public Response.Content upload_form() throws IOException{
 		  return standards_upload.ok();
@@ -222,7 +226,7 @@ public class NationalStandardController {
 		  finalSet.add(st);
 		  
 		  return finalSet;
-	  }*/
+	  }
 	  
 	  
 	
