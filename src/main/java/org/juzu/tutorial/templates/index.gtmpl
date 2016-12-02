@@ -56,10 +56,10 @@
 			
 <div style="width:28%; height:120px; background:#FFFFFF; float:left;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;margin-top:4%;margin-left:20%;" onmouseover="move_in(this)"  onmouseout="move_out(this)" onclick="click_one('interpretation.html')">
 				
-				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="interpretation.html">政策与解读</a></h3>
+				<h3 style="font-size:20px; text-align:center; padding-top:20px;"><a href="@{Controller.interpretation()}">政策与解读</a></h3>
 				
 				<div style="text-align:center; padding-top:10px; font-size:14px;text-decoration:underline;">
-					<a href="new_interpretation.html" >最新政策与解读</a>
+					<a href="window.location.href='Controller.new_interpretation()" >最新政策与解读</a>
 				</div>
 			</div>
 			
