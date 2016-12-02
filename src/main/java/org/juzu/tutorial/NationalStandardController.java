@@ -111,13 +111,7 @@ public class NationalStandardController {
 		  return standards.ok();
 	  }
 	  
-	  /*2016-12-1
-	  @Inject
-	  @Path("standards_upload.gtmpl")
-	  Template standards_upload;
 
-	
-*/	
 	  @Resource
 	  @Ajax
 	  public Response.Content standardContent(String uuid) throws IOException{
@@ -145,7 +139,7 @@ public class NationalStandardController {
 		  return standards_upload.ok();
 	  }
 	
-/*	  在服务器上build测试通不过
+/*	  在服务器上build测试通不过，提示在160行
 	  @Resource
 	  @Ajax
 	  public Response.Content search(String search_text, String[] search_type){
