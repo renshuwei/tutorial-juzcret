@@ -242,8 +242,17 @@
 				case "浙江":
 				  var cityOptions = new Array("杭州","宁波", "温州", "金华", "嘉兴","台州","绍兴", "湖州", "丽水", "衢州", "舟山", "乐清", "瑞安", "义乌", "余姚", "诸暨", "象山", "温岭", "桐乡", "慈溪", "长兴", "嘉善", "海宁", "德清");
 				  break;
-				case "其他":
-				  var cityOptions = new Array("香港","澳门","台湾","钓鱼岛");
+				case "香港":
+				  var cityOptions = new Array("香港");
+				  break;
+			    case "台湾":
+				  var cityOptions = new Array("台湾");
+				  break;
+				case "澳门":
+				  var cityOptions = new Array("澳门");
+				  break;
+				case "南海诸岛":
+				  var cityOptions = new Array("南海诸岛");
 				  break;
 				}
 				document.getElementById("selectCity").options.length = 0; 

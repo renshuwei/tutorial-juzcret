@@ -62,15 +62,20 @@ require(
 			//alert(selected[0]);
 			
 			var str = '当前选择： ';
+			var province_str ='';
 			for (var p in selected) {
 				str += p + ' '+selected[p]+" || ";
 				if (selected[p]) {
 					//str += p + ' '+selected[p]+" || ";
+					var province_str = province_str+p+";";
 				}
 			}
-			//document.getElementById('wrong-message').innerHTML = str;
-			//alert(str);
+			
+			//alert(province_str);
+			document.getElementById("province_str").value = province_str;
+			//alert(document.getElementById("province_str").value);
 		})
+		
 		// 为echarts对象加载数据 
 		myChart.setOption(option); 
 	}

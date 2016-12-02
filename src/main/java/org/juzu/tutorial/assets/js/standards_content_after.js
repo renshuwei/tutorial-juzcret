@@ -1,4 +1,4 @@
-//alert("aaaaaaaaa");
+
 var history_array = [];
 var suffix = 0;
 get_content();
@@ -35,14 +35,130 @@ function get_history(history_array)
 }
 function get_content()
 {
-	var name = decodeURI(getPar("name"));
-	var num = decodeURI(getPar("num"));
-	var createDate = decodeURI(getPar("createDate"));
-	var dept = decodeURI(getPar("dept"));
-	var files_name = decodeURI(getPar("files"));
+	//alert("aaaaaaaaa");
+	//alert(localStorage.json_str);
+	json = JSON.parse(localStorage.json_str);
+	var id = decodeURI(getPar("id"));
+	var add = decodeURI(getPar("add"));
+	
+	if(add=='0')
+	{
+		for(var i=0; i < json.resultList.length;i++)
+		{	
+			var id_value = json.resultList[i].id;
+			if(id==id_value)
+			{
+				var name_value = json.resultList[i].name;
+				//alert(name_value);
+				//var json_value = JSON.stringify(json.resultList[i]);
+				var num_value = json.resultList[i].num;
+				//alert(num_value);
+				var type_value = json.resultList[i].type;
+				//alert(type_value);
+				var txt_value = json.resultList[i].txt;
+				//alert(txt_value);
+				var dept_value = json.resultList[i].dept;
+				var createDate_value = json.resultList[i].createDate;
+				var files_str = json.resultList[i].stanJcrFiles[0];
+				//alert(files_str);
+				if(files_str!="")
+				{
+					var file_str_arr = new Array();
+					var file_str_arr = files_str.split("},"); //字符分割
+					var file_value ="";
+					var uuid_value = "";
+					for (j=0;j<file_str_arr.length ;j++ )
+					{
+						if(j!=(file_str_arr.length-1))
+						{
+							
+							var file_str = file_str_arr[j]+'}';
+							
+						}
+						else
+						{
+							var file_str = file_str_arr[j];
+						}
+						var file_obj=eval('('+file_str+')');
+						//alert(file_obj.fileName)
+						var file_value = file_value+file_obj.fileName+';';
+						var uuid_value = uuid_value+file_obj.uuid+';';
+					}
+				}
+				else
+				{
+					var file_value ='';
+					var uuid_value ='';
+				}
+				//alert(uuid_value);
+				var tag_str = json.resultList[i].stanTags[0];
+				var tagobj=eval('('+tag_str+')');
+				var tag_value = tagobj.tag;
+				var tag_value = tag_value.replace(/\s+/g,"、");
+			}
+		}	
+		var name = name_value;
+		var num = num_value;
+		var createDate = createDate_value;
+		var dept = dept_value;
+		var files_name = file_value;
+	}
+	else if(add=='1')
+	{
+		var id_value = json.id;
+		var name_value = json.name;
+		var num_value = json.num;
+		var type_value = json.type;
+		var dept_value = json.dept;
+		var createDate_value = json.createDate;
+		var txt_value = json.txt;
+		var tag_str = json.stanTags[0];
+		var tagobj=eval('('+tag_str+')');
+		var tag_value = tagobj.tag;
+		//alert(tag_value);
+		var files_str = json.stanJcrFiles[0];
+		//alert(files_str);
+		if(files_str!="")
+		{
+			var file_str_arr = new Array();
+			var file_str_arr = files_str.split("},"); //字符分割
+			var file_value = "";
+			var uuid_value = "";
+			for (j=0;j<file_str_arr.length ;j++ )
+			{
+				if(j!=(file_str_arr.length-1))
+				{
+					
+					var file_str = file_str_arr[j]+'}';
+					
+				}
+				else
+				{
+					var file_str = file_str_arr[j];
+				}
+				var file_obj=eval('('+file_str+')');
+				//alert(file_obj.fileName)
+				var file_value = file_value+file_obj.fileName+';';
+				var uuid_value = uuid_value+file_obj.uuid+';';
+			}
+		}
+		else
+		{
+			var file_value ='';
+			var uuid_value ='';
+		}
+		
+		var name = name_value;
+		var num = num_value;
+		var createDate = createDate_value;
+		var dept = dept_value;
+		
+	}
+	
 	//alert(files_name)
+	var files_name = file_value;
 	var files_name_arr = files_name.split(";");
-	var urls = decodeURI(getPar("urls"));
+	var urls = uuid_value;
 	var urls_arr = urls.split(";");
 	var i=0;
 	var result_str ="<h3 style=\"color:#999999; text-align:center;\">"+name+"</h3>"+

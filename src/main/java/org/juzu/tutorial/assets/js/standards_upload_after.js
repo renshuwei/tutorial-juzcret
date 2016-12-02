@@ -1,4 +1,4 @@
- 
+localStorage.json_str =""; 
  var image_count=0;
  /*
  	*	上传数据
@@ -77,8 +77,10 @@
 				dataType: 'json',
 				success: function (json) {
 					//alert("返回的结果是josn");
-					alert(JSON.stringify(json));
+					//alert(JSON.stringify(json));
+					localStorage.json_str = (JSON.stringify(json));
 					var id_value = json.id;
+					/*
 					var name_value = json.name;
 					var num_value = json.num;
 					var type_value = json.type;
@@ -93,28 +95,40 @@
 					//alert(files_str);
 					var file_str_arr = new Array();
 					var file_str_arr = files_str.split("},"); //字符分割
-					var file_value = "";
-					var uuid_value = "";
-					for (j=0;j<file_str_arr.length ;j++ )
+					//alert(file_str_arr.length);
+					//alert(file_str_arr[0]);
+					if(file_str_arr[0]!="")
 					{
-						if(j!=(file_str_arr.length-1))
+						var file_value = "";
+						var uuid_value = "";
+						for (j=0;j<file_str_arr.length ;j++ )
 						{
-							
-							var file_str = file_str_arr[j]+'}';
-							
+							if(j!=(file_str_arr.length-1))
+							{
+								
+								var file_str = file_str_arr[j]+'}';
+								
+							}
+							else
+							{
+								var file_str = file_str_arr[j];
+							}
+							var file_obj=eval('('+file_str+')');
+							//alert(file_obj.fileName)
+							var file_value = file_value+file_obj.fileName+';';
+							var uuid_value = uuid_value+file_obj.uuid+';';
 						}
-						else
-						{
-							var file_str = file_str_arr[j];
-						}
-						var file_obj=eval('('+file_str+')');
-						//alert(file_obj.fileName)
-						var file_value = file_value+file_obj.fileName+';';
+					}
+					else
+					{
+						var file_value = "";
 						var uuid_value = uuid_value+file_obj.uuid+';';
 					}
+					*/
+					
 					//alert(file_value);
 					//alert(uuid_value);
-					var json_value ="id="+id_value+"&name="+name_value+"&num="+num_value+"&dept="+dept_value+"&createDate="+createDate_value+"&type="+type_value+"&tag="+tag_value+"&txt="+txt_value+"&files="+file_value+"&urls="+uuid_value+"&new="+getPar("new")+"&update=1";
+					var json_value ="id="+id_value+"&new="+getPar("new")+"&add=1";
 					//alert(json_value);
 					if(json.id>'0')
 					{

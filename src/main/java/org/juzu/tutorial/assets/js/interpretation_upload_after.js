@@ -1,5 +1,6 @@
 var image_count = 0;
 var image_count2 = 0;
+localStorage.json_str =""; 
 if(getPar("update")=="1")
 {
 	document.getElementById("policyName").value = decodeURI(getPar("name"));
@@ -111,9 +112,11 @@ if(getPar("update")=="1")
             	type: 'POST',
 				dataType: 'json',
 				success: function (json) {
+					localStorage.json_str = (JSON.stringify(json));
 					//alert("aaaaaaaaaa");
             		var id_value = json.id;
 					//alert(id_value);	
+					/*
 					var name_value = json.name;
 					//alert(name_value);
 					var num_value = json.num;
@@ -175,7 +178,8 @@ if(getPar("update")=="1")
 					}
 					var policyTxt_value = json.policyTxt;
 					var interpretationTxt_value = json.interpretationTxt;
-					var json_value ="id="+id_value+"&name="+name_value+"&num="+num_value+"&dept="+dept_value+"&createDate="+createDate_value+"&type="+type_value+"&tag="+tag_value+"&policyTxt="+policyTxt_value+"&interpretationTxt="+interpretationTxt_value+"&policyFiles="+file_value+"&policyUrls="+uuid_value+"&interpretationFiles="+file_value2+"&new="+getPar("new")+"&update=1";
+					*/
+					var json_value ="id="+id_value+"&new="+getPar("new")+"&add=1";
 					if(json.id>'0')
 					{
 						alert("添加数据成功！");
@@ -228,7 +232,7 @@ if(getPar("update")=="1")
 	//alert(getNowFormatDate());
 	document.getElementById("createDate").value = getNowFormatDate();
 	//alert(get_url_base());
-	var path =get_url_base()+"/json/add_interpretation_notes_json2.php";
+	var path =get_url_base()+"/json/add_interpretation_notes_json.php";
 	//alert(path);
 	var notes_add=create_one_add(path);
 	//alert("1234567");
