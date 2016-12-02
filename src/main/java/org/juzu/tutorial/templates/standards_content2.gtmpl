@@ -1,0 +1,31 @@
+
+
+
+	<div class="modal hide fade" id="standardModal" role="dialog" data-link="@{NationalStandardController.standardContent()}">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">x</a >
+            <h1 style="text-align:center; margin-bottom:5%;">国家标准正文</h1>
+        </div>
+		<div class="modal-body-no">
+			<div id="standard-properties" style="width:96%;text-align:center;padding:10px;">标准属性</div>
+		</div>
+		<div class="modal-footer">
+   			<a href=" " class="btn btn-primary" data-dismiss="modal">关闭</a >
+ 		</div>
+</div>
+<h3  style="color:#999999; text-align:center;">
+    政策标题
+</h3>
+
+<p style="font-size:15px; margin:0; padding:0; text-align:center; color:#999999;">文号</p>
+<p style="font-size:15px; margin:0; padding:0; text-align:center; color:#999999;">发布时间 部门</p>
+
+<div style="width:100%; margin-top:30px; border:1px solid #578DC9; ">
+    <p style="font-size:15px; margin:0; padding:0; color:#999999;height:200px; ">
+        <div style="margin-top:-180px; padding-left:35%">
+            <img src="img/file.jpg" id="file"  height="152" width="200"/></p>
+            <div style="padding-left:15%" ><a href="json/up/test.doc" target="_blank">test.doc</a></div>
+        </div>
+    </p>  
+</div>
+	
