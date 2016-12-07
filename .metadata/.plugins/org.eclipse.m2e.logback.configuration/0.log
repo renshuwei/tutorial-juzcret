@@ -1,0 +1,15 @@
+2016-12-06 13:28:29,014 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.juzu.tutorial:tutorial-juzcret:1.0.0-SNAPSHOT @ D:\github\tutorial-juzcret\pom.xml.
+2016-12-06 13:28:29,029 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.exoplatform.platform:platform:pom:4.3.1 is missing, no dependency information available
+2016-12-06 13:28:29,525 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for net.wyun.exo.db:qys-db-services:jar:1.0.0 is missing, no dependency information available
+2016-12-06 13:28:29,530 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.exoplatform.core:exo.core.component.organization.api:jar:2.6.4-GA is missing, no dependency information available
+2016-12-06 13:28:29,544 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.exoplatform.commons:commons-api:jar:4.3.1 is missing, no dependency information available
+2016-12-06 13:28:29,551 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.exoplatform.ecms:ecms-core-services:jar:4.3.1 is missing, no dependency information available
+2016-12-06 13:28:29,562 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.exoplatform.ecms:ecms-core-search:jar:4.3.1 is missing, no dependency information available
+2016-12-06 13:28:29,569 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.exoplatform.calendar:calendar-service:jar:4.3.1 is missing, no dependency information available
+2016-12-06 13:29:49,111 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/net/wyun/exo/db/qys-db-services/1.0.0/qys-db-services-1.0.0.jar
+2016-12-06 13:29:50,508 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/exoplatform/core/exo.core.component.organization.api/2.6.4-GA/exo.core.component.organization.api-2.6.4-GA.jar
+2016-12-06 13:29:51,500 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/exoplatform/commons/commons-api/4.3.1/commons-api-4.3.1.jar
+2016-12-06 13:29:53,888 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/exoplatform/ecms/ecms-core-services/4.3.1/ecms-core-services-4.3.1.jar
+2016-12-06 13:29:55,119 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/exoplatform/ecms/ecms-core-search/4.3.1/ecms-core-search-4.3.1.jar
+2016-12-06 13:29:59,879 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/exoplatform/calendar/calendar-service/4.3.1/calendar-service-4.3.1.jar
+2016-12-06 13:30:00,990 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-server/2.33.0/selenium-server-2.33.0.jar
