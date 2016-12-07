@@ -17,7 +17,9 @@
 package org.juzu.tutorial;
 
 import juzu.Path;
+import juzu.Resource;
 import juzu.View;
+import juzu.plugin.ajax.Ajax;
 import juzu.plugin.asset.Assets;
 import juzu.request.SecurityContext;
 import juzu.Response;
@@ -42,6 +44,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 
+import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.exoplatform.commons.api.search.SearchService;
 import org.exoplatform.commons.api.search.data.SearchContext;
 import org.exoplatform.commons.api.search.data.SearchResult;
@@ -142,6 +145,21 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
 	  return interpretation.ok();
   } 
 
+  private final static String ROOT_FOLDER = "fs/interpretation/";
+  @Resource
+  @Ajax
+  public Response.Content upload(String policyName,String publishDept,String policyNum,String policyCategoryTxt,
+		  						String tag,List<FileItem> files, SecurityContext securityContext){
+  
+	  LOG.info("policyName:"+policyName+",publishDept:"+publishDept+",policyNum:"+policyNum+",policyCategoryTxt:"+policyCategoryTxt+",tag:"+tag);
+	  
+	  if( files != null ){
+		  for(FileItem fi:files){
+        	  LOG.info("file name: " + fi.getName());
+        	  return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
+                      .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
+  }
+  
   @Assets({"indexcss", "indexjs"})  
   @View
   public Response.Content index(SecurityContext securityContext) throws IOException {
