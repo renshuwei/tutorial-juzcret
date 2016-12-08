@@ -19,6 +19,7 @@ package org.juzu.tutorial;
 import juzu.Path;
 import juzu.Resource;
 import juzu.View;
+import juzu.impl.common.Tools;
 import juzu.plugin.ajax.Ajax;
 import juzu.plugin.asset.Assets;
 import juzu.request.SecurityContext;
@@ -62,6 +63,7 @@ import org.exoplatform.container.xml.Parameter;
 import org.exoplatform.container.xml.PropertiesParam;
 import org.exoplatform.container.xml.Property;
 import org.exoplatform.webui.config.Param;
+import org.json.JSONObject;
 import org.exoplatform.services.wcm.search.connector.QysFileSearchServiceConnector;
 import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 
@@ -145,7 +147,7 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
 	  return interpretation.ok();
   } 
 
-  private final static String ROOT_FOLDER = "fs/interpretation/";
+  private final static String ROOT_FOLDER = "fs/interpret/";
   @Resource
   @Ajax
   public Response.Content upload(String policyName,String publishDept,String policyNum,String policyCategoryTxt,
@@ -153,11 +155,48 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   
 	  LOG.info("policyName:"+policyName+",publishDept:"+publishDept+",policyNum:"+policyNum+",policyCategoryTxt:"+policyCategoryTxt+",tag:"+tag);
 	  
+	  String userName = securityContext.getRemoteUser();
+	  
+	  Interpretation inter = new Interpretation();
+	  inter.setName(policyName);
+	  inter.setDepartment(policyName);
+	  inter.setNum(policyNum);
+	  inter.setTxt(policyCategoryTxt);
+	  
+	  InterpretTag iTag1 = new InterpretTag();
+	  iTag1.setTag(selectTag);
+	  inter.addiTag(iTag1);	  
+	  
 	  if( files != null ){
 		  for(FileItem fi:files){
         	  LOG.info("file name: " + fi.getName());
-        	  return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
-                      .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
+        	 
+        	  String jcrFileName = net.wyun.qys.util.Util.cleanNameUtil(fi.getName());
+        	  LOG.info("jcr file name: " + jcrFileName);
+        	  
+        	  String uuid = documentsData.storeFile(ROOT_FOLDER + stdFolder , fi, documentsData.getSpaceName(), false, null);
+        	  InterJcrFile jFile = new InterJcrFile();
+    		  jFile.setFileName(fi.getName());
+    		  jFile.setUploadDate(new Date());
+    		  jFile.setUrl("temp/url");
+    		  jFile.setUuid(uuid);
+		  }
+	  }
+	   //将文本作为文件保存至jcr
+	  JSONObject jo = new JSONObject(newS);
+	  if(jo.has("class")){
+		  jo.remove("class");
+	  }
+	  
+	  String json = jo.toString();
+	  LOG.info("json: " + json);
+	     
+	  return Response.ok(json).withMimeType("text/json").withCharset(Tools.UTF_8); 
+        	  
+	 /* return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
+              .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
+              */
+	  
   }
   
   @Assets({"indexcss", "indexjs"})  

@@ -1,17 +1,22 @@
 package org.juzu.tutorial;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.exoplatform.commons.api.search.SearchService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 import juzu.Path;
+import juzu.Resource;
 import juzu.Response;
 import juzu.View;
+import juzu.plugin.ajax.Ajax;
 import juzu.plugin.asset.Assets;
+import juzu.request.SecurityContext;
 import juzu.template.Template;
 import net.wyun.qys.service.PolicyService;
 import net.wyun.qys.service.StandardService;
@@ -24,7 +29,7 @@ public class LocalPolicyController {
 		// TODO Auto-generated constructor stub
 	}
 
-private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.class);
+private static final org.apache.commons.logging.Log LOG = ExoLogger.getExoLogger(LocalPolicyController.class);
   
   @Inject
   SearchService searchService;
@@ -80,7 +85,28 @@ private static final Log LOG = ExoLogger.getExoLogger(LocalPolicyController.clas
 	  return map.ok();
   }
   
-
+  private final static String ROOT_FOLDER = "fs/local/";
+  @Resource
+  @Ajax
+  public Response.Content upload(String policyName,String publishDept,String policyNum,
+		  String selectProvince,String selectCity,String policyCategory,String tag,
+		  String policyTxt, List<FileItem> files, SecurityContext securityContext){
+	  LOG.info("policyName:"+policyName+",publishDept:"+publishDept+",policyNum:"+policyNum+",selectProvince:"+selectProvince+
+			 ",selectCity:"+selectCity+",policyCategory:"+policyCategory+",tag:"+tag+",policyTxt:"+policyTxt);
+	  if( files != null ){
+		  for(FileItem fi:files){
+        	  LOG.info("file name: " + fi.getName());
+          }
+	  }
+	  
+	  
+	  
+	  return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
+              .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
+	  
+	  
+  }
+	  
   
   
   

@@ -11,7 +11,7 @@
    			<button type="button"  onclick="window.location.href='@{LocalPolicyController.back()}'" class="btn btn-block btn-primary" style="width:10%; float:right;">返回</button>
    		</div>
 		
-		<form id="form1" method="post" name="f1" enctype="multipart/form-data">
+		<form id="form1" action="@{LocalPolicyController.upload()}" method="post" name="f1" enctype="multipart/form-data">
 		<div class="input-append">
    			<span class="span_title">政策名称</span>
 			<input type="text"  id="policyName" name="policyName" AUTOCOMPLETE="off">
