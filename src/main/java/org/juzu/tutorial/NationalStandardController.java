@@ -291,8 +291,7 @@ public class NationalStandardController {
 		  JSONObject jo = new JSONObject(newS);
 		  if(jo.has("class")){
 			  jo.remove("class");
-		  }
-		  
+		  }		  
 		  String json = jo.toString();
 		  LOG.info("json: " + json);
 		  

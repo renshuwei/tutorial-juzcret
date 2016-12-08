@@ -1,6 +1,7 @@
 package org.juzu.tutorial;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,11 +10,13 @@ import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.exoplatform.commons.api.search.SearchService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.json.JSONObject;
 
 import juzu.Path;
 import juzu.Resource;
 import juzu.Response;
 import juzu.View;
+import juzu.impl.common.Tools;
 import juzu.plugin.ajax.Ajax;
 import juzu.plugin.asset.Assets;
 import juzu.request.SecurityContext;
@@ -93,17 +96,52 @@ private static final org.apache.commons.logging.Log LOG = ExoLogger.getExoLogger
 		  String policyTxt, List<FileItem> files, SecurityContext securityContext){
 	  LOG.info("policyName:"+policyName+",publishDept:"+publishDept+",policyNum:"+policyNum+",selectProvince:"+selectProvince+
 			 ",selectCity:"+selectCity+",policyCategory:"+policyCategory+",tag:"+tag+",policyTxt:"+policyTxt);
+	  LocalPolicy lp = new LocalPolicy();
+	  lp.setName(policyName);
+	  lp.setDept(publishDept);
+	  lp.setNum(policyNum);
+	  
+	  LocalProvince localPro = new LocalProvince();
+	  localPro.setProvince(selectProvince);
+	  LocalCity localCity = new LocalCity();
+	  localCity.setCity(selectCity);
+	  
+	  lp.setCategory(policyCategory);
+	  
+	  LocalTag lTag1 = new LocalTag();
+	  lTag1.setTag(tag);
+	  lp.addLocalTag(lTag1);	  
 	  if( files != null ){
 		  for(FileItem fi:files){
         	  LOG.info("file name: " + fi.getName());
           }
-	  }
+		  String jcrFileName = net.wyun.qys.util.Util.cleanNameUtil(fi.getName());
+    	  LOG.info("jcr file name: " + jcrFileName);
+    	  
+    	  String uuid = documentsData.storeFile(ROOT_FOLDER + localFolder , fi, documentsData.getSpaceName(), false, null);
+    	  LocalJcrFile jFile = new LocalJcrFile();
+		  jFile.setFileName(fi.getName());
+		  jFile.setUploadDate(new Date());
+		  jFile.setUrl("temp/url");
+		  jFile.setUuid(uuid);
+		  newL.addLocalJcrFile(jFile);
+		  localSvc.update(newL);
+	  }	  
+	
 	  
+	  JSONObject jo = new JSONObject(newL);
+	  if(jo.has("class")){
+		  jo.remove("class");
+	  }		  
+	  String json = jo.toString();
+	  LOG.info("json: " + json);
 	  
+	  return Response.ok(json).withMimeType("text/json").withCharset(Tools.UTF_8);
 	  
+	  /*
 	  return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
               .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
-	  
+	  */
 	  
   }
 	  
