@@ -87,7 +87,7 @@ private static final org.apache.commons.logging.Log LOG = ExoLogger.getExoLogger
   public Response.Content content_back() throws IOException{
 	  return map.ok();
   }
-  /*
+  
   private final static String ROOT_FOLDER = "fs/local/";
   @Resource
   @Ajax
@@ -144,7 +144,7 @@ private static final org.apache.commons.logging.Log LOG = ExoLogger.getExoLogger
 	  
 	  
   }
-*/	  
+	  
   
   
   

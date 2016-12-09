@@ -146,7 +146,7 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
   public Response.Content content_back() throws IOException{
 	  return interpretation.ok();
   } 
-/*
+
   private final static String ROOT_FOLDER = "fs/interpret/";
   @Resource
   @Ajax
@@ -197,7 +197,7 @@ private static final Log LOG = ExoLogger.getExoLogger(Controller.class);
               .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
               
 	  
-  }*/
+  }
   
   @Assets({"indexcss", "indexjs"})  
   @View

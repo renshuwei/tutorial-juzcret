@@ -112,7 +112,7 @@ public class NationalStandardController {
 	  }
 	  
 
-/*	  @Resource
+	  @Resource
 	  @Ajax
 	  public Response.Content standardContent(String uuid) throws IOException{
 		  Standard stan = null;
@@ -298,7 +298,7 @@ public class NationalStandardController {
                   
 	  }
 
-*/	
+	
 	  
 	  
 }
