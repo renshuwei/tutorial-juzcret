@@ -55,8 +55,7 @@
     @Script(id = "standards_uploadjs",value ="js/standards_upload.js",depends = {"jquery", "jquerypage", "nlibjs"}, location=AssetLocation.APPLICATION),
     @Script(id = "standards_content_afterjs",value ="js/standards_content_after.js", location=AssetLocation.APPLICATION),
     //@Script(id = "standards_oldjs",value ="js/standards_old.js", location=AssetLocation.APPLICATION),
-    @Script(id = "standards_upload_afterjs",value ="js/standards_upload_after.js", location=AssetLocation.APPLICATION),     
-      
+    @Script(id = "standards_upload_afterjs",value ="js/standards_upload_after.js", location=AssetLocation.APPLICATION),      
     @Script(id = "new_standardsjs",value ="js/new_standards.js", location=AssetLocation.APPLICATION),
     
     //地方政策 
@@ -90,7 +89,7 @@
 })
 
 @Stylesheets ({
-    @Stylesheet(id = "indexcss", value = "styles/index.css", location = AssetLocation.APPLICATION),
+	@Stylesheet(id = "indexcss", value = "styles/index.css", location = AssetLocation.APPLICATION),
     //政策与解读
     @Stylesheet(id = "interpretationcss", value = "styles/interpretation.css", location = AssetLocation.APPLICATION),    
     @Stylesheet(id = "interpretation_uploadcss", value = "styles/interpretation_upload.css", location = AssetLocation.APPLICATION),

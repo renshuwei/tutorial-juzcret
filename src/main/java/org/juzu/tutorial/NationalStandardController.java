@@ -104,7 +104,7 @@ public class NationalStandardController {
 		  return standards.ok();
 	  }
 	  
-	//standards_content.gtmpl的返回
+	  //standards_content.gtmpl的返回
 	  @Assets({"standardscss", "standardsjs", "mouseoutjs", "mouseoverjs"}) 
 	  @View
 	  public Response.Content content_back() throws IOException{
@@ -112,7 +112,7 @@ public class NationalStandardController {
 	  }
 	  
 
-	  @Resource
+/*	  @Resource
 	  @Ajax
 	  public Response.Content standardContent(String uuid) throws IOException{
 		  Standard stan = null;
@@ -128,7 +128,6 @@ public class NationalStandardController {
 			  File file = documentsData.getNode(jcrUuid);
 			  files.add(file);
 		  }
-		  
 		  
 		  return content.with().set("stan", stan).set("files", files).ok();
 	  }	 
@@ -167,8 +166,7 @@ public class NationalStandardController {
 				 stanMap.put(sjf.getUuid(), stan);
 			 }
 			 
-		 }
-		  
+		 }		  
 		  
 		  //search jcr with keyword
 		  Collection<SearchResult> connectorResults = null;
@@ -232,8 +230,6 @@ public class NationalStandardController {
 		  return finalSet;
 	  }
 	  
-	 
-	
 	  private final static String ROOT_FOLDER = "fs/standard/";
 	  @Resource
 	  @Ajax
@@ -268,7 +264,7 @@ public class NationalStandardController {
 		  String txtUuid = documentsData.storeContent(text, stdFolder + ".txt", stdFolder);
 		  s.setUuid(txtUuid);
 		  
-		  if(null != files){
+		  if(files != null){
 			  for(FileItem fi:files){
 	        	  LOG.info("file name: " + fi.getName());
 	        	  
@@ -291,16 +287,18 @@ public class NationalStandardController {
 		  JSONObject jo = new JSONObject(newS);
 		  if(jo.has("class")){
 			  jo.remove("class");
-		  }		  
+		  }
 		  String json = jo.toString();
 		  LOG.info("json: " + json);
 		  
 		  return Response.ok(json).withMimeType("text/json").withCharset(Tools.UTF_8);
-		  /*
+		  
 		  return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
                   .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
-                  */
+                  
 	  }
 
+*/	
+	  
 	  
 }

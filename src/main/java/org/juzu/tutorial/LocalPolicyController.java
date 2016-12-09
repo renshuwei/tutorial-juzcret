@@ -87,7 +87,7 @@ private static final org.apache.commons.logging.Log LOG = ExoLogger.getExoLogger
   public Response.Content content_back() throws IOException{
 	  return map.ok();
   }
-  
+  /*
   private final static String ROOT_FOLDER = "fs/local/";
   @Resource
   @Ajax
@@ -138,13 +138,13 @@ private static final org.apache.commons.logging.Log LOG = ExoLogger.getExoLogger
 	  
 	  return Response.ok(json).withMimeType("text/json").withCharset(Tools.UTF_8);
 	  
-	  /*
+	  
 	  return Response.ok("{\"status\":\"File has been uploaded successfully!\"}")
               .withMimeType("application/json; charset=UTF-8").withHeader("Cache-Control", "no-cache");
-	  */
+	  
 	  
   }
-	  
+*/	  
   
   
   
